@@ -1,0 +1,32 @@
+
+.screen {
+    position: fixed;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 15%;
+    background-color: #f7e5e1;
+    border: 5px black groove;
+    transition: left 0.5s ease;
+}
+
+.triangle {
+    position: fixed;
+    width: 0;
+    height: 0;
+    top: 40%;
+    border-style: solid;
+    cursor: pointer;
+}
+
+#triangleLeft {
+    border-width: 50px 100px 50px 0;
+    border-color: transparent #000000 transparent transparent;
+    left: 0px;   
+}
+
+#triangleRight {
+    border-width: 50px 0 50px 100px;
+    border-color: transparent transparent transparent #000000;
+    right: 0px;
+}
