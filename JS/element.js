@@ -25,14 +25,13 @@ function createScreen(sendId) {
     screen.id = "screen"+sendId
     screen.className = "screen"
     screen.innerHTML = ""
-    var numero = getNbScreen() + 1
-    var placement = numero * 100 + 15
     
     getBody.appendChild(screen)
     
     var rand = Math.floor(Math.random(16))
     screen.style.backgroundColor = getCouleur()
-    screen.style.left = placement+"%"
+    screen.style.top = "-100%"
+    screen.style.left = "15%"
 }
 
 function deleteScreen(sendId) {
@@ -41,19 +40,12 @@ function deleteScreen(sendId) {
     getBody.removeChild(screen)
 }
 
-function slideScreen() {
+function slideScreen(id) {
     var screens = document.getElementsByClassName("screen")
     for(var i = 0; i < getNbScreen(); i++) {
-        var place = screens[i].style.left
-        var newVal = place.slice(0, place.length - 1)
-        if(newVal - 100 < -100) {
-            screens[i].style.opacity = "0"
-            screens[i].style.left = (getNbScreen() - 2) * 100 + 15 + "%"
-        }
-        else {screens[i].style.left = newVal - 100 + "%"}
-    }
-    for(var i = 0; i < getNbScreen(); i++) {
-        screens[i].style.opacity = "1"
+        if (screens[i].id == "screen"+id){screens[i].style.top = "15%"}
+        else if (screens[i].style.top == "15%") {screens[i].style.top = "115%"}
+        else {screens[i].style.top = "-100%"}
     }
 }
 
