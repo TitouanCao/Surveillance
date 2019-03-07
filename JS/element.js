@@ -81,26 +81,6 @@ function arrangeCam() {
 
 
 
-var nbCam=0;
-
-
-function createSwitch() {
-    var cam1 = document.createElement("div") 
-    cam1.id = "cameraButton"
-    
-    cam1.className = "cameraButton"
-    cam1.style.top=10*nbCam+5+"%";
-    cam1.innerHTML = "Camera "+(nbCam+1)
-    
-    getBody.appendChild(cam1)
-    nbCam++;
-}
-
-
-
-
-
-
 
 
 
