@@ -58,21 +58,31 @@ function createCam(sendId) {
     var cam = document.createElement("div")
     cam.id = "cam"+sendId
     cam.className = "cam"
-    cam.innerHTML = "Caméra " + sendId
+    cam.innerHTML = ""
+    cam.style.left = "1%"
     
     getBody.appendChild(cam)
     
-    var rand = Math.floor(Math.random(16))
-    cam.style.backgroundColor = getCouleur()
-    cam.style.left = "1%"
+    var camPic = document.createElement("img")
+    camPic.id = "camPic"+sendId
+    camPic.className = "camPic"
+    camPic.src = "RESOURCES/cam.png"
+    cam.appendChild(camPic)
+    
     arrangeCam()
 }
 
 function arrangeCam() {
     var cams = document.getElementsByClassName("cam")
     for(var i = 0; i < getNbCam(); i++){
-        cams[i].style.top = (100 / cams.length) * i + "%"
-        cams[i].style.height = (95 / cams.length) + "%"
+        if (cams.length <= 6){
+            cams[i].style.top = 2 + i * 16 + "%"
+            cams[i].style.height = "15%"
+        }
+        else {
+            cams[i].style.top = (100 / cams.length) * i + "%"
+            cams[i].style.height = (95 / cams.length) + "%"
+        }
     }
 }
 

@@ -14,8 +14,17 @@
 
 .cam {
     position: fixed;
-    width: 10%;
-    text-align: center;
+    object-position: center;
+    background-color: #e21111;
+}
+
+.cam:hover {
+    background-color: #1981f5;
+}
+
+.camPic {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .cameraButton {
