@@ -25,13 +25,14 @@ function createScreen(sendId) {
     screen.id = "screen"+sendId
     screen.className = "screen"
     screen.innerHTML = ""
+    var numero = getNbScreen() + 1
+    var placement = numero * 100 + 15
     
     getBody.appendChild(screen)
     
     var rand = Math.floor(Math.random(16))
     screen.style.backgroundColor = getCouleur()
-    screen.style.top = "-100%"
-    screen.style.left = "15%"
+    screen.style.left = placement+"%"
 }
 
 function deleteScreen(sendId) {
@@ -40,12 +41,19 @@ function deleteScreen(sendId) {
     getBody.removeChild(screen)
 }
 
-function slideScreen(id) {
+function slideScreen() {
     var screens = document.getElementsByClassName("screen")
     for(var i = 0; i < getNbScreen(); i++) {
-        if (screens[i].id == "screen"+id){screens[i].style.top = "15%"}
-        else if (screens[i].style.top == "15%") {screens[i].style.top = "115%"}
-        else {screens[i].style.top = "-100%"}
+        var place = screens[i].style.left
+        var newVal = place.slice(0, place.length - 1)
+        if(newVal - 100 < -100) {
+            screens[i].style.opacity = "0"
+            screens[i].style.left = (getNbScreen() - 2) * 100 + 15 + "%"
+        }
+        else {screens[i].style.left = newVal - 100 + "%"}
+    }
+    for(var i = 0; i < getNbScreen(); i++) {
+        screens[i].style.opacity = "1"
     }
 }
 
@@ -55,24 +63,19 @@ function slideScreen(id) {
 
 
 
-
+var nbCam=0;
 
 
 function createSwitch() {
-    var left = document.createElement("div")
-    var right = document.createElement("div")
+    var cam1 = document.createElement("div") 
+    cam1.id = "cameraButton"
     
-    left.id = "triangleLeft"
-    right.id = "triangleRight"
+    cam1.className = "cameraButton"
+    cam1.style.top=10*nbCam+5+"%";
+    cam1.innerHTML = "Camera "+(nbCam+1)
     
-    left.className = "triangle"
-    right.className = "triangle"
-    
-    left.innerHTML = ""
-    right.innerHTML = ""
-    
-    getBody.appendChild(left)
-    getBody.appendChild(right)
+    getBody.appendChild(cam1)
+    nbCam++;
 }
 
 
