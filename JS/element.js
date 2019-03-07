@@ -5,6 +5,11 @@ function getNbScreen() {
     return nbScreen.length
 }
 
+function getNbCam() {
+    var nbCam = document.getElementsByClassName("cam")
+    return nbCam.length
+}
+
 function getCouleur() {
     var res = ""
     for(var i = 0; i < 6; i++){
@@ -49,30 +54,26 @@ function slideScreen(id) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-function createSwitch() {
-    var left = document.createElement("div")
-    var right = document.createElement("div")
+function createCam(sendId) {
+    var cam = document.createElement("div")
+    cam.id = "cam"+sendId
+    cam.className = "cam"
+    cam.innerHTML = "Caméra " + sendId
     
-    left.id = "triangleLeft"
-    right.id = "triangleRight"
+    getBody.appendChild(cam)
     
-    left.className = "triangle"
-    right.className = "triangle"
-    
-    left.innerHTML = ""
-    right.innerHTML = ""
-    
-    getBody.appendChild(left)
-    getBody.appendChild(right)
+    var rand = Math.floor(Math.random(16))
+    cam.style.backgroundColor = getCouleur()
+    cam.style.left = "1%"
+    arrangeCam()
+}
+
+function arrangeCam() {
+    var cams = document.getElementsByClassName("cam")
+    for(var i = 0; i < getNbCam(); i++){
+        cams[i].style.top = (100 / cams.length) * i + "%"
+        cams[i].style.height = (95 / cams.length) + "%"
+    }
 }
 
 

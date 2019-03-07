@@ -10,23 +10,10 @@
     transition: top 0.3s ease;
 }
 
-.triangle {
+
+.cam {
     position: fixed;
-    width: 0;
-    height: 0;
-    top: 40%;
-    border-style: solid;
-    cursor: pointer;
+    width: 10%;
+    text-align: center;
 }
 
-#triangleLeft {
-    border-width: 50px 100px 50px 0;
-    border-color: transparent #000000 transparent transparent;
-    left: 0px;   
-}
-
-#triangleRight {
-    border-width: 50px 0 50px 100px;
-    border-color: transparent transparent transparent #000000;
-    right: 0px;
-}
