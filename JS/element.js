@@ -33,6 +33,8 @@ function createScreen(sendId) {
     var rand = Math.floor(Math.random(16))
     screen.style.backgroundColor = getCouleur()
     screen.style.left = placement+"%"
+    createSwitch();
+
 }
 
 function deleteScreen(sendId) {
