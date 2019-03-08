@@ -1,7 +1,7 @@
 class Door{
 
 	constructor(id,vertical){
-		this.state=0;
+		this.state=1;
 		this.id="door"+id;
 		this.x=531;
 		this.y=548;
