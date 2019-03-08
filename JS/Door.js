@@ -35,11 +35,11 @@ class Door{
 
 	move(x,y){
 		let d = document.getElementById(this.id);
-		if(x>=0 & x<=this.map.w){
+		if(x>=0){
 			this.x=x
 			d.style.right=this.x+"px";
 		} 
-		if(y>=0 & y<=this.map.h){
+		if(y>=0){
 			this.y=y
 			d.style.bottom=this.y+"px";
 		} 
