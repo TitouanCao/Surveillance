@@ -21,6 +21,12 @@ class Door{
 	    m.appendChild(d);
 	}
 
+	register(){
+		var that=this;
+		var d = document.getElementById(this.id);
+	    d.addEventListener('click', function(e) {that.switch();});
+	}
+
 	move(x,y){
 		var d = document.getElementById(this.id);
 		if(x>=0 & x<=531){
@@ -36,24 +42,25 @@ class Door{
 	}
 
 	close(){
-		if(this.state==1){
-			var d = document.getElementById(this.id);
-			d.src="RESOURCES/door_closed.png";
-			this.state=0;
-		}
+		var d = document.getElementById(this.id);
+		d.src="RESOURCES/door_closed.png";
+		this.state=0;
 	}
 
 	open(){
-		if(this.state==0){
-			var d = document.getElementById(this.id);
-			d.src="RESOURCES/door_open.png";
-			this.state=1;
-		}
+		var d = document.getElementById(this.id);
+		d.src="RESOURCES/door_open.png";
+		this.state=1;
 	}
 
 	lock(){
 		var d = document.getElementById(this.id);
 		d.src="RESOURCES/door_locked.png";
 		this.state=-1;
+	}
+
+	switch(){
+		if(this.state==1) this.close();
+		else if(this.state==0) this.open();
 	}
 }
