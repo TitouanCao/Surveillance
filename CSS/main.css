@@ -1,5 +1,6 @@
 body {
-    background-color: #5d6161;
+    background-image: url("../RESOURCES/smoke.jpg"); 
+    background-size: 100%;
 }
 
 .screen {
