@@ -3,18 +3,117 @@
     src: url(../RESOURCES/Fonts/AnotherDanger.otf);
 }
 
-body {
-    background-image: url("../RESOURCES/smoke.jpg"); 
-    background-size: 100%;
+@font-face {
+    font-family: GhostFactory;
+    src: url(../RESOURCES/Fonts/GhostFactory.ttf);
 }
 
+@font-face {
+    font-family: CutTheCrap;
+    src: url(../RESOURCES/Fonts/CutTheCrap.ttf);
+}
+
+@keyframes hinge {
+  0% {
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    pointer-events: none;
+  }
+
+  20%,
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 80deg);
+    transform: rotate3d(0, 0, 1, 80deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+      pointer-events: none;
+  }
+
+  40%,
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, 60deg);
+    transform: rotate3d(0, 0, 1, 60deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+      pointer-events: none;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 700px, 0);
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@-webkit-keyframes flipInX {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+
+@-webkit-keyframes roll {
+    from {transform: rotate(0)}
+    to {transform: rotate(360deg)}
+}
+
+
+body {
+    background-color: black; 
+    background-size: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 3s ease-in;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 
 #lobby {
     position: fixed;
     top:0;
     left:0;
     width: 100%;
-    transition: top 2s ease-in;
+    transition: top 0.5s ease-in;
     
     text-align: center;
     color: white;
@@ -23,12 +122,47 @@ body {
 
 #game {
     position: fixed;
-    top:-100%;
+    top:200%;
     left:0;
     width: 100%;
     height: 100%;
     transition: top 1s ease-out;
 }
+
+#level {
+    position: fixed;
+    top:100%;
+    left:0;
+    width: 100%;
+    height: 100%;
+    transition: top 1s ease-out;
+    text-align: center;
+    color: white;
+    font-family: AnotherDanger;
+}
+
+#instructions {
+    position: fixed;
+    top:0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transition: all 1s; 
+    text-align: center;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 #title {
@@ -54,11 +188,123 @@ body {
     cursor: pointer;
 }
 
-#title:hover, #playButton:hover, #instructionsButtons:hover {
+#title:hover, #playButton:hover, #instructionsButton:hover {
     text-shadow: 3px 3px black;
-    color: red;
+    color: crimson;
 } 
 
+#titleLevel {
+    text-shadow: 3px 3px black;
+    font-size: 4vw;
+}
+
+#retourLevel {
+    transition: all 0.2s ease-out;
+    transform: rotate(140deg);
+    filter: drop-shadow(0 0 0.8rem white) invert(1);
+    position: absolute;
+    cursor: pointer;
+    top: 2vh;
+    left: 5vw;
+    width: 5vw;
+}
+
+#retourLevel:hover {
+    filter: drop-shadow(0 0 0.5rem white) invert(0);
+    width: 6vw;
+}
+
+
+
+
+
+
+#rulesTitle {
+    font-family: CutTheCrap;
+    font-size: 5vw;
+}
+
+
+
+#rules {
+    width: 60%;
+    margin-left: 20%;
+    font-family: CutTheCrap;
+    font-size: 2vw;
+}
+
+
+
+
+
+
+
+
+
+
+#setting {
+    z-index: 5000;
+}
+
+
+#setting:hover {
+    animation: roll 1s infinite;
+    cursor: pointer;
+}
+
+
+#menu {
+    position: fixed;
+    width: 40vw;
+    height: 40vh;
+    top: 25vh;
+    left: 30vw;
+    background-color: rgba(255,255,255,0.6);
+    box-shadow: inset 15px 15px 20px rgba(0,0,0,0.9), inset -15px -15px 20px rgba(0,0,0,0.9);
+    z-index: 1;
+    transition: all 0.7s;
+    text-align: center;
+    font-family: AnotherDanger;
+}
+
+#menuButtons {
+    width: 80%;
+    height: 60%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    font-family: fantasy;
+}
+
+#darkness {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 0;
+    transition: all 1s;
+}
+
+#buttonSound, #buttonLevel, #buttonLobby {
+    background: none;
+    border: none;
+    padding: 3vh 4vh;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#buttonSound:hover, #buttonLevel:hover, #buttonLobby:hover {
+    font-weight: bolder;
+}
+
+.container {
+    margin: 10px;
+}
 
 
 
@@ -116,7 +362,39 @@ body {
 
 }
 
+.levelElement {
+    position: absolute;
+    background-color: #cecece;
+    filter: brightness(0.7);
+    animation: hinge 2s 1;
+    box-shadow: inset 15px 15px 20px rgba(0,0,0,0.9), inset -15px -15px 20px rgba(0,0,0,0.9);
+    transition: all 1s;
+}
+
+.levelElement:hover {
+    filter: brightness(1);
+    animation: none;
+    box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .door{
     height:7px;
 }
+
+
+
 

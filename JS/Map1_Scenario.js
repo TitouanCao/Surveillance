@@ -40,3 +40,4 @@ var d8 = new Door(8,false,m);
 d8.placer();
 d8.move(210,420);
 d8.register();
+

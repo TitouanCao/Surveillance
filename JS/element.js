@@ -1,6 +1,7 @@
 var getBody = document.body
 var game = document.getElementById("game")
-
+var level = document.getElementById("level")
+var instructions = document.getElementById("instructions")
 
 function getNbScreen() {
     var nbScreen = document.getElementsByClassName("screen")
@@ -14,6 +15,12 @@ function getNbCam() {
 }
 
 
+function getNbLevel() {
+    var nbLevel = document.getElementsByClassName("levelElement")
+    return nbLevel.length
+}
+
+/*
 function getCouleur() {
     var res = ""
     for(var i = 0; i < 6; i++){
@@ -28,6 +35,7 @@ function getCouleur() {
     }
     return "#"+res
 }
+*/
 
 
 function createScreen(sendId) {
@@ -39,7 +47,7 @@ function createScreen(sendId) {
     game.appendChild(screen)
     
     var rand = Math.floor(Math.random(16))
-    screen.style.backgroundColor = getCouleur()
+    screen.style.backgroundColor = "white" //getCouleur()
     screen.style.left = "15%"
 }
 
@@ -98,6 +106,12 @@ function createCam(sendId) {
     arrangeCam()
 }
 
+function deleteCam(sendId) {
+    var id = "cam"+sendId
+    var cam = document.getElementById(id)
+    game.removeChild(cam)
+}
+
 function arrangeCam() {
     var cams = document.getElementsByClassName("cam")
     for(var i = 0; i < getNbCam(); i++){
@@ -113,9 +127,190 @@ function arrangeCam() {
 }
 
 
+function createLevel(sendId) {
+    var newLevel = document.createElement("div")
+    newLevel.id = "level"+sendId
+    newLevel.className = "levelElement"
+    newLevel.innerHTML = ""
+    newLevel.style.width = "20vw"
+    newLevel.style.height = "20vh"
+    newLevel.onclick = function() {toGame()}
+    
+    /*
+    if (getNbLevel() >= 12) {
+        var levels = document.getElementsByClassName("levelElement")
+        for (var i = 0; i < getNbLevel(); i++){
+            levels[i].style.width = levels[i].style.width.slice(0, levels[i].style.width.length - 2) / 2 + "vw"
+            levels[i].style.height = levels[i].style.height.slice(0, levels[i].style.height.length - 2) / 2 + "vh"
+            levels[i].style.top = (Math.floor(((getNbLevel()) / 4)) + 1) * 25 + "vh"
+            levels[i].style.left = getNbLevel() % 4  * 25 + 2.5 + "vw"
+        }
+        newLevel.style.top = ((Math.floor(((getNbLevel()) / 8)) + 1) * 25) + "vh"
+        newLevel.style.left = (getNbLevel() % 8  * 25 + 2.5)  + "vw"
+    }
+    else {*/
+        newLevel.style.top = (Math.floor(((getNbLevel()) / 4)) + 1) * 25 + "vh"
+        newLevel.style.left = getNbLevel() % 4  * 25 + 2.5 + "vw"
+    /*}*/
+    
+
+    
+    level.appendChild(newLevel)
+    
+}
+
+function deleteLevel(sendId) {
+    var id = "level"+sendId
+    var levelSup = document.getElementById(id)
+    level.removeChild(levelSup)
+}
 
 
+function createSetting() {
+    var setting = document.createElement("img")
+    setting.id = "setting"
+    setting.src = "RESOURCES/setting.png"
+    setting.alt = "setting"
+    setting.style.position = "fixed"
+    setting.style.top = "1vh"
+    setting.style.right = "1vw"
+    setting.style.width = "3vw"
+    setting.onclick = function() {
+        displayMenu()
+    }
+    
+    
+    getBody.appendChild(setting)
+}
 
+function createMenu() {
+    var menu = document.createElement("div")
+    var titleMenu = document.createElement("h2")
+    var buttons = document.createElement("div")
+    
+    var buttonSound = document.createElement("div")
+    var buttonSoundA1 = document.createElement("label")
+    var buttonSoundA2 = document.createElement("input")
+    var buttonSoundA3 = document.createElement("span")
+    var buttonSoundB1 = document.createElement("label")
+    var buttonSoundB2 = document.createElement("input")
+    var buttonSoundB3 = document.createElement("span")
+    
+    var buttonLevel = document.createElement("button")
+    var buttonLobby = document.createElement("button")
+    var darkness = document.createElement("div")
+    
+    menu.id = "menu"
+    titleMenu.id = "titleMenu"
+    buttons.id = "menuButtons"
+    
+    buttonSound.id = "buttonSound"
+    buttonSoundA1.id = "buttonSoundA1"
+    buttonSoundA2.id = "buttonSoundA2"
+    buttonSoundA3.id = "buttonSoundA3"
+    buttonSoundB1.id = "buttonSoundB1"
+    buttonSoundB2.id = "buttonSoundB2"
+    buttonSoundB3.id = "buttonSoundB3"
+    
+    buttonLevel.id = "buttonLevel"
+    buttonLobby.id = "buttonLobby"
+    darkness.id = "darkness"
+    
+    buttonSound.innerHTML = "SOUND &nbsp;&nbsp;&nbsp;&nbsp;"
+    buttonSoundA1.innerHTML = "ON"
+    buttonSoundB1.innerHTML = "OFF"
+    
+    buttonSoundA1.className = "container"
+    buttonSoundB1.className = "container"
+    buttonSoundA2.type = "radio"
+    buttonSoundA2.name = "radio"
+    buttonSoundA2.checked = true
+    buttonSoundB2.type = "radio"
+    buttonSoundB2.name = "radio"
+    buttonSoundA3.className = "checkmark"
+    buttonSoundB3.className = "checkmark"
+    
+    
+    titleMenu.innerHTML = "MENU"
+    buttonLevel.innerHTML = "LEVEL SELECTION"
+    buttonLobby.innerHTML = "LOBBY"
+    
+    buttonLevel.onclick = function() {
+        toLevel()
+        hideMenu()
+    }
+    buttonLobby.onclick = function() {
+        toLobby()
+        hideMenu()
+    }
+    darkness.onclick = function() {
+        hideMenu()
+    }
+    darkness.style.opacity = "0"
+    darkness.style.pointerEvents = "none"
+    menu.style.opacity = "0"
+    menu.style.pointerEvents = "none"
+    
+    menu.appendChild(titleMenu)
+    menu.appendChild(buttons)
+    buttons.appendChild(buttonSound)
+    buttonSound.appendChild(buttonSoundA1)
+    buttonSoundA1.appendChild(buttonSoundA2)
+    buttonSoundA1.appendChild(buttonSoundA3)
+    buttonSound.appendChild(buttonSoundB1)
+    buttonSoundB1.appendChild(buttonSoundB2)
+    buttonSoundB1.appendChild(buttonSoundB3)
+    buttons.appendChild(buttonLevel)
+    buttons.appendChild(buttonLobby)
+    getBody.appendChild(menu)
+    getBody.appendChild(darkness)
+    
+    var soundOn = document.getElementById("buttonSoundA2")
+    var soundOff = document.getElementById("buttonSoundB2")
+    soundOff.addEventListener("click", function(){
+        var audio = document.getElementById("audio");
+        audio.pause()
+    })
+    
+    soundOn.addEventListener("click", function(){
+        var audio = document.getElementById("audio");
+        audio.play()
+    })
+}
+
+function displayMenu() {
+    if (!document.getElementById('menu')) {
+        createMenu()
+    }
+    var menu = document.getElementById("menu")
+    var darkness = document.getElementById("darkness")
+    menu.style.opacity = "1"
+    menu.style.pointerEvents = "all"
+    darkness.style.opacity = "1"
+    darkness.style.pointerEvents = "all"
+}
+
+function hideMenu() {
+    var menu = document.getElementById("menu")
+    var darkness = document.getElementById("darkness")
+    menu.style.opacity = "0"
+    menu.style.pointerEvents = "none"
+    darkness.style.opacity = "0"
+    darkness.style.pointerEvents = "none"
+}
+
+
+function createInstructions() {
+    var rules = document.createElement("div")
+    var rulesTitle = document.createElement("h1")
+    rules.id = "rules"
+    rulesTitle.id = "rulesTitle"
+    rules.innerHTML = "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker."
+    rulesTitle.innerHTML = "HOW TO PLAY"
+    
+    instructions.appendChild(rulesTitle)
+    instructions.appendChild(rules)
+}
 
 
 
