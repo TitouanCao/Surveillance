@@ -1,3 +1,6 @@
+body {
+    background-color: #5d6161;
+}
 
 .screen {
     position: fixed;
@@ -7,15 +10,25 @@
     top: 10%;
     background-color: #f7e5e1;
     border: 5px black groove;
-    transition: top 0.3s ease;
+    transition: opacity 0.3s ease;
+    opacity: 1;
 }
 
 
 
 .cam {
     position: fixed;
-    width: 10%;
-    text-align: center;
+    object-position: center;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+
+.camPic {
+    transition: all 0.3s ease-out;
+    float: right;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .cameraButton {
