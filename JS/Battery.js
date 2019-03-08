@@ -8,11 +8,13 @@ class Battery{
 	    var m = document.createElement("img");
 	    m.id="imgBattery";
 	    m.src="RESOURCES/battery_"+MaxStateC+".png";
-	    m.style.right="0%";
+	    m.style.right="3%";
 	    m.style.top="0%";
-	    m.style.position="fixed";
+        m.style.width="5%";
+        m.style.transform = "rotate(270deg)";
+	    m.style.position="absolute";
 	    d.appendChild(m)
-	    document.body.appendChild(d)
+	    game.appendChild(d)
 	}
 
 	use(){

@@ -1,14 +1,18 @@
 var getBody = document.body
+var game = document.getElementById("game")
+
 
 function getNbScreen() {
     var nbScreen = document.getElementsByClassName("screen")
     return nbScreen.length
 }
 
+
 function getNbCam() {
     var nbCam = document.getElementsByClassName("cam")
     return nbCam.length
 }
+
 
 function getCouleur() {
     var res = ""
@@ -25,24 +29,27 @@ function getCouleur() {
     return "#"+res
 }
 
+
 function createScreen(sendId) {
     var screen = document.createElement("div")
     screen.id = "screen"+sendId
     screen.className = "screen"
     screen.innerHTML = ""
     
-    getBody.appendChild(screen)
+    game.appendChild(screen)
     
     var rand = Math.floor(Math.random(16))
     screen.style.backgroundColor = getCouleur()
     screen.style.left = "15%"
 }
 
+
 function deleteScreen(sendId) {
     var id = "screen"+sendId
     var screen = document.getElementById(id)
-    getBody.removeChild(screen)
+    game.removeChild(screen)
 }
+
 /*
 function slideScreen(id) {
     var screens = document.getElementsByClassName("screen")
@@ -53,6 +60,7 @@ function slideScreen(id) {
     }
 }
 */
+
 function createCam(sendId) {
     var cam = document.createElement("div")
     cam.id = "cam"+sendId
@@ -86,7 +94,7 @@ function createCam(sendId) {
         camPic.style.width = "100%"
     }
     
-    getBody.appendChild(cam)
+    game.appendChild(cam)
     arrangeCam()
 }
 

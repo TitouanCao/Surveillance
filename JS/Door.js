@@ -22,7 +22,7 @@ class Door{
 	    d.className="door";
 	    d.style.right=this.x+"px";
 	    d.style.bottom=this.y+"px";
-	    d.style.position="fixed";
+	    d.style.position="absolute";
 	    if(this.vertical) d.style.transform="rotate(90deg)";
 	    m.appendChild(d);
 	}

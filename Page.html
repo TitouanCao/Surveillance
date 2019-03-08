@@ -7,6 +7,14 @@
     </head>
     <body>
         <audio id="audio" src="RESOURCES/Silences.mp3" loop autoplay></audio>
+        <div id="lobby">
+            <h1 id="title">Surveillance</h1>
+            <h3 id="playButton" onclick="toGame()">Jouer</h3>
+            <h3 id="instructionsButton">Instructions</h3>
+        </div>
+        <div id="instructions"></div>
+        <div id="levels"></div>
+        <div id="game"></div>
     </body>
     <script type="text/jscript" src="JS/element.js"></script>
     <script type="text/jscript" src="JS/Map.js"></script>
@@ -17,6 +25,6 @@
     <script type="text/jscript" src="JS/organize.js"></script>
     <script>
         var audio = document.getElementById("audio");
-        audio.volume = "0.2"
+        audio.volume = "0.7"
     </script>
 </html>

@@ -12,9 +12,9 @@ class Map{
 	    this.w=m.width;
 	    m.style.right="0%";
 	    m.style.bottom="0%";
-	    m.style.position="fixed";
+	    m.style.position="absolute";
 	    d.appendChild(m)
-	    document.body.appendChild(d)
+	    game.appendChild(d)
 	}
 
 

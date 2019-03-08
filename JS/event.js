@@ -8,3 +8,10 @@ function getCams() {
     }
 }
 
+function toGame() {
+    var lobby = document.getElementById("lobby")
+    var game = document.getElementById("game")
+    
+    lobby.style.top = "-100%"
+    game.style.top = "0%"
+}
