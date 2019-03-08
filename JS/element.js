@@ -61,13 +61,36 @@ function createCam(sendId) {
     cam.innerHTML = ""
     cam.style.left = "1%"
     
-    getBody.appendChild(cam)
-    
     var camPic = document.createElement("img")
     camPic.id = "camPic"+sendId
     camPic.className = "camPic"
     camPic.src = "RESOURCES/cam.png"
     cam.appendChild(camPic)
+    
+    cam.onclick = function(){
+        var screens = document.getElementsByClassName("screen")
+        for(var i = 0; i < getNbScreen(); i++) {
+            if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){screens[i].style.top = "15%"}
+            else if (screens[i].style.top == "15%") {screens[i].style.top = "115%"}
+            else {screens[i].style.top = "-100%"}
+        }
+        var cams = document.getElementsByClassName("cam")
+        var camPics = document.getElementsByClassName("camPic")
+        for(var i = 0; i < cams.length; i++) {
+            cams[i].style.borderRadius = "30%"
+            cams[i].style.boxShadow = "inset 12px 12px 2px 1px rgba(0, 0, 0, 0.2), 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+            cams[i].style.backgroundColor = "#acb4b5"
+            camPics[i].style.width = "95%"
+        }
+        cam.style.borderRadius = "0%"
+        cam.style.boxShadow = "none"
+        cam.style.backgroundColor = "#ffffff"
+        camPic.style.width = "100%"
+    }
+    
+    getBody.appendChild(cam)
+    
+    
     
     arrangeCam()
 }
