@@ -1,16 +1,22 @@
+var nbLockedDoors=0;
+
 class Door{
 
-	constructor(id,vertical){
+
+	constructor(idC,vertical,mapC){
 		this.state=1;
-		this.id="door"+id;
-		this.x=531;
-		this.y=548;
+		this.id="door"+idC;
+		this.map=mapC;
+		this.x=this.map.w;
+		this.y=this.map.h;
 		this.vertical=vertical;
+		
+
 	}
 
 	placer(){
-		var m = document.getElementById("map");
-		var d= document.createElement("img");
+		let m = document.getElementById("map");
+		let d= document.createElement("img");
 	    d.src="RESOURCES/door_open.png";
 	    d.id=this.id;
 	    d.className="door";
@@ -22,49 +28,51 @@ class Door{
 	}
 
 	register(){
-		var that=this;
-		var d = document.getElementById(this.id);
+		let that=this;
+		let d = document.getElementById(this.id);
 	    d.addEventListener('click', function(e) {that.switch();});
 	}
 
 	move(x,y){
-		var d = document.getElementById(this.id);
-		if(x>=0 & x<=531){
+		let d = document.getElementById(this.id);
+		if(x>=0 & x<=this.map.w){
 			this.x=x
 			d.style.right=this.x+"px";
 		} 
-		if(y>=0 & y<=548){
+		if(y>=0 & y<=this.map.h){
 			this.y=y
 			d.style.bottom=this.y+"px";
 		} 
-		
-
 	}
 
-	var nbLockedDoors = 0;
-
 	lock(){
-		var d = document.getElementById(this.id);
+		let d = document.getElementById(this.id);
 		d.src="RESOURCES/door_closed.png";
 		this.state=0;
 		nbLockedDoors++;
 	}
 
 	unlock(){
-		var d = document.getElementById(this.id);
+		let d = document.getElementById(this.id);
 		d.src="RESOURCES/door_open.png";
 		this.state=1;
 		nbLockedDoors--;
 	}
 
 	block(){
-		var d = document.getElementById(this.id);
+		let d = document.getElementById(this.id);
 		d.src="RESOURCES/door_locked.png";
 		this.state=-1;
 	}
 
 	switch(){
-		if(this.state==1) this.lock();
-		else if(this.state==0) this.unlock();
+		if(this.state==1 & this.map.battery.state>0) {
+			this.lock();
+			this.map.battery.use();
+		}
+		else if(this.state==0) {
+			this.unlock();
+			this.map.battery.liberate();
+		}
 	}
 }
