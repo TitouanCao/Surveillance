@@ -126,6 +126,59 @@ function arrangeCam() {
     }
 }
 
+function startScreen() {
+    var start = document.createElement("div")
+    var startText = document.createElement("h1")
+    start.id = "start"
+    startText.id = "startText"
+    
+    start.style.position = "absolute"
+    start.style.top = "0"
+    start.style.left = "0"
+    start.style.width = "100vw"
+    start.style.height = "100vh"
+    start.style.backgroundColor = "rgba(0,0,0,0.9)"
+    start.style.color = "white"
+    start.style.fontFamily = "CutTheCrap"
+    start.style.fontSize = "6vw"
+    start.style.textAlign = "center"
+    start.style.zIndex = "10"
+    start.style.transition = "all 1s"
+    
+    startText.style.marginTop = "30vh"
+    startText.innerHTML = "CLICK TO START"
+    
+    start.onclick = function() {
+        start.style.left = "-100%"
+        start.style.opacity = "0"
+        var cam1 = document.getElementById ("cam1")
+        cam1.click()
+    }
+    
+    start.appendChild(startText)
+    game.appendChild(start)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function createLevel(sendId) {
     var newLevel = document.createElement("div")

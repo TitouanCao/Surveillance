@@ -47,6 +47,7 @@ function toGame() {
     game.style.top = "0%"
     level.style.top = "-110%"
     loadScreens(6)
+    startScreen()
 }
 
 function toInstructions() {
