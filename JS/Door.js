@@ -41,26 +41,30 @@ class Door{
 
 	}
 
-	close(){
+	var nbLockedDoors = 0;
+
+	lock(){
 		var d = document.getElementById(this.id);
 		d.src="RESOURCES/door_closed.png";
 		this.state=0;
+		nbLockedDoors++;
 	}
 
-	open(){
+	unlock(){
 		var d = document.getElementById(this.id);
 		d.src="RESOURCES/door_open.png";
 		this.state=1;
+		nbLockedDoors--;
 	}
 
-	lock(){
+	block(){
 		var d = document.getElementById(this.id);
 		d.src="RESOURCES/door_locked.png";
 		this.state=-1;
 	}
 
 	switch(){
-		if(this.state==1) this.close();
-		else if(this.state==0) this.open();
+		if(this.state==1) this.lock();
+		else if(this.state==0) this.unlock();
 	}
 }

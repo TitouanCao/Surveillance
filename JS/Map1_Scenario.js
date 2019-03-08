@@ -23,7 +23,7 @@ d4.register();
 var d5 = new Door(5,true);
 d5.placer();
 d5.move(245,220);
-d5.lock();
+d5.block();
 
 var d6 = new Door(6,true);
 d6.placer();
