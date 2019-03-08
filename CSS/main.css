@@ -259,7 +259,7 @@ body {
     height: 40vh;
     top: 25vh;
     left: 30vw;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.9);
     box-shadow: inset 15px 15px 20px rgba(0,0,0,0.9), inset -15px -15px 20px rgba(0,0,0,0.9);
     z-index: 1;
     transition: all 0.7s;
@@ -368,7 +368,7 @@ body {
     filter: brightness(0.7);
     animation: hinge 2s 1;
     box-shadow: inset 15px 15px 20px rgba(0,0,0,0.9), inset -15px -15px 20px rgba(0,0,0,0.9);
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .levelElement:hover {

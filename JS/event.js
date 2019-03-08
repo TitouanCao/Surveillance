@@ -10,6 +10,13 @@ function getCams() {
 }
 
 function toLobby() {
+    if(document.getElementById("instructions").style.left == "0px") {
+        leaveInstructions()
+    }
+    else if(document.getElementById("game").style.top == "0%") {
+        audio.src = "RESOURCES/FreeSwitzerland.mp3"
+        video.src = "RESOURCES/paint.mp4"
+    }
     var lobby = document.getElementById("lobby")
     var game = document.getElementById("game")
     var level = document.getElementById("level")
@@ -17,13 +24,17 @@ function toLobby() {
     lobby.style.top = "0%"
     game.style.top = "210%"
     level.style.top = "110%" 
-    sinkScreens() 
-    if(document.getElementById("instructions").style.left == "0px") {
-        leaveInstructions()
-    }
+    setTimeout("sinkScreens()", 1000)  
 }
 
 function toLevel() {
+    if(document.getElementById("instructions").style.left == "0px") {
+        leaveInstructions()
+    }
+    else if(document.getElementById("game").style.top == "0%") {
+        audio.src = "RESOURCES/FreeSwitzerland.mp3"
+        video.src = "RESOURCES/paint.mp4"
+    }
     var lobby = document.getElementById("lobby")
     var game = document.getElementById("game")
     var level = document.getElementById("level")
@@ -31,11 +42,7 @@ function toLevel() {
     lobby.style.top = "-110%"
     game.style.top = "110%"
     level.style.top = "0%"
-    sinkScreens()
-    hideMenu()
-    if(document.getElementById("instructions").style.left == "0px") {
-        leaveInstructions()
-    }
+    setTimeout("sinkScreens()", 1000)
 }
 
 function toGame() {
@@ -48,6 +55,10 @@ function toGame() {
     level.style.top = "-110%"
     loadScreens(6)
     startScreen()
+    
+    audio.src = "RESOURCES/Silences.mp3"
+    video.src = "RESOURCES/smoke.mp4"
+    
 }
 
 function toInstructions() {

@@ -2,6 +2,8 @@ var getBody = document.body
 var game = document.getElementById("game")
 var level = document.getElementById("level")
 var instructions = document.getElementById("instructions")
+var audio = document.getElementById("audio")
+var video = document.getElementById("background")
 
 function getNbScreen() {
     var nbScreen = document.getElementsByClassName("screen")
