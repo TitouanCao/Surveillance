@@ -5,6 +5,12 @@ var instructions = document.getElementById("instructions")
 var audio = document.getElementById("audio")
 var video = document.getElementById("background")
 
+var languages = ["En", "Fr", "Jp"]
+var currentLanguage = languages[0]
+var currentLanguageVal = 0
+var prevLanguageVal = -1
+
+
 function getNbScreen() {
     var nbScreen = document.getElementsByClassName("screen")
     return nbScreen.length
@@ -251,9 +257,22 @@ function createMenu() {
     var buttonSoundB2 = document.createElement("input")
     var buttonSoundB3 = document.createElement("span")
     
+    var buttonLanguage = document.createElement("div")
+    var labelLanguage = document.createElement("span")
+    var buttonLanguageA1 = document.createElement("label")
+    var buttonLanguageA2 = document.createElement("input")
+    var buttonLanguageA3 = document.createElement("span")
+    var buttonLanguageB1 = document.createElement("label")
+    var buttonLanguageB2 = document.createElement("input")
+    var buttonLanguageB3 = document.createElement("span")
+    var buttonLanguageC1 = document.createElement("label")
+    var buttonLanguageC2 = document.createElement("input")
+    var buttonLanguageC3 = document.createElement("span")
+    
     var buttonLevel = document.createElement("button")
     var buttonLobby = document.createElement("button")
     var darkness = document.createElement("div")
+    
     
     menu.id = "menu"
     titleMenu.id = "titleMenu"
@@ -267,9 +286,22 @@ function createMenu() {
     buttonSoundB2.id = "buttonSoundB2"
     buttonSoundB3.id = "buttonSoundB3"
     
+    buttonLanguage.id = "buttonLanguage"
+    labelLanguage.id = "labelLanguage"
+    buttonLanguageA1.id = "buttonLanguageA1"
+    buttonLanguageA2.id = "buttonLanguageA2"
+    buttonLanguageA3.id = "buttonLanguageA3"
+    buttonLanguageB1.id = "buttonLanguageB1"
+    buttonLanguageB2.id = "buttonLanguageB2"
+    buttonLanguageB3.id = "buttonLanguageB3"
+    buttonLanguageC1.id = "buttonLanguageC1"
+    buttonLanguageC2.id = "buttonLanguageC2"
+    buttonLanguageC3.id = "buttonLanguageC3"
+    
     buttonLevel.id = "buttonLevel"
     buttonLobby.id = "buttonLobby"
     darkness.id = "darkness"
+    
     
     buttonSound.innerHTML = "SOUND &nbsp;&nbsp;&nbsp;&nbsp;"
     buttonSoundA1.innerHTML = "ON"
@@ -285,6 +317,25 @@ function createMenu() {
     buttonSoundA3.className = "checkmark"
     buttonSoundB3.className = "checkmark"
     
+    labelLanguage.innerHTML = "LANGUAGE &nbsp;&nbsp;&nbsp;&nbsp;"
+    buttonLanguageA1.innerHTML = "<img src='RESOURCES/usa.png' alt='usaFlag' width='20px'>"
+    buttonLanguageB1.innerHTML = "<img src='RESOURCES/Fr.jpg' alt='frFlag' width='25px'>"
+    buttonLanguageC1.innerHTML = "<img src='RESOURCES/jp.png' alt='jpFlag' width='25px'>"
+    
+    buttonLanguageA1.className = "container"
+    buttonLanguageB1.className = "container"
+    buttonLanguageC1.className = "container"
+    buttonLanguageA2.type = "radio"
+    buttonLanguageA2.name = "radio"
+    buttonLanguageA2.checked = true
+    buttonLanguageB2.type = "radio"
+    buttonLanguageB2.name = "radio"
+    buttonLanguageC2.type = "radio"
+    buttonLanguageC2.name = "radio"
+    buttonLanguageA3.className = "checkmark"
+    buttonLanguageB3.className = "checkmark"
+    buttonLanguageC3.className = "checkmark"
+
     
     titleMenu.innerHTML = "MENU"
     buttonLevel.innerHTML = "LEVEL SELECTION"
@@ -315,6 +366,17 @@ function createMenu() {
     buttonSound.appendChild(buttonSoundB1)
     buttonSoundB1.appendChild(buttonSoundB2)
     buttonSoundB1.appendChild(buttonSoundB3)
+    buttons.appendChild(buttonLanguage)
+    buttonLanguage.appendChild(labelLanguage)
+    buttonLanguage.appendChild(buttonLanguageA1)
+    buttonLanguageA1.appendChild(buttonLanguageA2)
+    buttonLanguageA1.appendChild(buttonLanguageA3)
+    buttonLanguage.appendChild(buttonLanguageB1)
+    buttonLanguageB1.appendChild(buttonLanguageB2)
+    buttonLanguageB1.appendChild(buttonLanguageB3)
+    buttonLanguage.appendChild(buttonLanguageC1)
+    buttonLanguageC1.appendChild(buttonLanguageC2)
+    buttonLanguageC1.appendChild(buttonLanguageC3)
     buttons.appendChild(buttonLevel)
     buttons.appendChild(buttonLobby)
     getBody.appendChild(menu)
@@ -322,6 +384,7 @@ function createMenu() {
     
     var soundOn = document.getElementById("buttonSoundA2")
     var soundOff = document.getElementById("buttonSoundB2")
+    
     soundOff.addEventListener("click", function(){
         var audio = document.getElementById("audio");
         audio.pause();
@@ -338,7 +401,32 @@ function createMenu() {
         son.volume="1";
         var son2 = document.getElementById("unlock");
         son2.volume="1";
+    }
+    
+    
+    var eng = document.getElementById("buttonLanguageA2")
+    var fr = document.getElementById("buttonLanguageB2")
+    var jp = document.getElementById("buttonLanguageC2")
+    
+    eng.addEventListener("click", function(){
+        prevLanguageVal = currentLanguageVal
+        currentLanguage = languages[0]
+        currentLanguageVal = 0
+        reloadLanguages()
     })
+    fr.addEventListener("click", function(){
+        prevLanguageVal = currentLanguageVal
+        currentLanguage = languages[1]
+        currentLanguageVal = 1
+        reloadLanguages()
+    })
+    jp.addEventListener("click", function(){
+        prevLanguageVal = currentLanguageVal
+        currentLanguage = languages[2]
+        currentLanguageVal = 2
+        reloadLanguages()
+    })
+    
 }
 
 function displayMenu() {
@@ -368,7 +456,7 @@ function createInstructions() {
     var rulesTitle = document.createElement("h1")
     rules.id = "rules"
     rulesTitle.id = "rulesTitle"
-    rules.innerHTML = "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker."
+    rules.innerHTML = textPerLang[currentLanguageVal][5]
     rulesTitle.innerHTML = "HOW TO PLAY"
     
     instructions.appendChild(rulesTitle)
@@ -376,5 +464,80 @@ function createInstructions() {
 }
 
 
+
+
+
+function reloadInstructions() {
+    var rules = document.getElementById("rules")
+    var title = document.getElementById("rulesTitle")
+    
+    rules.innerHTML = textPerLang[currentLanguageVal][5]
+    title.innerHTML = textPerLang[currentLanguageVal][4]
+}
+
+function reloadLobby() {
+    var start = document.getElementById("playButton")
+    var instruction = document.getElementById("instructionsButton")
+    
+    start.innerHTML = textPerLang[currentLanguageVal][0]
+    instruction.innerHTML = textPerLang[currentLanguageVal][1]
+}
+
+function reloadLevel() {
+    var select = document.getElementById("titleLevel")
+    
+    select.innerHTML = textPerLang[currentLanguageVal][2]
+}
+
+function reloadGame() {
+    if (document.getElementById('start')) {
+        var start = document.getElementById('start')
+        start.innerHTML = textPerLang[currentLanguageVal][3]
+    }
+}
+
+function reloadMenu() {
+    var title = document.getElementById("titleMenu")
+    var sound = document.getElementById("buttonSound")
+    var soundOn = document.getElementById("buttonSoundA1")
+    var soundOff = document.getElementById("buttonSoundB1")
+    var language = document.getElementById("labelLanguage")
+    var level = document.getElementById("buttonLevel")
+    var lobby = document.getElementById("buttonLobby")
+    
+    title.innerHTML = textPerLang[currentLanguageVal][6]
+    
+    while (soundOff.innerHTML.slice(0,1) != "<") {
+        soundOff.innerHTML = soundOff.innerHTML.slice(1, soundOff.innerHTML.length)
+    }
+    soundOff.innerHTML = textPerLang[currentLanguageVal][9] + soundOff.innerHTML
+    
+    while (soundOn.innerHTML.slice(0,1) != "<") {
+        soundOn.innerHTML = soundOn.innerHTML.slice(1, soundOn.innerHTML.length)
+    }
+    soundOn.innerHTML = textPerLang[currentLanguageVal][8] + soundOn.innerHTML
+    
+    while (sound.innerHTML.slice(0,1) != "<") {
+        sound.innerHTML = sound.innerHTML.slice(1, sound.innerHTML.length)
+    }
+    sound.innerHTML = textPerLang[currentLanguageVal][7] + sound.innerHTML
+    
+    language.innerHTML = textPerLang[currentLanguageVal][10]
+    
+    level.innerHTML = textPerLang[currentLanguageVal][11]
+    
+    lobby.innerHTML = textPerLang[currentLanguageVal][12]
+    
+    
+    
+     
+    
+    
+    
+
+    
+    
+    
+}
 
 

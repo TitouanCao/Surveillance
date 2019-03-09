@@ -27,11 +27,18 @@ function sinkLevels() {
 }
 
 
+function reloadLanguages() {
+    reloadInstructions()
+    reloadLobby()
+    reloadLevel()
+    reloadGame()
+    reloadMenu()
+}
+
 function loadTheGame() {
     var background = document.getElementById('background')
     background.pause()
     document.body.style.opacity = "1"
-    
     
     createInstructions()
     createSetting()
