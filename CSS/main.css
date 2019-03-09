@@ -290,7 +290,7 @@ body {
     z-index: 11;
     transition: all 0.7s;
     text-align: center;
-    font-family: AnotherDanger;
+    font-family: CutTheCrap;
 }
 
 #menuButtons {
@@ -299,7 +299,6 @@ body {
     margin-left: 10%;
     display: flex;
     flex-direction: column;
-    font-family: fantasy;
 }
 
 #darkness {
@@ -322,6 +321,7 @@ body {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    font-family: CutTheCrap;
 }
 
 #buttonSound:hover, #buttonLevel:hover, #buttonLobby:hover {
