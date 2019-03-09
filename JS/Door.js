@@ -35,11 +35,11 @@ class Door{
 
 	move(x,y){
 		let d = document.getElementById(this.id);
-		if(x>=0 & x<=this.map.w){
+		if(x>=0){
 			this.x=x
 			d.style.right=this.x+"px";
 		} 
-		if(y>=0 & y<=this.map.h){
+		if(y>=0){
 			this.y=y
 			d.style.bottom=this.y+"px";
 		} 
@@ -47,6 +47,8 @@ class Door{
 
 	lock(){
 		let d = document.getElementById(this.id);
+		let s = document.getElementById("lock")
+		s.play();
 		d.src="RESOURCES/door_closed.png";
 		this.state=0;
 		nbLockedDoors++;
@@ -54,6 +56,8 @@ class Door{
 
 	unlock(){
 		let d = document.getElementById(this.id);
+		let s = document.getElementById("unlock")
+		s.play();
 		d.src="RESOURCES/door_open.png";
 		this.state=1;
 		nbLockedDoors--;
