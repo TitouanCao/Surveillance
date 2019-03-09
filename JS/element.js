@@ -11,6 +11,14 @@ var currentLanguageVal = 0
 var prevLanguageVal = -1
 
 
+var noSoundEffect = false
+
+
+
+
+
+
+
 function getNbScreen() {
     var nbScreen = document.getElementsByClassName("screen")
     return nbScreen.length
@@ -48,15 +56,23 @@ function getCouleur() {
 
 function createScreen(sendId) {
     var screen = document.createElement("div")
+    var screenCam = document.createElement("img")
     screen.id = "screen"+sendId
+    screenCam.id = "screenCam"+sendId
     screen.className = "screen"
+    
     screen.innerHTML = ""
-    
-    game.appendChild(screen)
-    
-    var rand = Math.floor(Math.random(16))
-    screen.style.backgroundColor = "white" //getCouleur()
+    screen.style.backgroundSize = "100%"
     screen.style.left = "15%"
+    
+    screenCam.src = ""
+    screenCam.alt = "videoSurveillanceCamera"
+    screenCam.style.objectFit = "cover"
+    screenCam.style.width = "100%"
+    screenCam.style.height = "100%"
+    
+    screen.appendChild(screenCam)
+    game.appendChild(screen)
 }
 
 
@@ -93,8 +109,17 @@ function createCam(sendId) {
     cam.onclick = function(){
         var screens = document.getElementsByClassName("screen")
         for(var i = 0; i < getNbScreen(); i++) {
-            if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){screens[i].style.opacity = "1"}
-            else {screens[i].style.opacity = "0"}
+            if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){
+                screens[i].style.opacity = "1"
+                screens[i].style.pointerEvents = "all"
+                screens[i].style.animation = "perturbe 1s 1"
+                playScreamerS()
+            }
+            else {
+                screens[i].style.opacity = "0"
+                screens[i].style.pointerEvents = "none"
+                screens[i].style.animation = "none"
+            }
         }
         var cams = document.getElementsByClassName("cam")
         var camPics = document.getElementsByClassName("camPic")
@@ -195,7 +220,11 @@ function createLevel(sendId) {
     newLevel.innerHTML = ""
     newLevel.style.width = "20vw"
     newLevel.style.height = "20vh"
-    newLevel.onclick = function() {toGame()}
+    newLevel.onclick = function() {
+        newLevel.style.animation = "hinge 2s 1";
+        metalCreaking3S()
+        toGame()
+    }
     
     /*
     if (getNbLevel() >= 12) {
@@ -238,6 +267,7 @@ function createSetting() {
     setting.style.width = "3vw"
     setting.onclick = function() {
         displayMenu()
+        lockLongS()
     }
     
     
@@ -259,6 +289,10 @@ function createMenu() {
     var labelSoundB1 = document.createElement("span")
     var buttonSoundB2 = document.createElement("input")
     var buttonSoundB3 = document.createElement("span")
+    var buttonSoundC1 = document.createElement("label")
+    var labelSoundC1 = document.createElement("span")
+    var buttonSoundC2 = document.createElement("input")
+    var buttonSoundC3 = document.createElement("span")
     
     var buttonLanguage = document.createElement("div")
     var labelLanguage = document.createElement("span")
@@ -291,6 +325,10 @@ function createMenu() {
     labelSoundB1.id = "labelSoundB1"
     buttonSoundB2.id = "buttonSoundB2"
     buttonSoundB3.id = "buttonSoundB3"
+    buttonSoundC1.id = "buttonSoundC1"
+    labelSoundC1.id = "labelSoundC1"
+    buttonSoundC2.id = "buttonSoundC2"
+    buttonSoundC3.id = "buttonSoundC3"
     
     buttonLanguage.id = "buttonLanguage"
     labelLanguage.id = "labelLanguage"
@@ -312,16 +350,21 @@ function createMenu() {
     labelSound.innerHTML = "SOUND &nbsp;&nbsp;&nbsp;&nbsp;"
     labelSoundA1.innerHTML = "ON"
     labelSoundB1.innerHTML = "OFF"
+    labelSoundC1.innerHTML = "MUSIC ONLY"
     
     buttonSoundA1.className = "container"
     buttonSoundB1.className = "container"
+    buttonSoundC1.className = "container"
     buttonSoundA2.type = "radio"
     buttonSoundA2.name = "radio"
     buttonSoundA2.checked = true
     buttonSoundB2.type = "radio"
     buttonSoundB2.name = "radio"
+    buttonSoundC2.type = "radio"
+    buttonSoundC2.name = "radio"
     buttonSoundA3.className = "checkmark"
     buttonSoundB3.className = "checkmark"
+    buttonSoundC3.className = "checkmark"
     
     labelLanguage.innerHTML = "LANGUAGE &nbsp;&nbsp;&nbsp;&nbsp;"
     buttonLanguageA1.innerHTML = "<img src='RESOURCES/usa.png' alt='usaFlag' width='20px'>"
@@ -350,14 +393,18 @@ function createMenu() {
     buttonLevel.onclick = function() {
         toLevel()
         hideMenu()
+        whistleS()
     }
     buttonLobby.onclick = function() {
         toLobby()
         hideMenu()
+        whistleS()
     }
     darkness.onclick = function() {
         hideMenu()
+        metalCreaking3S()
     }
+    
     darkness.style.opacity = "0"
     darkness.style.pointerEvents = "none"
     menu.style.opacity = "0"
@@ -375,6 +422,10 @@ function createMenu() {
     buttonSoundB1.appendChild(labelSoundB1)
     buttonSoundB1.appendChild(buttonSoundB2)
     buttonSoundB1.appendChild(buttonSoundB3)
+    buttonSound.appendChild(buttonSoundC1)
+    buttonSoundC1.appendChild(labelSoundC1)
+    buttonSoundC1.appendChild(buttonSoundC2)
+    buttonSoundC1.appendChild(buttonSoundC3)
     buttons.appendChild(buttonLanguage)
     buttonLanguage.appendChild(labelLanguage)
     buttonLanguage.appendChild(buttonLanguageA1)
@@ -393,6 +444,7 @@ function createMenu() {
     
     var soundOn = document.getElementById("buttonSoundA2")
     var soundOff = document.getElementById("buttonSoundB2")
+    var musicOnly = document.getElementById("buttonSoundC2")
     
     soundOff.addEventListener("click", function(){
         var audio = document.getElementById("audio");
@@ -401,6 +453,7 @@ function createMenu() {
         son.volume="0";
         var son2 = document.getElementById("unlock");
         son2.volume="0";
+        noSoundEffect = true
     })
     
     soundOn.addEventListener("click", function(){
@@ -410,6 +463,17 @@ function createMenu() {
         son.volume="1";
         var son2 = document.getElementById("unlock");
         son2.volume="1";
+        noSoundEffect = false
+    })
+    
+    musicOnly.addEventListener("click", function(){
+        var audio = document.getElementById("audio");
+        audio.play();
+        var son = document.getElementById("lock");
+        son.volume="0";
+        var son2 = document.getElementById("unlock");
+        son2.volume="0";
+        noSoundEffect = true
     })
     
     
@@ -422,18 +486,21 @@ function createMenu() {
         currentLanguage = languages[0]
         currentLanguageVal = 0
         reloadLanguages()
+        writingS()
     })
     fr.addEventListener("click", function(){
         prevLanguageVal = currentLanguageVal
         currentLanguage = languages[1]
         currentLanguageVal = 1
         reloadLanguages()
+        writingS()
     })
     jp.addEventListener("click", function(){
         prevLanguageVal = currentLanguageVal
         currentLanguage = languages[2]
         currentLanguageVal = 2
         reloadLanguages()
+        writingS()
     })
     
 }
@@ -512,6 +579,7 @@ function reloadMenu() {
     var sound = document.getElementById("labelSound")
     var soundOn = document.getElementById("labelSoundA1")
     var soundOff = document.getElementById("labelSoundB1")
+    var musicOnly = document.getElementById("labelSoundC1")
     var language = document.getElementById("labelLanguage")
     var level = document.getElementById("buttonLevel")
     var lobby = document.getElementById("buttonLobby")
@@ -530,7 +598,7 @@ function reloadMenu() {
     
     lobby.innerHTML = textPerLang[currentLanguageVal][12]
  
-    
+    musicOnly.innerHTML = textPerLang[currentLanguageVal][13]
 }
 
 

@@ -49,3 +49,25 @@ function loadTheGame() {
     setTimeout("background.play()", 2000)
 }
 
+
+
+
+function loadLevel1() {
+    var screens = document.getElementsByClassName("screen")
+    var i = 0
+    while(tabCam[0][i] != null) {
+        screens[i].firstChild.src = tabCam[0][i]
+        i++
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

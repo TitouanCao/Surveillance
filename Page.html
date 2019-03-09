@@ -6,23 +6,23 @@
         <title>Surveillance</title>
     </head>
     <body>
-        <audio id="audio" src="RESOURCES/FreeSwitzerland.mp3" loop autoplay></audio>
-        <audio id="lock" src="RESOURCES/lock.mp3" ></audio>
-        <audio id="unlock" src="RESOURCES/unlock.mp3" ></audio>
+        <audio id="audio" src="RESOURCES/Sound/FreeSwitzerland.mp3" loop autoplay></audio>
+        <audio id="lock" src="RESOURCES/Sound/lock.mp3" ></audio>
+        <audio id="unlock" src="RESOURCES/Sound/unlock.mp3" ></audio>
         <video autoplay loop id="background">
             <source src="RESOURCES/paint.mp4" type="video/webm">
         </video>
         <div id="lobby">
-            <h1 id="title">Surveillance</h1>
-            <h3 id="playButton" onclick="toLevel()">Start</h3>
-            <h3 id="instructionsButton" onclick="toInstructions()">Instructions</h3>
+            <h1 id="title" onclick="doorLikeS()">Surveillance</h1>
+            <h3 id="playButton" onclick="toLevel(), metalCreaking2S()">Start</h3>
+            <h3 id="instructionsButton" onclick="toInstructions(), openDoorS()">Instructions</h3>
         </div>
         <div id="instructions">
-            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="leaveInstructions()">
+            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="leaveInstructions(), metalCreaking2S()">
         </div>
         <div id="level">
             <h1 id="titleLevel">Level Selection</h1>
-            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="toLobby()">
+            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="toLobby(), metalCreakingS()">
         </div>
         <div id="game"></div>
     </body>
@@ -34,6 +34,8 @@
     <script type="text/jscript" src="JS/event.js"></script>
     <script type="text/jscript" src="JS/organize.js"></script>
     <script type="text/jscript" src="JS/languages.js"></script>
+    <script type="text/jscript" src="JS/level.js"></script>
+    <script type="text/jscript" src="JS/soundEffect.js"></script>
     <script>
         var audio = document.getElementById("audio");
         audio.volume = "0.7"
