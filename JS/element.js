@@ -455,7 +455,7 @@ function createMenu() {
     
     soundOff.addEventListener("click", function(){
         var audio = document.getElementById("audio");
-        audio.pause();
+        audio.volume = "0"
         var son = document.getElementById("lock");
         son.volume="0";
         var son2 = document.getElementById("unlock");
@@ -465,7 +465,7 @@ function createMenu() {
     
     soundOn.addEventListener("click", function(){
         var audio = document.getElementById("audio");
-        audio.play();
+        audio.volume = "1"
         var son = document.getElementById("lock");
         son.volume="1";
         var son2 = document.getElementById("unlock");
@@ -475,7 +475,7 @@ function createMenu() {
     
     musicOnly.addEventListener("click", function(){
         var audio = document.getElementById("audio");
-        audio.play();
+        audio.volume = "1"
         var son = document.getElementById("lock");
         son.volume="0";
         var son2 = document.getElementById("unlock");

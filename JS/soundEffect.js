@@ -71,7 +71,7 @@ function metalCreaking3S() {
 function doorCreakingS() {
     if (noSoundEffect == false){
         fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/doorCreaking.mp3'
+        checkChannel().src = 'RESOURCES/Sound/doorCreaking1.mp3'
         checkChannel().volume = "1"
         checkChannel().play()
     }

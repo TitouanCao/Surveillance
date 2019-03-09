@@ -70,6 +70,7 @@ function toGame() {
     loadLevel1()
     
     audio.src = "RESOURCES/Sound/Silences.mp3"
+    audio.currentTime = 47
     video.src = "RESOURCES/smoke.mp4"
     //startRandomScreamer()
     

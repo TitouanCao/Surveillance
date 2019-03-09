@@ -14,7 +14,7 @@
         </video>
         <div id="lobby">
             <h1 id="title" onclick="doorLikeS()">Surveillance</h1>
-            <h3 id="playButton" onclick="toLevel(), metalCreaking2S()">Start</h3>
+            <h3 id="playButton" onclick="toLevel(), doorCreakingS()">Start</h3>
             <h3 id="instructionsButton" onclick="toInstructions(), openDoorS()">Instructions</h3>
         </div>
         <div id="instructions">
@@ -38,6 +38,7 @@
     <script type="text/jscript" src="JS/soundEffect.js"></script>
     <script>
         var audio = document.getElementById("audio");
+        audio.currentTime = 34
         audio.volume = "0.7"
         
         
