@@ -14,7 +14,7 @@ function toLobby() {
         leaveInstructions()
     }
     else if(document.getElementById("game").style.top == "0%") {
-        audio.src = "RESOURCES/FreeSwitzerland.mp3"
+        audio.src = "RESOURCES/Sound/FreeSwitzerland.mp3"
         video.src = "RESOURCES/paint.mp4"
     }
     var lobby = document.getElementById("lobby")
@@ -71,7 +71,7 @@ function toGame() {
     
     audio.src = "RESOURCES/Sound/Silences.mp3"
     audio.currentTime = 47
-    video.src = "RESOURCES/smoke.mp4"
+    video.src = "RESOURCES/triangles.mp4"
     //startRandomScreamer()
     
 }
