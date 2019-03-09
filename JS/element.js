@@ -272,6 +272,8 @@ function createSetting() {
     setting.style.width = "3vw"
     setting.onclick = function() {
         displayMenu()
+    }
+    setting.onmouseover = function() {
         lockLongS()
     }
     
