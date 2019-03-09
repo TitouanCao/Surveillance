@@ -26,7 +26,7 @@ function toLobby() {
     level.style.top = "110%" 
     setTimeout("sinkScreens()", 1000)  
     
-    stopRandomScreamer()
+    //stopRandomScreamer()
 }
 
 function toLevel() {
@@ -46,7 +46,7 @@ function toLevel() {
     level.style.top = "0%"
     setTimeout("sinkScreens()", 1000)
     
-    stopRandomScreamer()
+    //stopRandomScreamer()
 }
 
 function toGame() {
@@ -71,7 +71,7 @@ function toGame() {
     
     audio.src = "RESOURCES/Sound/Silences.mp3"
     video.src = "RESOURCES/smoke.mp4"
-    startRandomScreamer()
+    //startRandomScreamer()
     
 }
 
