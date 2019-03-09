@@ -197,9 +197,45 @@ function startScreen() {
     game.appendChild(start)
 }
 
+function createShadow() {
+    var shadow = document.createElement("img")
+    var screen = document.getElementById("screen1")
+    var posX = screen.offsetLeft
+    var posY = screen.offsetTop
+    shadow.id = "shadow"+Math.random()
+    shadow.src = "RESOURCES/flou.png"
+    shadow.alt = "shadow"
+    shadow.style.zIndex = "15"
+    shadow.style.width = "50px"
+    shadow.style.height = "50px"
+    shadow.style.filter = "invert(1)"
+    shadow.style.transition = "top 0.3s ease-in, left 0.3s ease-in, opacity 0.2s 0.3s"
+    shadow.style.position = "fixed"
+    shadow.style.top = posY+"px"
+    shadow.style.left = posX+"px"
+    
+    game.appendChild(shadow)
+    
+    setTimeout(function(){
+        shadow.style.top = screen.offsetHeight+posY-shadow.offsetHeight+"px"
+        shadow.style.left = screen.offsetWidth+posX-shadow.offsetWidth+"px"
+        shadow.style.opacity = "0"
+    }, 10)
+    setTimeout(function() {
+        game.removeChild(shadow)
+    }, 510)
+    
+}
 
-
-
+function loadShadows(screen) {
+    createShadow()
+    setTimeout(createShadow, 2)
+    setTimeout(createShadow, 5)
+    setTimeout(createShadow, 15)
+    setTimeout(createShadow, 20)
+    setTimeout(createShadow, 25)
+    setTimeout(createShadow, 15)
+}
 
 
 
