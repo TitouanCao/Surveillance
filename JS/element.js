@@ -401,7 +401,7 @@ function createMenu() {
         son.volume="1";
         var son2 = document.getElementById("unlock");
         son2.volume="1";
-    }
+    })
     
     
     var eng = document.getElementById("buttonLanguageA2")
