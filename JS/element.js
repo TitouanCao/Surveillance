@@ -324,12 +324,20 @@ function createMenu() {
     var soundOff = document.getElementById("buttonSoundB2")
     soundOff.addEventListener("click", function(){
         var audio = document.getElementById("audio");
-        audio.pause()
+        audio.pause();
+        var son = document.getElementById("lock");
+        son.volume="0";
+        var son2 = document.getElementById("unlock");
+        son2.volume="0";
     })
     
     soundOn.addEventListener("click", function(){
         var audio = document.getElementById("audio");
-        audio.play()
+        audio.play();
+        var son = document.getElementById("lock");
+        son.volume="1";
+        var son2 = document.getElementById("unlock");
+        son2.volume="1";
     })
 }
 
