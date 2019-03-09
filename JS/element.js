@@ -172,7 +172,12 @@ function startScreen() {
     start.style.height = "100vh"
     start.style.backgroundColor = "rgba(0,0,0,0.9)"
     start.style.color = "white"
-    start.style.fontFamily = "CutTheCrap"
+    if (currentLanguageVal == 2) {
+        start.style.fontFamily = "GenkaiMincho"
+    }
+    else {
+        start.style.fontFamily = "AnotherDanger"
+    }
     start.style.fontSize = "5vw"
     start.style.textAlign = "center"
     start.style.zIndex = "10"
@@ -347,7 +352,7 @@ function createMenu() {
     darkness.id = "darkness"
     
     
-    labelSound.innerHTML = "SOUND &nbsp;&nbsp;&nbsp;&nbsp;"
+    labelSound.innerHTML = "SOUND &nbsp;&nbsp;"
     labelSoundA1.innerHTML = "ON"
     labelSoundB1.innerHTML = "OFF"
     labelSoundC1.innerHTML = "MUSIC ONLY"
@@ -366,7 +371,7 @@ function createMenu() {
     buttonSoundB3.className = "checkmark"
     buttonSoundC3.className = "checkmark"
     
-    labelLanguage.innerHTML = "LANGUAGE &nbsp;&nbsp;&nbsp;&nbsp;"
+    labelLanguage.innerHTML = "LANGUAGE &nbsp;&nbsp;"
     buttonLanguageA1.innerHTML = "<img src='RESOURCES/usa.png' alt='usaFlag' width='20px'>"
     buttonLanguageB1.innerHTML = "<img src='RESOURCES/Fr.jpg' alt='frFlag' width='25px'>"
     buttonLanguageC1.innerHTML = "<img src='RESOURCES/jp.png' alt='jpFlag' width='25px'>"
@@ -532,6 +537,10 @@ function createInstructions() {
     var rulesTitle = document.createElement("h1")
     rules.id = "rules"
     rulesTitle.id = "rulesTitle"
+    if (currentLanguageVal == 2) {
+            rules.style.fontFamily = "GenkaiMincho"
+        rulesTitle.style.fontFamily = "GenkaiMincho"
+    }
     rules.innerHTML = textPerLang[currentLanguageVal][5]
     rulesTitle.innerHTML = "HOW TO PLAY"
     
@@ -549,6 +558,15 @@ function reloadInstructions() {
     
     rules.innerHTML = textPerLang[currentLanguageVal][5]
     title.innerHTML = textPerLang[currentLanguageVal][4]
+    
+    if (currentLanguageVal == 2) {
+        rules.style.fontFamily = "GenkaiMincho"
+        title.style.fontFamily = "GenkaiMincho"
+    }
+    else {
+        rules.style.fontFamily = "CutTheCrap"
+        title.style.fontFamily = "CutTheCrap"
+    }
 }
 
 function reloadLobby() {
@@ -557,12 +575,28 @@ function reloadLobby() {
     
     start.innerHTML = textPerLang[currentLanguageVal][0]
     instruction.innerHTML = textPerLang[currentLanguageVal][1]
+    
+    if (currentLanguageVal == 2) {
+        start.style.fontFamily = "GenkaiMincho"
+        instruction.style.fontFamily = "GenkaiMincho"
+    }
+    else {
+        start.style.fontFamily = "AnotherDanger"
+        instruction.style.fontFamily = "AnotherDanger"
+    }
 }
 
 function reloadLevel() {
     var select = document.getElementById("titleLevel")
     
     select.innerHTML = textPerLang[currentLanguageVal][2]
+    
+    if (currentLanguageVal == 2) {
+        select.style.fontFamily = "GenkaiMincho"
+    }
+    else {
+        select.style.fontFamily = "CutTheCrap"
+    }
 }
 
 function reloadGame() {
@@ -571,6 +605,13 @@ function reloadGame() {
         start.innerHTML = textPerLang[currentLanguageVal][3]
         document.getElementById('start').style.left = "0%"
         document.getElementById('start').style.opacity = "1"
+        
+        if (currentLanguageVal == 2) {
+            start.style.fontFamily = "GenkaiMincho"
+        }
+        else {
+            start.style.fontFamily = "AnotherDanger"
+        }
     }
 }
 

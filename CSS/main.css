@@ -4,13 +4,18 @@
 }
 
 @font-face {
-    font-family: GhostFactory;
-    src: url(../RESOURCES/Fonts/GhostFactory.ttf);
+    font-family: JpFont;
+    src: url(../RESOURCES/Fonts/JpFont.otf);
 }
 
 @font-face {
     font-family: CutTheCrap;
     src: url(../RESOURCES/Fonts/CutTheCrap.ttf);
+}
+
+@font-face {
+    font-family: GenkaiMincho;
+    src: url(../RESOURCES/Fonts/GenkaiMincho.ttf);
 }
 
 @keyframes hinge {
@@ -164,7 +169,6 @@ body {
     transition: top 1s ease-out;
     text-align: center;
     color: white;
-    font-family: AnotherDanger;
 }
 
 #instructions {
@@ -290,7 +294,8 @@ body {
     z-index: 11;
     transition: all 0.7s;
     text-align: center;
-    font-family: CutTheCrap;
+    font-family: JpFont;
+    font-size: 3vh;
 }
 
 #menuButtons {
@@ -319,13 +324,13 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 3vh;
     cursor: pointer;
-    font-family: CutTheCrap;
+    font-family: JpFont;
 }
 
-#buttonSound:hover, #buttonLevel:hover, #buttonLobby:hover {
-    font-weight: bolder;
+#buttonSound:hover, #buttonLevel:hover, #buttonLobby:hover, #buttonLanguage:hover {
+    color: crimson;
 }
 
 .container {
