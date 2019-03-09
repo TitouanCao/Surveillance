@@ -227,7 +227,7 @@ function createShadow() {
     
 }
 
-function loadShadows(screen) {
+function loadShadows() {
     createShadow()
     setTimeout(createShadow, 2)
     setTimeout(createShadow, 5)
