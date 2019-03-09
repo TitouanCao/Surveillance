@@ -395,11 +395,21 @@ function createMenu() {
     var soundOff = document.getElementById("buttonSoundB2")
     
     soundOff.addEventListener("click", function(){
-        audio.pause()
+        var audio = document.getElementById("audio");
+        audio.pause();
+        var son = document.getElementById("lock");
+        son.volume="0";
+        var son2 = document.getElementById("unlock");
+        son2.volume="0";
     })
     
     soundOn.addEventListener("click", function(){
-        audio.play()
+        var audio = document.getElementById("audio");
+        audio.play();
+        var son = document.getElementById("lock");
+        son.volume="1";
+        var son2 = document.getElementById("unlock");
+        son2.volume="1";
     })
     
     
