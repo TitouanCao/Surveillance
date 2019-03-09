@@ -173,8 +173,8 @@ body {
 
 #playButton {
     font-size: 3vw;
-    width: 10vw;
-    margin-left: 45vw;
+    width: 15vw;
+    margin-left: 42.5vw;
 }
 
 #instructionsButton {
@@ -196,6 +196,7 @@ body {
 #titleLevel {
     text-shadow: 3px 3px black;
     font-size: 4vw;
+    font-family: CutTheCrap;
 }
 
 #retourLevel {

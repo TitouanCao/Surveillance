@@ -54,7 +54,12 @@ function toGame() {
     game.style.top = "0%"
     level.style.top = "-110%"
     loadScreens(6)
-    startScreen()
+    if(!document.getElementById("start")) {
+        startScreen()
+    }
+    else {
+        reloadGame()
+    }
     
     audio.src = "RESOURCES/Silences.mp3"
     video.src = "RESOURCES/smoke.mp4"

@@ -148,13 +148,13 @@ function startScreen() {
     start.style.backgroundColor = "rgba(0,0,0,0.9)"
     start.style.color = "white"
     start.style.fontFamily = "CutTheCrap"
-    start.style.fontSize = "6vw"
+    start.style.fontSize = "5vw"
     start.style.textAlign = "center"
     start.style.zIndex = "10"
     start.style.transition = "all 1s"
     
     startText.style.marginTop = "30vh"
-    startText.innerHTML = "CLICK TO START"
+    startText.innerHTML = textPerLang[currentLanguageVal][3]
     
     start.onclick = function() {
         start.style.left = "-100%"
@@ -250,10 +250,13 @@ function createMenu() {
     var buttons = document.createElement("div")
     
     var buttonSound = document.createElement("div")
+    var labelSound = document.createElement("span")
     var buttonSoundA1 = document.createElement("label")
+    var labelSoundA1 = document.createElement("span")
     var buttonSoundA2 = document.createElement("input")
     var buttonSoundA3 = document.createElement("span")
     var buttonSoundB1 = document.createElement("label")
+    var labelSoundB1 = document.createElement("span")
     var buttonSoundB2 = document.createElement("input")
     var buttonSoundB3 = document.createElement("span")
     
@@ -279,10 +282,13 @@ function createMenu() {
     buttons.id = "menuButtons"
     
     buttonSound.id = "buttonSound"
+    labelSound.id = "labelSound"
     buttonSoundA1.id = "buttonSoundA1"
+    labelSoundA1.id = "labelSoundA1"
     buttonSoundA2.id = "buttonSoundA2"
     buttonSoundA3.id = "buttonSoundA3"
     buttonSoundB1.id = "buttonSoundB1"
+    labelSoundB1.id = "labelSoundB1"
     buttonSoundB2.id = "buttonSoundB2"
     buttonSoundB3.id = "buttonSoundB3"
     
@@ -303,9 +309,9 @@ function createMenu() {
     darkness.id = "darkness"
     
     
-    buttonSound.innerHTML = "SOUND &nbsp;&nbsp;&nbsp;&nbsp;"
-    buttonSoundA1.innerHTML = "ON"
-    buttonSoundB1.innerHTML = "OFF"
+    labelSound.innerHTML = "SOUND &nbsp;&nbsp;&nbsp;&nbsp;"
+    labelSoundA1.innerHTML = "ON"
+    labelSoundB1.innerHTML = "OFF"
     
     buttonSoundA1.className = "container"
     buttonSoundB1.className = "container"
@@ -326,12 +332,12 @@ function createMenu() {
     buttonLanguageB1.className = "container"
     buttonLanguageC1.className = "container"
     buttonLanguageA2.type = "radio"
-    buttonLanguageA2.name = "radio"
+    buttonLanguageA2.name = "radio2"
     buttonLanguageA2.checked = true
     buttonLanguageB2.type = "radio"
-    buttonLanguageB2.name = "radio"
+    buttonLanguageB2.name = "radio2"
     buttonLanguageC2.type = "radio"
-    buttonLanguageC2.name = "radio"
+    buttonLanguageC2.name = "radio2"
     buttonLanguageA3.className = "checkmark"
     buttonLanguageB3.className = "checkmark"
     buttonLanguageC3.className = "checkmark"
@@ -360,10 +366,13 @@ function createMenu() {
     menu.appendChild(titleMenu)
     menu.appendChild(buttons)
     buttons.appendChild(buttonSound)
+    buttonSound.appendChild(labelSound)
     buttonSound.appendChild(buttonSoundA1)
+    buttonSoundA1.appendChild(labelSoundA1)
     buttonSoundA1.appendChild(buttonSoundA2)
     buttonSoundA1.appendChild(buttonSoundA3)
     buttonSound.appendChild(buttonSoundB1)
+    buttonSoundB1.appendChild(labelSoundB1)
     buttonSoundB1.appendChild(buttonSoundB2)
     buttonSoundB1.appendChild(buttonSoundB3)
     buttons.appendChild(buttonLanguage)
@@ -481,52 +490,36 @@ function reloadLevel() {
 
 function reloadGame() {
     if (document.getElementById('start')) {
-        var start = document.getElementById('start')
+        var start = document.getElementById('startText')
         start.innerHTML = textPerLang[currentLanguageVal][3]
+        document.getElementById('start').style.left = "0%"
+        document.getElementById('start').style.opacity = "1"
     }
 }
 
 function reloadMenu() {
     var title = document.getElementById("titleMenu")
-    var sound = document.getElementById("buttonSound")
-    var soundOn = document.getElementById("buttonSoundA1")
-    var soundOff = document.getElementById("buttonSoundB1")
+    var sound = document.getElementById("labelSound")
+    var soundOn = document.getElementById("labelSoundA1")
+    var soundOff = document.getElementById("labelSoundB1")
     var language = document.getElementById("labelLanguage")
     var level = document.getElementById("buttonLevel")
     var lobby = document.getElementById("buttonLobby")
     
     title.innerHTML = textPerLang[currentLanguageVal][6]
     
-    while (soundOff.innerHTML.slice(0,1) != "<") {
-        soundOff.innerHTML = soundOff.innerHTML.slice(1, soundOff.innerHTML.length)
-    }
-    soundOff.innerHTML = textPerLang[currentLanguageVal][9] + soundOff.innerHTML
+    sound.innerHTML = textPerLang[currentLanguageVal][7]
     
-    while (soundOn.innerHTML.slice(0,1) != "<") {
-        soundOn.innerHTML = soundOn.innerHTML.slice(1, soundOn.innerHTML.length)
-    }
-    soundOn.innerHTML = textPerLang[currentLanguageVal][8] + soundOn.innerHTML
+    soundOn.innerHTML = textPerLang[currentLanguageVal][8]
     
-    while (sound.innerHTML.slice(0,1) != "<") {
-        sound.innerHTML = sound.innerHTML.slice(1, sound.innerHTML.length)
-    }
-    sound.innerHTML = textPerLang[currentLanguageVal][7] + sound.innerHTML
+    soundOff.innerHTML = textPerLang[currentLanguageVal][9]
     
     language.innerHTML = textPerLang[currentLanguageVal][10]
     
     level.innerHTML = textPerLang[currentLanguageVal][11]
     
     lobby.innerHTML = textPerLang[currentLanguageVal][12]
-    
-    
-    
-     
-    
-    
-    
-
-    
-    
+ 
     
 }
 
