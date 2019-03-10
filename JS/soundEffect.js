@@ -104,6 +104,15 @@ function writingS() {
     }
 }
 
+function interferencesS() {
+    if (noSoundEffect == false){
+        fade(checkChannelRevert())
+        checkChannel().src = 'RESOURCES/Sound/interference.mp3'
+        checkChannel().volume = "1"
+        checkChannel().play()
+    }
+}
+
 
 
 

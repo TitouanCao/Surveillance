@@ -10,8 +10,7 @@ function getCams() {
 }
 
 function glitch(){
-    let interference = document.getElementById("interference");
-    interference.play();
+    interferencesS()
     var i = document.getElementById("screenCam1");
     i.src="RESOURCES/couloir_glitch.jpg";
     setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100);
@@ -24,8 +23,7 @@ function glitch(){
 }
 
 function glitch2(){
-    let interference = document.getElementById("interference");
-    interference.play();
+    interferencesS()
     var i = document.getElementById("screenCam1");
     i.src="RESOURCES/couloir_glitch2.jpg";
     setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100);
