@@ -9,6 +9,22 @@ function getCams() {
     }
 }
 
+function glitch(){
+    let interference = document.getElementById("interference");
+    interference.play();
+    var i = document.getElementById("screenCam1");
+    i.src="RESOURCES/couloir_glitch.jpg";
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100);
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},200);
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300);
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},400);
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500);
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},600);
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700);
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},800);
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},900);
+}
+
 function toLobby() {
     if(document.getElementById("instructions").style.left == "0px") {
         leaveInstructions()
