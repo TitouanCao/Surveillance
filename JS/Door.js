@@ -1,5 +1,11 @@
 var nbLockedDoors=0;
 
+function ChangelockSound(version){
+	let l= document.getElementById("lock");
+	let u= document.getElementById("unlock");
+	l.src="RESOURCES/Sound/lock"+version+".mp3";
+	u.src="RESOURCES/Sound/lock"+version+".mp3";
+}
 class Door{
 
 
@@ -79,4 +85,6 @@ class Door{
 			this.map.battery.liberate();
 		}
 	}
+
+
 }
