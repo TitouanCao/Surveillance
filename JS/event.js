@@ -21,8 +21,20 @@ function glitch(){
     setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500);
     setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},600);
     setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700);
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},800);
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},900);
+}
+
+function glitch2(){
+    let interference = document.getElementById("interference");
+    interference.play();
+    var i = document.getElementById("screenCam1");
+    i.src="RESOURCES/couloir_glitch2.jpg";
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100);
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},200);
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300);
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},400);
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500);
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},600);
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700);
 }
 
 function toLobby() {
