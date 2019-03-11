@@ -15,7 +15,8 @@ function sinkScreens() {
 
 function loadLevels(qtte) {
     for(var i = 1; i <= qtte; i++) {
-        createLevel(i)
+        if(i==1) createLevel(i,false)
+        else createLevel(i,true)
     }
 }
 
