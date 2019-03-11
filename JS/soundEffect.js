@@ -113,6 +113,16 @@ function interferencesS() {
     }
 }
 
+function buttonS() {
+    if (noSoundEffect == false){
+        fade(checkChannelRevert())
+        checkChannel().src = 'RESOURCES/Sound/lock3.mp3'
+        checkChannel().volume = "1"
+        checkChannel().play()
+    }
+}
+
+
 
 
 

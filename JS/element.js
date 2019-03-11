@@ -71,6 +71,7 @@ function createScreen(sendId) {
     screenCam.style.width = "100%"
     screenCam.style.height = "100%"
     
+
     screen.appendChild(screenCam)
     game.appendChild(screen)
 }
@@ -80,6 +81,40 @@ function deleteScreen(sendId) {
     var id = "screen"+sendId
     var screen = document.getElementById(id)
     game.removeChild(screen)
+}
+
+function createBorder() {
+    if(document.getElementsByClassName("screen")[0]) {
+        var screen = document.getElementsByClassName("screen")[0]
+        var border = document.createElement("img")
+        border.id = "borderScreen"
+        border.style.position = "fixed"
+        border.style.zIndex = "50"
+        border.style.left = (screen.getBoundingClientRect()).left - 10 + "px"
+        border.style.top = (screen.getBoundingClientRect()).top - 10 + "px"
+        border.style.width = screen.offsetWidth + 4 + "px"
+        border.style.height = screen.offsetHeight + 4 + "px"
+        border.style.border = "5px black solid"
+        border.src = "RESOURCES/TV.png"
+        border.alt = "videoSurveillanceBorder"
+
+        game.appendChild(border)
+    }
+    else {
+        console.log("No screen yet")
+    }
+}
+
+function loadBorder() {
+    if(!document.getElementById("borderScreen")) {
+        createBorder()
+    }
+    else {
+        var border = document.getElementById("borderScreen")
+        var screen = document.getElementsByClassName("screen")[0]
+        border.style.width = screen.offsetWidth + 4 + "px"
+        border.style.height = screen.offsetHeight + 4 + "px"
+    }
 }
 
 /*
@@ -112,8 +147,11 @@ function createCam(sendId) {
             if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){
                 screens[i].style.opacity = "1"
                 screens[i].style.pointerEvents = "all"
-                screens[i].style.animation = "perturbe 1s 1"
-                playScreamerS()
+                //screens[i].style.animation = "perturbe 1s 1"
+                //playScreamerS()
+                invertSpectre(screens[i])
+                buttonS()
+                loadBorder()
             }
             else {
                 screens[i].style.opacity = "0"
@@ -257,16 +295,17 @@ function loadShadows() {
 function createLevel(sendId,bool) {
     var newLevel = document.createElement("div")
     var newLevelImg = document.createElement("img")
+    newLevelImg.className="levelElementImg"
+    newLevelImg.style.height = "100%"
+    newLevelImg.style.width = "100%" 
+    newLevelImg.style.objectFit = "cover"
     if(bool==true){
-        newLevelImg.className="levelElementImg"
         newLevelImg.src = "RESOURCES/chains.png"
-        newLevelImg.style.height = "100%"
-        newLevelImg.style.width = "100%" 
-        newLevelImg.style.objectFit = "cover"
         newLevel.classList.add("levelElementFalse")
 
     }
     else {
+        newLevelImg.src = tabLevelPic[sendId]
         newLevel.classList.add("levelElementTrue")
         newLevel.onclick = function() {
             newLevel.style.animation = "hinge 2s 1"

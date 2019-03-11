@@ -2,6 +2,8 @@ var tabCams = []
 var cams = document.getElementsByClassName("cam")
 var qtte = cams.length
 
+var global1 = ""
+
 
 function getCams() {
     for (var i = 0; i < qtte; i++) {
@@ -9,31 +11,54 @@ function getCams() {
     }
 }
 
+//Camera visual effects
+
 function glitch(){
     interferencesS()
-    var i = document.getElementById("screenCam1");
-    i.src="RESOURCES/couloir_glitch.jpg";
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100);
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},200);
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300);
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},400);
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500);
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},600);
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700);
+    var i = document.getElementById("screenCam1")
+    i.src="RESOURCES/couloir_glitch.jpg"
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100)
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},200)
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300)
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},400)
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500)
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},600)
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700)
 }
 
 function glitch2(){
     interferencesS()
-    var i = document.getElementById("screenCam1");
-    i.src="RESOURCES/couloir_glitch2.jpg";
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100);
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},200);
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300);
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},400);
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500);
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},600);
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700);
+    var i = document.getElementById("screenCam1")
+    i.src="RESOURCES/couloir_glitch2.jpg"
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100)
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},200)
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300)
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},400)
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500)
+    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},600)
+    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700)
 }
+
+function invertSpectre(pic) {
+    global1 = pic
+    global1.style.filter = "invert(0.5)"
+    global1.style.transition = "opacity 0.3s ease, filter 0s ease"
+    setTimeout("global1.style.filter = 'invert(0)'", 100)
+    setTimeout("global1.style.transition ='opacity 0.3s ease, filter 0.5s ease'", 100)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function toLobby() {
     if(document.getElementById("instructions").style.left == "0px") {
@@ -119,3 +144,14 @@ function leaveInstructions() {
     setTimeout("getBody.appendChild(instructions)", 2010)
 }
 
+
+
+
+
+
+//Window resize events
+
+
+window.addEventListener("resize", function() {
+    loadBorder()
+})

@@ -372,8 +372,7 @@ body {
     left: 15%;
     top: 10%;
     background-color: #f7e5e1;
-    border: 5px black groove;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, filter 0s ease;
     opacity: 1;
 }
 
