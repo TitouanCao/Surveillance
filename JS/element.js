@@ -254,18 +254,32 @@ function loadShadows() {
 
 
 
-function createLevel(sendId) {
+function createLevel(sendId,bool) {
     var newLevel = document.createElement("div")
+    var newLevelImg = document.createElement("img")
+    if(bool==true){
+        newLevelImg.className="levelElementImg"
+        newLevelImg.src = "RESOURCES/chains.png"
+        newLevelImg.style.height = "100%"
+        newLevelImg.style.width = "100%" 
+        newLevelImg.style.objectFit = "cover"
+        newLevel.classList.add("levelElementFalse")
+
+    }
+    else {
+        newLevel.classList.add("levelElementTrue")
+        newLevel.onclick = function() {
+            newLevel.style.animation = "hinge 2s 1"
+            metalCreaking3S()
+            toGame()
+        }
+    }
+    newLevel.classList.add("levelElement")
     newLevel.id = "level"+sendId
-    newLevel.className = "levelElement"
     newLevel.innerHTML = ""
     newLevel.style.width = "20vw"
     newLevel.style.height = "20vh"
-    newLevel.onclick = function() {
-        newLevel.style.animation = "hinge 2s 1";
-        metalCreaking3S()
-        toGame()
-    }
+    
     
     /*
     if (getNbLevel() >= 12) {
@@ -283,9 +297,7 @@ function createLevel(sendId) {
         newLevel.style.top = (Math.floor(((getNbLevel()) / 4)) + 1) * 25 + "vh"
         newLevel.style.left = getNbLevel() % 4  * 25 + 2.5 + "vw"
     /*}*/
-    
-
-    
+    newLevel.appendChild(newLevelImg)
     level.appendChild(newLevel)
     
 }
