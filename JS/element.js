@@ -88,14 +88,13 @@ function createBorder() {
         var screen = document.getElementsByClassName("screen")[0]
         var border = document.createElement("img")
         border.id = "borderScreen"
-        border.style.position = "fixed"
+        border.style.position = "absolute"
         border.style.zIndex = "50"
         border.style.left = (screen.getBoundingClientRect()).left - 10 + "px"
         border.style.top = (screen.getBoundingClientRect()).top - 10 + "px"
-        border.style.width = screen.offsetWidth + 4 + "px"
-        border.style.height = screen.offsetHeight + 4 + "px"
-        border.style.border = "5px black solid"
-        border.src = "RESOURCES/TV.png"
+        border.style.width = screen.offsetWidth + 14 + "px"
+        border.style.height = screen.offsetHeight + 14 + "px"
+        border.src = "RESOURCES/Screen6.png"
         border.alt = "videoSurveillanceBorder"
 
         game.appendChild(border)
@@ -103,6 +102,16 @@ function createBorder() {
     else {
         console.log("No screen yet")
     }
+}
+
+function changeBorder(version) {
+    var screen = document.getElementsByClassName("screen")[0]
+    var border = document.getElementById("borderScreen")
+    border.style.left = (screen.getBoundingClientRect()).left - 10 + "px"
+    border.style.top = (screen.getBoundingClientRect()).top - 10 + "px"
+    border.style.width = screen.offsetWidth + 14 + "px"
+    border.style.height = screen.offsetHeight + 14 + "px"
+    border.src = "RESOURCES/Screen"+version+".png"
 }
 
 function loadBorder() {
