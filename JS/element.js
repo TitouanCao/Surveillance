@@ -87,16 +87,27 @@ function createBorder() {
     if(document.getElementsByClassName("screen")[0]) {
         var screen = document.getElementsByClassName("screen")[0]
         var border = document.createElement("img")
+        var overlay = document.createElement("img")
         border.id = "borderScreen"
         border.style.position = "absolute"
         border.style.zIndex = "50"
         border.style.left = (screen.getBoundingClientRect()).left - 10 + "px"
-        border.style.top = (screen.getBoundingClientRect()).top - 10 + "px"
-        border.style.width = screen.offsetWidth + 14 + "px"
-        border.style.height = screen.offsetHeight + 14 + "px"
+        border.style.top = (screen.getBoundingClientRect()).top - 30 + "px"
+        border.style.width = screen.offsetWidth + screen.offsetWidth * 0.05 + "px"
+        border.style.height = screen.offsetHeight + screen.offsetHeight * 0.1 + "px"
         border.src = "RESOURCES/Screen6.png"
         border.alt = "videoSurveillanceBorder"
+        
+        overlay.id = "screenOverlay"
+        overlay.style.position = "absolute"
+        overlay.style.zIndex = "51"
+        overlay.style.left = (screen.getBoundingClientRect()).left + (screen.getBoundingClientRect()).left * 0.05 + "px"
+        overlay.style.top = (screen.getBoundingClientRect()).top + (screen.getBoundingClientRect()).top * 0.05 + "px"
+        overlay.style.width = screen.offsetWidth - screen.offsetWidth * 0.05 + "px"
+        overlay.style.height = screen.offsetHeight - screen.offsetWidth * 0.05 + "px"
+        overlay.src = "RESOURCES/camOverlay.png"
 
+        game.appendChild(overlay)
         game.appendChild(border)
     }
     else {
@@ -107,7 +118,7 @@ function createBorder() {
 function changeBorder(version) {
     var screen = document.getElementsByClassName("screen")[0]
     var border = document.getElementById("borderScreen")
-    border.style.left = (screen.getBoundingClientRect()).left - 10 + "px"
+    border.style.left = (screen.getBoundingClientRect()).left - 15 + "px"
     border.style.top = (screen.getBoundingClientRect()).top - 10 + "px"
     border.style.width = screen.offsetWidth + 14 + "px"
     border.style.height = screen.offsetHeight + 14 + "px"
@@ -120,9 +131,14 @@ function loadBorder() {
     }
     else {
         var border = document.getElementById("borderScreen")
+        var overlay = document.getElementById("screenOverlay")
         var screen = document.getElementsByClassName("screen")[0]
-        border.style.width = screen.offsetWidth + 4 + "px"
-        border.style.height = screen.offsetHeight + 4 + "px"
+        
+        border.style.width = screen.offsetWidth + screen.offsetWidth * 0.05 + "px"
+        border.style.height = screen.offsetHeight + screen.offsetHeight * 0.1 + "px"
+        
+        overlay.style.width = screen.offsetWidth - screen.offsetWidth * 0.05 + "px"
+        overlay.style.height = screen.offsetHeight - screen.offsetWidth * 0.05 + "px"
     }
 }
 
