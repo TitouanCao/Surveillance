@@ -60,6 +60,7 @@ function loadLevel1() {
         screens[i].firstChild.src = tabCam[0][i]
         i++
     }
+    screens[i-1].classList.add("selectedCam")
 }
 
 
