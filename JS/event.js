@@ -99,6 +99,9 @@ function toLevel() {
         video.src = "RESOURCES/paint.mp4"
         game.style.opacity = "0"
         game.style.pointerEvents = "none"
+        
+        loadLevels(12)
+        
     }
     else {
         lobby.style.top = "-110%"
@@ -129,6 +132,8 @@ function toGame() {
     linkCam(cam1)
     
     setTimeout(function() {
+        sinkLevels()
+        
         var lobby = document.getElementById("lobby")
         var game = document.getElementById("game")
         var level = document.getElementById("level")
