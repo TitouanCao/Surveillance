@@ -349,7 +349,6 @@ function createLevel(sendId,bool) {
         newLevel.classList.add("levelElementTrue")
         newLevel.onclick = function() {
             newLevel.style.animation = "hinge 2s 1"
-            setTimeout("newLevel.style.animation = 'hinge 2s 1'", 1500)
             metalCreaking3S()
             toGame()
         }

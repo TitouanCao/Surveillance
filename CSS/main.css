@@ -415,6 +415,10 @@ body {
 
 }
 
+.hingeLevel {
+    animation: hinge 2s 1;
+}
+
 .levelElement {
     position: absolute;
     background-color: #cecece;
