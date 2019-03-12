@@ -61,40 +61,53 @@ function invertSpectre(pic) {
 
 
 function toLobby() {
-    if(document.getElementById("instructions").style.left == "0px") {
-        leaveInstructions()
-    }
-    else if(document.getElementById("game").style.top == "0%") {
-        audio.src = "RESOURCES/Sound/FreeSwitzerland.mp3"
-        video.src = "RESOURCES/paint.mp4"
-    }
     var lobby = document.getElementById("lobby")
     var game = document.getElementById("game")
     var level = document.getElementById("level")
+
+    if(document.getElementById("instructions").style.left == "0px") {
+        leaveInstructions()
+    }
+    else if(document.getElementById("game").style.opacity == "1") {
+        audio.src = "RESOURCES/Sound/FreeSwitzerland.mp3"
+        video.src = "RESOURCES/paint.mp4"
+        lobby.style.top = "0%"
+        level.style.top = "110%" 
+        game.style.opacity = "0"
+        game.style.pointerEvents = "none"
+        sinkScreens()
+    }
+
     
-    lobby.style.top = "0%"
-    game.style.top = "210%"
-    level.style.top = "110%" 
-    setTimeout("sinkScreens()", 1000)  
+    
     
     //stopRandomScreamer()
 }
 
 function toLevel() {
-    if(document.getElementById("instructions").style.left == "0px") {
-        leaveInstructions()
-    }
-    else if(document.getElementById("game").style.top == "0%") {
-        audio.src = "RESOURCES/Sound/FreeSwitzerland.mp3"
-        video.src = "RESOURCES/paint.mp4"
-    }
     var lobby = document.getElementById("lobby")
     var game = document.getElementById("game")
     var level = document.getElementById("level")
+    if(document.getElementById("instructions").style.left == "0px") {
+        leaveInstructions()
+        lobby.style.top = "-110%"
+        level.style.top = "0"
+    }
+    else if(document.getElementById("game").style.opacity == "1") {
+        audio.src = "RESOURCES/Sound/FreeSwitzerland.mp3"
+        video.src = "RESOURCES/paint.mp4"
+        game.style.opacity = "0"
+        game.style.pointerEvents = "none"
+    }
+    else {
+        lobby.style.top = "-110%"
+        level.style.top = "0"
+    }
     
-    lobby.style.top = "-110%"
-    game.style.top = "110%"
-    level.style.top = "0%"
+    level.style.pointerEvents = "all"
+    level.style.opacity = "1"
+    
+    
     setTimeout("sinkScreens()", 1000)
     
     //stopRandomScreamer()
@@ -104,12 +117,15 @@ function toGame() {
     var lobby = document.getElementById("lobby")
     var game = document.getElementById("game")
     var level = document.getElementById("level")
-    
-    lobby.style.top = "-210%"
-    game.style.top = "0%"
-    level.style.top = "-110%"
-    
+
     loadScreens(6)
+
+    game.style.opacity = "1"
+    game.style.pointerEvents = "all"
+    level.style.opacity = "0"
+    level.style.pointerEvents = "none"
+    
+    
     
     if(!document.getElementById("start")) {
         startScreen()
@@ -119,6 +135,12 @@ function toGame() {
     }
     
     loadLevel1()
+    var cam1 = document.getElementById ("cam1")
+    cam1.click()
+
+    var start = document.getElementById('start')
+    start.style.opacity = "1"
+    start.style.pointerEvents = "all"
     
     audio.src = "RESOURCES/Sound/Silences.mp3"
     audio.currentTime = 47

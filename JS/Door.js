@@ -21,7 +21,7 @@ class Door{
 	}
 
 	placer(){
-		let m = document.getElementById("map");
+		let m = document.getElementById("doors");
 		let d= document.createElement("img");
 	    d.src="RESOURCES/door_open.png";
 	    d.id=this.id;
@@ -42,11 +42,11 @@ class Door{
 	move(x,y){
 		let d = document.getElementById(this.id);
 		if(x>=0){
-			this.x=x
+			this.x=x*this.map.getPercent()
 			d.style.right=this.x+"px";
 		} 
 		if(y>=0){
-			this.y=y
+			this.y=y*this.map.getPercent()
 			d.style.bottom=this.y+"px";
 		} 
 	}

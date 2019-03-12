@@ -90,7 +90,6 @@ function createBorder() {
         var overlay = document.createElement("img")
         border.id = "borderScreen"
         border.style.position = "absolute"
-        border.style.zIndex = "50"
         border.style.left = (screen.getBoundingClientRect()).left - 10 + "px"
         border.style.top = (screen.getBoundingClientRect()).top - 30 + "px"
         border.style.width = screen.offsetWidth + screen.offsetWidth * 0.05 + "px"
@@ -100,7 +99,6 @@ function createBorder() {
         
         overlay.id = "screenOverlay"
         overlay.style.position = "absolute"
-        overlay.style.zIndex = "51"
         overlay.style.left = (screen.getBoundingClientRect()).left + (screen.getBoundingClientRect()).left * 0.05 + "px"
         overlay.style.top = (screen.getBoundingClientRect()).top + (screen.getBoundingClientRect()).top * 0.05 + "px"
         overlay.style.width = screen.offsetWidth - screen.offsetWidth * 0.05 + "px"
@@ -233,8 +231,11 @@ function startScreen() {
     start.style.left = "0"
     start.style.width = "100vw"
     start.style.height = "100vh"
-    start.style.backgroundColor = "rgba(0,0,0,0.9)"
+    start.style.backgroundColor = "rgba(0,0,0,1)"
     start.style.color = "white"
+    start.style.opacity = "0"
+    start.style.cursor = "pointer"
+    start.style.pointerEvents = "none"
     if (currentLanguageVal == 2) {
         start.style.fontFamily = "GenkaiMincho"
     }
@@ -244,16 +245,19 @@ function startScreen() {
     start.style.fontSize = "5vw"
     start.style.textAlign = "center"
     start.style.zIndex = "10"
-    start.style.transition = "all 1s"
     
     startText.style.marginTop = "30vh"
     startText.innerHTML = textPerLang[currentLanguageVal][3]
     
     start.onclick = function() {
-        start.style.left = "-100%"
+        start.style.pointerEvents = "none"
         start.style.opacity = "0"
-        var cam1 = document.getElementById ("cam1")
-        cam1.click()
+        var d = document.getElementById("doors");
+        d.innerHTML="";
+        var s = document.createElement("script");
+        s.setAttribute("src","JS/Portes_Scenario.js");
+        s.setAttribute("type","text/jscript");
+        document.body.appendChild(s);
     }
     
     start.appendChild(startText)
@@ -717,8 +721,6 @@ function reloadGame() {
     if (document.getElementById('start')) {
         var start = document.getElementById('startText')
         start.innerHTML = textPerLang[currentLanguageVal][3]
-        document.getElementById('start').style.left = "0%"
-        document.getElementById('start').style.opacity = "1"
         
         if (currentLanguageVal == 2) {
             start.style.fontFamily = "GenkaiMincho"
