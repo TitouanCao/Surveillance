@@ -15,15 +15,20 @@ function getCams() {
 
 function glitch(){
     interferencesS()
-    var i = document.getElementById("screenCam1")
-    i.src="RESOURCES/couloir_glitch.jpg"
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100)
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},200)
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300)
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},400)
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500)
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch.jpg"},600)
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700)
+    let screens = document.getElementsByClassName("selectedCam")
+    let selectedCam = screens[0].firstChild
+    let screenName = selectedCam.src
+    var pos = screenName.lastIndexOf("/");
+    screenName = screenName.slice(pos+1,screenName.length-4);
+    var i = document.getElementById(selectedCam.id)
+    i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},100)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"},200)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},300)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"},400)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},500)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"},600)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},700)
 }
 
 function glitch2(){

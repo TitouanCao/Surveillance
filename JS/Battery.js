@@ -13,6 +13,9 @@ class Battery{
         m.style.width="3%";
         m.style.transform = "rotate(270deg)";
 	    m.style.position="absolute";
+	    m.addEventListener("click", function(){
+	        glitch()
+	    })
 	    d.appendChild(m)
 	    game.appendChild(d)
 	}

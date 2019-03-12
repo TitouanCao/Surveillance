@@ -178,7 +178,7 @@ function slideScreen(id) {
 function createCam(sendId) {
     var cam = document.createElement("div")
     cam.id = "cam"+sendId
-    cam.className = "cam"
+    cam.classList.add("cam")
     cam.innerHTML = ""
     cam.style.left = "1%"
     
@@ -194,11 +194,12 @@ function createCam(sendId) {
         var screens = document.getElementsByClassName("screen")
         for(var i = 0; i < getNbScreen(); i++) {
             if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){
+                screens[i].classList.add("selectedCam")
                 screens[i].style.opacity = "1"
                 screens[i].style.pointerEvents = "all"
             }
             else {
-                
+                screens[i].classList.remove("selectedCam")
                 screens[i].style.opacity = "0"
                 screens[i].style.pointerEvents = "none"
                 screens[i].style.animation = "none"
