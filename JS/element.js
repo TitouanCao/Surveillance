@@ -165,40 +165,44 @@ function createCam(sendId) {
     cam.appendChild(camPic)
     
     cam.onclick = function(){
+        buttonS()
         var screens = document.getElementsByClassName("screen")
         for(var i = 0; i < getNbScreen(); i++) {
             if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){
                 screens[i].style.opacity = "1"
                 screens[i].style.pointerEvents = "all"
-                //screens[i].style.animation = "perturbe 1s 1"
-                //playScreamerS()
-                invertSpectre(screens[i])
-                buttonS()
-                loadBorder()
             }
             else {
                 screens[i].style.opacity = "0"
                 screens[i].style.pointerEvents = "none"
                 screens[i].style.animation = "none"
             }
+        linkCam(cam)
         }
-        var cams = document.getElementsByClassName("cam")
-        var camPics = document.getElementsByClassName("camPic")
-        for(var i = 0; i < cams.length; i++) {
-            cams[i].style.borderRadius = "30%"
-            cams[i].style.boxShadow = "inset 12px 12px 2px 1px rgba(0, 0, 0, 0.2), 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
-            cams[i].style.backgroundColor = "#acb4b5"
-            camPics[i].style.width = "95%"
-        }
-        cam.style.borderRadius = "20%"
-        cam.style.boxShadow = "none"
-        cam.style.backgroundColor = "#ffffff"
-        camPic.style.width = "100%"
     }
     
     game.appendChild(cam)
     arrangeCam()
 }
+
+
+function linkCam(cam) {
+    var cams = document.getElementsByClassName("cam")
+    var camPics = document.getElementsByClassName("camPic")
+    for(var i = 0; i < cams.length; i++) {
+        cams[i].style.borderRadius = "30%"
+        cams[i].style.boxShadow = "inset 12px 12px 2px 1px rgba(0, 0, 0, 0.2), 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+        cams[i].style.backgroundColor = "#acb4b5"
+        camPics[i].style.width = "95%"
+    }
+    cam.style.borderRadius = "20%"
+    cam.style.boxShadow = "none"
+    cam.style.backgroundColor = "#ffffff"
+    camPics[cam.id.slice(cam.id.length-1, cam.id.length)-1].style.width = "100%"
+
+    loadBorder()
+}
+
 
 function deleteCam(sendId) {
     var id = "cam"+sendId
@@ -338,6 +342,7 @@ function createLevel(sendId,bool) {
         newLevel.classList.add("levelElementTrue")
         newLevel.onclick = function() {
             newLevel.style.animation = "hinge 2s 1"
+            setTimeout("newLevel.style.animation = 'hinge 2s 1'", 1500)
             metalCreaking3S()
             toGame()
         }

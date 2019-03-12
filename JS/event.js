@@ -77,9 +77,10 @@ function toLobby() {
         game.style.pointerEvents = "none"
         sinkScreens()
     }
-
-    
-    
+    else {
+        lobby.style.top = "0%"
+        level.style.top = "110%" 
+    }
     
     //stopRandomScreamer()
 }
@@ -107,25 +108,13 @@ function toLevel() {
     level.style.pointerEvents = "all"
     level.style.opacity = "1"
     
-    
     setTimeout("sinkScreens()", 250)
     
     //stopRandomScreamer()
 }
 
 function toGame() {
-    var lobby = document.getElementById("lobby")
-    var game = document.getElementById("game")
-    var level = document.getElementById("level")
-
     loadScreens(6)
-
-    game.style.opacity = "1"
-    game.style.pointerEvents = "all"
-    level.style.opacity = "0"
-    level.style.pointerEvents = "none"
-    
-    
     
     if(!document.getElementById("start")) {
         startScreen()
@@ -135,16 +124,30 @@ function toGame() {
     }
     
     loadLevel1()
-    var cam1 = document.getElementById ("cam1")
-    cam1.click()
-
-    var start = document.getElementById('start')
-    start.style.opacity = "1"
-    start.style.pointerEvents = "all"
     
-    audio.src = "RESOURCES/Sound/Silences.mp3"
-    audio.currentTime = 47
-    video.src = "RESOURCES/triangles.mp4"
+    var cam1 = document.getElementById ("cam1")
+    linkCam(cam1)
+    
+    setTimeout(function() {
+        var lobby = document.getElementById("lobby")
+        var game = document.getElementById("game")
+        var level = document.getElementById("level")
+        
+        game.style.opacity = "1"
+        game.style.pointerEvents = "all"
+        level.style.opacity = "0"
+        level.style.pointerEvents = "none"  
+
+        var start = document.getElementById('start')
+        start.style.opacity = "1"
+        start.style.pointerEvents = "all"
+
+        audio.src = "RESOURCES/Sound/Silences.mp3"
+        audio.currentTime = 47
+        video.src = "RESOURCES/triangles.mp4"
+    }, 1000)
+    
+    
     //startRandomScreamer()
     
 }
