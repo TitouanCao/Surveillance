@@ -11,7 +11,6 @@ function playScreamerS() {
         checkChannel().volume = "1"
         checkChannel().play()
     }
-
 }
 
 function openDoorS() {
@@ -192,7 +191,7 @@ function doorLikeS() {
 
 function fade(channel) {
     var vol = 0.5;
-    var interval = 100;
+    var interval = 50;
 
     var fadeout = setInterval(
     function() {
