@@ -150,7 +150,7 @@ function toGame() {
         audio.src = "RESOURCES/Sound/Silences.mp3"
         audio.currentTime = 47
         video.src = "RESOURCES/triangles.mp4"
-    }, 1000)
+    }, 1300)
     
     
     //startRandomScreamer()
