@@ -40,13 +40,16 @@ class Door{
 	}
 
 	move(x,y){
+		let p = this.map.getPercent()
+		let i=0
+		if(p<0.9) i=5
 		let d = document.getElementById(this.id);
 		if(x>=0){
-			this.x=x*this.map.getPercent()
+			this.x=Math.round(x*p)-i
 			d.style.right=this.x+"px";
 		} 
 		if(y>=0){
-			this.y=y*this.map.getPercent()
+			this.y=Math.round(y*p)
 			d.style.bottom=this.y+"px";
 		} 
 	}

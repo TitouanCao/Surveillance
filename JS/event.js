@@ -108,7 +108,7 @@ function toLevel() {
     level.style.opacity = "1"
     
     
-    setTimeout("sinkScreens()", 1000)
+    setTimeout("sinkScreens()", 250)
     
     //stopRandomScreamer()
 }
