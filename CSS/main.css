@@ -175,7 +175,7 @@ body {
     height: 100%;
     opacity: 0;
     pointer-events: none;
-    transition: top 1s ease-out, opacity 0.5s;
+    transition: top 1s ease-out, opacity 0.1s;
 }
 
 #level {

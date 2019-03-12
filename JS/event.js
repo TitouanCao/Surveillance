@@ -97,7 +97,9 @@ function toLevel() {
     else if(document.getElementById("game").style.opacity == "1") {
         audio.src = "RESOURCES/Sound/FreeSwitzerland.mp3"
         video.src = "RESOURCES/paint.mp4"
+        document.getElementById("start").style.transition = "opacity 1s"
         game.style.opacity = "0"
+        setTimeout("document.getElementById('start').style.transition = 'none'",10)
         game.style.pointerEvents = "none"
         
         loadLevels(12)
@@ -132,7 +134,7 @@ function toGame() {
     linkCam(cam1)
     
     setTimeout(function() {
-        sinkLevels()
+        setTimeout("sinkLevels()",1000)
         
         var lobby = document.getElementById("lobby")
         var game = document.getElementById("game")
@@ -150,7 +152,7 @@ function toGame() {
         audio.src = "RESOURCES/Sound/Silences.mp3"
         audio.currentTime = 47
         video.src = "RESOURCES/triangles.mp4"
-    }, 1300)
+    }, 1000)
     
     
     //startRandomScreamer()

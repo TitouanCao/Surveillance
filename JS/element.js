@@ -261,6 +261,7 @@ function startScreen() {
     startText.innerHTML = textPerLang[currentLanguageVal][3]
     
     start.onclick = function() {
+        start.style.transition = "opacity 1s"
         start.style.pointerEvents = "none"
         start.style.opacity = "0"
         var d = document.getElementById("doors");
