@@ -363,15 +363,24 @@ function createLevel(sendId,bool) {
     if(bool==true){
         newLevelImg.src = "RESOURCES/chains.png"
         newLevel.classList.add("levelElementFalse")
+        newLevel.onmouseover = function() {
+            chainS()
+        }
 
     }
     else {
         newLevelImg.src = tabLevelPic[sendId]
         newLevel.classList.add("levelElementTrue")
         newLevel.onclick = function() {
-            newLevel.style.animation = "hinge 2s 1"
             metalCreaking3S()
+            newLevel.style.animation = "hinge 2s 1"
             toGame()
+        }
+        newLevel.onmouseover = function() {
+            ghostS()
+        }
+        newLevel.onmouseout = function() {
+            stopSoundBonus()
         }
     }
     newLevel.classList.add("levelElement")
@@ -423,6 +432,9 @@ function createSetting() {
     }
     setting.onmouseover = function() {
         lockLongS()
+    }
+    setting.onmouseout = function() {
+        stopSoundBonus()
     }
     
     

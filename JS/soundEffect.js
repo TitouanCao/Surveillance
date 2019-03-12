@@ -1,7 +1,36 @@
 var soundEffect = new Audio()
 var soundEffectBis = new Audio()
+var soundEffectBonus = new Audio()
 var screamer = new Audio()
 var screamerState = null
+
+
+soundEffect.id = "SoundEffect 1"
+soundEffectBis.id = "SoundEffect 2"
+
+
+function stopSoundBonus() {
+    fade(soundEffectBonus)
+}
+
+function ghostS() {
+    if (noSoundEffect == false){
+        soundEffectBonus.src = 'RESOURCES/Sound/ghost.mp3'
+        soundEffectBonus.volume = "1"
+        soundEffectBonus.play()
+    }
+}
+
+function lockLongS() {
+    if (noSoundEffect == false){
+        soundEffectBonus.src = 'RESOURCES/Sound/lockLong.mp3'
+        soundEffectBonus.volume = "1"
+        soundEffectBonus.play()
+    }
+}
+
+
+
 
 
 function playScreamerS() {
@@ -17,15 +46,6 @@ function openDoorS() {
     if (noSoundEffect == false){
         fade(checkChannelRevert())
         checkChannel().src = 'RESOURCES/Sound/door.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
-}
-
-function lockLongS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/lockLong.mp3'
         checkChannel().volume = "1"
         checkChannel().play()
     }
@@ -121,6 +141,18 @@ function buttonS() {
     }
 }
 
+function chainS() {
+    if (noSoundEffect == false){
+        fade(checkChannelRevert())
+        checkChannel().src = 'RESOURCES/Sound/chain.mp3'
+        checkChannel().volume = "1"
+        checkChannel().play()
+    }
+}
+
+
+
+
 
 
 
@@ -169,7 +201,7 @@ function doorLikeS() {
         doorCreakingS()
     }
     else {
-        lockLongS()
+        openDoorS()
     }
 }
 
@@ -190,8 +222,8 @@ function doorLikeS() {
 
 
 function fade(channel) {
-    var vol = 0.5;
-    var interval = 50;
+    var vol = 1;
+    var interval = 30;
 
     var fadeout = setInterval(
     function() {
@@ -202,6 +234,7 @@ function fade(channel) {
         else if (vol <= 0.1 && vol > 0) {
             vol = 0
             channel.volume = vol
+            channel.pause()
         }
         else {
           clearInterval(fadeout);
@@ -231,6 +264,31 @@ function checkChannelRevert() {
 
 
 
+
+
+
+
+//setInterval(shutChannel, 500)
+
+function shutChannel() {
+    if(soundEffect.paused) {
+        soundEffect.src= ""
+    }
+    else if (soundEffectBis.paused) {
+        soundEffectBis.src = ""
+    }
+}
+
+//setInterval(showChannels, 2000)
+
+function showChannels() {
+    console.log("CHECK : " + checkChannel().id)
+    console.log("CHECK REVERT : " + checkChannelRevert().id)
+    console.log("Channel 1 : " + " SRC = " + soundEffect.src + " PAUSE ?  = " + soundEffect.paused)
+    console.log("Channel 2 : " + " SRC = " + soundEffectBis.src + " PAUSE ?  = " + soundEffectBis.paused)
+    console.log("Channel bonus : " + " SRC = " + soundEffectBonus.src + " PAUSE ?  = " + soundEffectBonus.paused)
+    console.log("------------------------------------------------------------------------")
+}
 
 
 
