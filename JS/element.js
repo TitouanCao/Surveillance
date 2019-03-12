@@ -90,7 +90,7 @@ function createBorder() {
         var overlay = document.createElement("img")
         border.id = "borderScreen"
         border.style.position = "absolute"
-        border.style.left = (screen.getBoundingClientRect()).left - 10 + "px"
+        border.style.left = (screen.getBoundingClientRect()).left - 15 + "px"
         border.style.top = (screen.getBoundingClientRect()).top - 30 + "px"
         border.style.width = screen.offsetWidth + screen.offsetWidth * 0.05 + "px"
         border.style.height = screen.offsetHeight + screen.offsetHeight * 0.1 + "px"
@@ -98,12 +98,13 @@ function createBorder() {
         border.alt = "videoSurveillanceBorder"
         
         overlay.id = "screenOverlay"
+        overlay.className = "screenOverlay"
         overlay.style.position = "absolute"
         overlay.style.left = (screen.getBoundingClientRect()).left + (screen.getBoundingClientRect()).left * 0.05 + "px"
         overlay.style.top = (screen.getBoundingClientRect()).top + (screen.getBoundingClientRect()).top * 0.05 + "px"
-        overlay.style.width = screen.offsetWidth - screen.offsetWidth * 0.05 + "px"
-        overlay.style.height = screen.offsetHeight - screen.offsetWidth * 0.05 + "px"
-        overlay.src = "RESOURCES/camOverlay.png"
+        overlay.style.width = screen.offsetWidth - screen.offsetWidth * 0.005 + "px"
+        overlay.style.height = screen.offsetHeight - screen.offsetWidth * 0.01 + "px"
+        overlay.src = "RESOURCES/camOverlay.gif"
 
         game.appendChild(overlay)
         game.appendChild(border)
@@ -135,8 +136,8 @@ function loadBorder() {
         border.style.width = screen.offsetWidth + screen.offsetWidth * 0.05 + "px"
         border.style.height = screen.offsetHeight + screen.offsetHeight * 0.1 + "px"
         
-        overlay.style.width = screen.offsetWidth - screen.offsetWidth * 0.05 + "px"
-        overlay.style.height = screen.offsetHeight - screen.offsetWidth * 0.05 + "px"
+        overlay.style.width = screen.offsetWidth - screen.offsetWidth * 0.005 + "px"
+        overlay.style.height = screen.offsetHeight - screen.offsetWidth * 0.01 + "px"
     }
 }
 
@@ -165,6 +166,8 @@ function createCam(sendId) {
     cam.appendChild(camPic)
     
     cam.onclick = function(){
+        var overlay = document.getElementById("screenOverlay")
+        overlay.style.opacity = "0"
         buttonS()
         var screens = document.getElementsByClassName("screen")
         for(var i = 0; i < getNbScreen(); i++) {
@@ -173,14 +176,18 @@ function createCam(sendId) {
                 screens[i].style.pointerEvents = "all"
             }
             else {
+                
                 screens[i].style.opacity = "0"
                 screens[i].style.pointerEvents = "none"
                 screens[i].style.animation = "none"
             }
         linkCam(cam)
         }
+        setTimeout(function(){
+            overlay.style.opacity = "1"
+        },150)
+        
     }
-    
     game.appendChild(cam)
     arrangeCam()
 }

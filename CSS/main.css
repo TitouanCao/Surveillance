@@ -379,6 +379,10 @@ body {
     opacity: 1;
 }
 
+.screenOverlay {
+    transition: opacity 0.3s ease;
+}
+
 
 
 .cam {
