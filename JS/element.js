@@ -83,8 +83,31 @@ function createScreen(sendId) {
     screenOverlay.style.width = "100%"
     screenOverlay.style.filter = "brightness(0.75)"
     
+    var time =  document.createElement("p")
+    time.style.color = "white"
+    time.style.position = "absolute"
+    time.style.top = "5%"
+    time.style.left = "15%"
+    time.style.fontSize = "30px"
+    var hours = 22;
+    var minutes = 0;
+    var x = setInterval(function() {
+        minutes++;
+        if(minutes==60){
+            minutes=0;
+            hours++;
+        }
+        if(hours==24){
+            hours=0;
+        }
+        let zero = "";
+        if(minutes<10) zero="0"
+        time.innerHTML = hours + " : "+zero+minutes;
+
+    }, 1000);
     screen.appendChild(screenCam)
     screen.appendChild(screenOverlay)
+    screen.appendChild(time)
     game.appendChild(screen)
 }
 
