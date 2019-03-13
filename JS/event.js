@@ -14,7 +14,7 @@ function getCams() {
 //Camera visual effects
 
 function glitch(){
-    interferencesS()
+    interferenceS()
     let screens = document.getElementsByClassName("selectedCam")
     let selectedCam = screens[0].firstChild
     let screenName = selectedCam.src
