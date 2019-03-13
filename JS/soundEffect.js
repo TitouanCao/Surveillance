@@ -1,154 +1,81 @@
-var soundEffect = new Audio()
-var soundEffectBis = new Audio()
-var soundEffectBonus = new Audio()
+var soundEffect = document.createElement('audio')
 var screamer = new Audio()
 var screamerState = null
 
+soundEffect.id = "SoundEffect1"
+soundEffect.className = "clear"
+getBody.appendChild(soundEffect)
 
-soundEffect.id = "SoundEffect 1"
-soundEffectBis.id = "SoundEffect 2"
-
-
-function stopSoundBonus() {
-    fade(soundEffectBonus)
-}
 
 function ghostS() {
-    if (noSoundEffect == false){
-        soundEffectBonus.src = 'RESOURCES/Sound/ghost.mp3'
-        soundEffectBonus.volume = "1"
-        soundEffectBonus.play()
-    }
+    manageSounds('RESOURCES/Sound/ghost.mp3')
 }
 
 function lockLongS() {
-    if (noSoundEffect == false){
-        soundEffectBonus.src = 'RESOURCES/Sound/lockLong.mp3'
-        soundEffectBonus.volume = "1"
-        soundEffectBonus.play()
-    }
+    manageSounds('RESOURCES/Sound/lockLong.mp3')
 }
 
-
-
-
-
 function playScreamerS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/screamer2.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/screamer2.mp3')
 }
 
 function openDoorS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/door.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/door.mp3')
 }
 
 function whistleS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/whistle.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/whistle.mp3')
 }
 
 function metalCreakingS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/metalCreaking.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/metalCreaking.mp3')
 }
 
 function metalCreaking2S() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/metalCreaking2.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/metalCreaking2.mp3')
 }
 
 function metalCreaking3S() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/metalCreaking3.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/metalCreaking3.mp3')
 }
 
 function doorCreakingS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/doorCreaking1.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/doorCreaking1.mp3')
 }
 
 function echoS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/echo.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/echo.mp3')
 }
 
 function chainsawS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/chainsaw.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/chainsaw.mp3')
 }
 
 function writingS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/writing.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/writing.mp3')
 }
 
-function interferencesS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/interference.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+function interferenceS() {
+    manageSounds('RESOURCES/Sound/interference.mp3')
 }
 
 function buttonS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/lock3.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/lock3.mp3')
 }
 
 function chainS() {
-    if (noSoundEffect == false){
-        fade(checkChannelRevert())
-        checkChannel().src = 'RESOURCES/Sound/chain.mp3'
-        checkChannel().volume = "1"
-        checkChannel().play()
-    }
+    manageSounds('RESOURCES/Sound/chain.mp3')
 }
+
+function lockS() {
+    manageSounds('RESOURCES/Sound/lock.mp3')
+}
+
+function unlockS() {
+    manageSounds('RESOURCES/Sound/unlock.mp3')
+}
+
+
 
 
 
@@ -177,15 +104,6 @@ function stopRandomScreamer() {
 
 
 
-
-
-
-
-
-
-
-
-
 function doorLikeS() {
     var rand = Math.floor(Math.random() * 5) 
     if (rand == 0) {
@@ -211,85 +129,101 @@ function doorLikeS() {
 
 
 
+//Sound management, basically allocating channels when needed and shutting down others with a nice fade effect of course
+function manageSounds(sound) {
+    if (noSoundEffect == false) {
+        var free = getFreeChannel()
+        reviveOne(free, sound)
+        killTheOthers(free)
+    }
+}
 
 
+function getFreeChannel() {
+    var i = 1
+    while(undefined != document.getElementById("SoundEffect"+i)) {
+        if(document.getElementById("SoundEffect"+i).paused) {
+            return document.getElementById("SoundEffect"+i)
+        }
+        i++
+    }
+    var newChannel = document.createElement("audio")
+    newChannel.id = "SoundEffect"+i
+    newChannel.className = "clear"
+    getBody.appendChild(newChannel)
+    return newChannel   
+}
+
+function killTheOthers(survivor) {
+    var total = document.getElementsByTagName("audio").length - 4
+    var i = 1
+    while(i <= total) {
+        if(undefined != document.getElementById("SoundEffect"+i) && document.getElementById("SoundEffect"+i) != survivor) {
+            if (document.getElementById("SoundEffect"+i).className != "faded"){
+                fade(document.getElementById("SoundEffect"+i))
+            }   
+        }
+        i++
+    }
+}
+
+function reviveOne(channel, sound) {
+    channel.className = "clear"
+    channel.src = sound + ""
+    channel.volume = "1"
+    channel.play()
+}
 
 
+setInterval(TheReaper, 1000)
 
+function TheReaper() {
+    var i = document.getElementsByTagName("audio").length - 1 //Music Audio
+    var displayI = i - 1
+    if (undefined != document.getElementById("SoundEffect"+i) && document.getElementById("SoundEffect"+i).paused && i != 1) {
+        console.log("I reaped " + document.getElementById("SoundEffect"+i).id + " - Still " + displayI + " survivor(s)")
+        var a = getBody.removeChild(document.getElementById("SoundEffect"+i))
+        a = ""
+    }
+}
 
-
+function TheSilenceBringer() {
+    var i = document.getElementsByTagName("audio").length - 1 //Music Audio
+    while (i > 0) {
+        fade(document.getElementById("SoundEffect"+i))
+        i--
+    }
+}
 
 
 
 function fade(channel) {
-    var vol = 1;
-    var interval = 30;
-
-    var fadeout = setInterval(
-    function() {
-        if (vol > 0.1) {
-            vol -= 0.05;
+    channel.className = "faded"
+    vol = 1
+    var process = setInterval(function() {
+        vol -= 0.05
+        if(vol > 0) {
             channel.volume = vol
         }
-        else if (vol <= 0.1 && vol > 0) {
+        else {
             vol = 0
             channel.volume = vol
             channel.pause()
+            channel.className = "clear"
+            clearInterval(process)
         }
-        else {
-          clearInterval(fadeout);
-        }
-    }, interval);
-}
-
-function checkChannel() {
-    if(!soundEffect.paused && soundEffectBis.paused) {
-        return soundEffectBis
-    }
-    else {
-        return soundEffect
-    }
-}
-
-function checkChannelRevert() {
-    if(!soundEffect.paused && soundEffectBis.paused) {
-        return soundEffect
-    }
-    else {
-        return soundEffectBis
-    }
+    }, 100)
 }
 
 
 
 
 
-
-
-
-
-//setInterval(shutChannel, 500)
-
-function shutChannel() {
-    if(soundEffect.paused) {
-        soundEffect.src= ""
-    }
-    else if (soundEffectBis.paused) {
-        soundEffectBis.src = ""
-    }
+function showChannelStatus(channel) {
+    console.log("VOLUME : " + channel.volume)
+    console.log("PAUSED : " + channel.paused)
+    console.log("CLASS : " + channel.className)
 }
-
-//setInterval(showChannels, 2000)
-
-function showChannels() {
-    console.log("CHECK : " + checkChannel().id)
-    console.log("CHECK REVERT : " + checkChannelRevert().id)
-    console.log("Channel 1 : " + " SRC = " + soundEffect.src + " PAUSE ?  = " + soundEffect.paused)
-    console.log("Channel 2 : " + " SRC = " + soundEffectBis.src + " PAUSE ?  = " + soundEffectBis.paused)
-    console.log("Channel bonus : " + " SRC = " + soundEffectBonus.src + " PAUSE ?  = " + soundEffectBonus.paused)
-    console.log("------------------------------------------------------------------------")
-}
-
 
 
 

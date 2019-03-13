@@ -381,7 +381,7 @@ function createLevel(sendId,bool) {
             ghostS()
         }
         newLevel.onmouseout = function() {
-            stopSoundBonus()
+            TheSilenceBringer()
         }
     }
     newLevel.classList.add("levelElement")
@@ -433,9 +433,6 @@ function createSetting() {
     }
     setting.onmouseover = function() {
         lockLongS()
-    }
-    setting.onmouseout = function() {
-        stopSoundBonus()
     }
     
     
