@@ -22,27 +22,18 @@ function glitch(){
     screenName = screenName.slice(pos+1,screenName.length-4);
     var i = document.getElementById(selectedCam.id)
     i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},100)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"},200)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},300)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"},400)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},500)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"},600)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg"},700)
+    i.style.bottom="1%"
+    i.style.left="1%"
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},100)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg";i.style.bottom="1%";i.style.left="1%"},200)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},300)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg";i.style.bottom="1%";i.style.left="1%"},400)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},500)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg";i.style.bottom="1%";i.style.left="1%"},600)
+    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},700)
 }
 
-function glitch2(){
-    interferencesS()
-    var i = document.getElementById("screenCam1")
-    i.src="RESOURCES/couloir_glitch2.jpg"
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},100)
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},200)
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},300)
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},400)
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},500)
-    setTimeout(function(){i.src="RESOURCES/couloir_glitch2.jpg"},600)
-    setTimeout(function(){i.src="RESOURCES/couloir.jpg"},700)
-}
+
 
 function invertSpectre(pic) {
     global1 = pic

@@ -72,6 +72,7 @@ function createScreen(sendId) {
     screenCam.style.objectFit = "cover"
     screenCam.style.width = "100%"
     screenCam.style.height = "100%"
+    screenCam.style.position="absolute"
     
     screenOverlay.src = "RESOURCES/camOverlay.gif"
     screenOverlay.alt = "cameraOverlay"
