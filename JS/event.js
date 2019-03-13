@@ -72,6 +72,7 @@ function toLobby() {
         game.style.opacity = "0"
         game.style.pointerEvents = "none"
         sinkScreens()
+        loadLevels(12)
     }
     else {
         lobby.style.top = "0%"
