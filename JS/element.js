@@ -374,7 +374,7 @@ function createLevel(sendId,bool) {
         newLevelImg.src = tabLevelPic[sendId]
         newLevel.classList.add("levelElementTrue")
         newLevel.onclick = function() {
-            metalCreaking3S()
+            metalCreaking2S()
             newLevel.style.animation = "hinge 2s 1"
             toGame()
         }
@@ -382,7 +382,7 @@ function createLevel(sendId,bool) {
             ghostS()
         }
         newLevel.onmouseout = function() {
-            stopSoundBonus()
+            TheSilenceBringer()
         }
     }
     newLevel.classList.add("levelElement")
@@ -434,9 +434,6 @@ function createSetting() {
     }
     setting.onmouseover = function() {
         lockLongS()
-    }
-    setting.onmouseout = function() {
-        stopSoundBonus()
     }
     
     
