@@ -379,6 +379,17 @@ body {
     opacity: 1;
 }
 
+#glitchImg {
+    position: absolute;
+    width: 55%;
+    height: 70%;
+    left: 16%;
+    top: 9%;
+    background-color: #f7e5e1;
+    z-index: 1;
+}
+
+
 .screenOverlay {
     z-index: 1;
     transition: opacity 0.3s ease;
