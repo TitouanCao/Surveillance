@@ -175,10 +175,13 @@ function reviveOne(channel, sound) {
 }
 
 
-setInterval(TheReaper, 1000)
+setInterval(TheReaper, 500)
 
 function TheReaper() {
     var i = document.getElementsByTagName("audio").length - 1 //Music Audio
+    if (i > 10) {
+        dontTroll()
+    }
     var displayI = i - 1
     if (undefined != document.getElementById("SoundEffect"+i) && document.getElementById("SoundEffect"+i).paused && i != 1) {
         console.log("I reaped " + document.getElementById("SoundEffect"+i).id + " - Still " + displayI + " survivor(s)")
@@ -195,6 +198,21 @@ function TheSilenceBringer() {
     }
 }
 
+function dontTroll() {
+    var i = document.getElementsByTagName("audio").length - 1 //Music Audio
+    while (i > 0) {
+        var a = getBody.removeChild(document.getElementById("SoundEffect"+i))
+        a = ""
+        i--
+    }
+    if(parseInt(getCookie('troll')) == 2){
+        document.body.innerHTML = '';
+        alert(textPerLang[parseInt(getCookie("language"))][16], "Titre", "ok j'y vais")
+    } else {
+        setCookie('troll', parseInt(getCookie('troll')) + 1)
+        alert(textPerLang[parseInt(getCookie("language"))][14] + getCookie('troll') + textPerLang[parseInt(getCookie("language"))][15] + "", "Titre", "OkayTamEre")
+    }
+}
 
 
 function fade(channel) {

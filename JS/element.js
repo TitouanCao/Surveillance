@@ -6,8 +6,6 @@ var audio = document.getElementById("audio")
 var video = document.getElementById("background")
 
 var languages = ["En", "Fr", "Jp"]
-var currentLanguage = languages[0]
-var currentLanguageVal = 0
 var prevLanguageVal = -1
 
 
@@ -269,7 +267,7 @@ function startScreen() {
     start.style.opacity = "0"
     start.style.cursor = "pointer"
     start.style.pointerEvents = "none"
-    if (currentLanguageVal == 2) {
+    if (parseInt(getCookie("language")) == 2) {
         start.style.fontFamily = "GenkaiMincho"
     }
     else {
@@ -280,7 +278,7 @@ function startScreen() {
     start.style.zIndex = "10"
     
     startText.style.marginTop = "30vh"
-    startText.innerHTML = textPerLang[currentLanguageVal][3]
+    startText.innerHTML = textPerLang[parseInt(getCookie("language"))][3]
     
     start.onclick = function() {
         start.style.transition = "opacity 1s"
@@ -431,11 +429,8 @@ function createSetting() {
     setting.style.width = "3vw"
     setting.onclick = function() {
         displayMenu()
-    }
-    setting.onmouseover = function() {
         lockLongS()
     }
-    
     
     getBody.appendChild(setting)
 }
@@ -648,23 +643,20 @@ function createMenu() {
     var jp = document.getElementById("buttonLanguageC2")
     
     eng.addEventListener("click", function(){
-        prevLanguageVal = currentLanguageVal
-        currentLanguage = languages[0]
-        currentLanguageVal = 0
+        prevLanguageVal = getCookie("language")
+        setCookie("language", 0)
         reloadLanguages()
         writingS()
     })
     fr.addEventListener("click", function(){
-        prevLanguageVal = currentLanguageVal
-        currentLanguage = languages[1]
-        currentLanguageVal = 1
+        prevLanguageVal = getCookie("language")
+        setCookie("language", 1)
         reloadLanguages()
         writingS()
     })
     jp.addEventListener("click", function(){
-        prevLanguageVal = currentLanguageVal
-        currentLanguage = languages[2]
-        currentLanguageVal = 2
+        prevLanguageVal = getCookie("language")
+        setCookie("language", 2)
         reloadLanguages()
         writingS()
     })
@@ -698,11 +690,11 @@ function createInstructions() {
     var rulesTitle = document.createElement("h1")
     rules.id = "rules"
     rulesTitle.id = "rulesTitle"
-    if (currentLanguageVal == 2) {
-            rules.style.fontFamily = "GenkaiMincho"
+    if (parseInt(getCookie("language")) == 2) {
+        rules.style.fontFamily = "GenkaiMincho"
         rulesTitle.style.fontFamily = "GenkaiMincho"
     }
-    rules.innerHTML = textPerLang[currentLanguageVal][5]
+    rules.innerHTML = textPerLang[parseInt(getCookie("language"))][5]
     rulesTitle.innerHTML = "HOW TO PLAY"
     
     instructions.appendChild(rulesTitle)
@@ -717,10 +709,10 @@ function reloadInstructions() {
     var rules = document.getElementById("rules")
     var title = document.getElementById("rulesTitle")
     
-    rules.innerHTML = textPerLang[currentLanguageVal][5]
-    title.innerHTML = textPerLang[currentLanguageVal][4]
+    rules.innerHTML = textPerLang[parseInt(getCookie("language"))][5]
+    title.innerHTML = textPerLang[parseInt(getCookie("language"))][4]
     
-    if (currentLanguageVal == 2) {
+    if (parseInt(getCookie("language")) == 2) {
         rules.style.fontFamily = "GenkaiMincho"
         title.style.fontFamily = "GenkaiMincho"
     }
@@ -734,10 +726,10 @@ function reloadLobby() {
     var start = document.getElementById("playButton")
     var instruction = document.getElementById("instructionsButton")
     
-    start.innerHTML = textPerLang[currentLanguageVal][0]
-    instruction.innerHTML = textPerLang[currentLanguageVal][1]
+    start.innerHTML = textPerLang[parseInt(getCookie("language"))][0]
+    instruction.innerHTML = textPerLang[parseInt(getCookie("language"))][1]
     
-    if (currentLanguageVal == 2) {
+    if (parseInt(getCookie("language")) == 2) {
         start.style.fontFamily = "GenkaiMincho"
         instruction.style.fontFamily = "GenkaiMincho"
     }
@@ -750,9 +742,9 @@ function reloadLobby() {
 function reloadLevel() {
     var select = document.getElementById("titleLevel")
     
-    select.innerHTML = textPerLang[currentLanguageVal][2]
+    select.innerHTML = textPerLang[parseInt(getCookie("language"))][2]
     
-    if (currentLanguageVal == 2) {
+    if (parseInt(getCookie("language")) == 2) {
         select.style.fontFamily = "GenkaiMincho"
     }
     else {
@@ -763,9 +755,9 @@ function reloadLevel() {
 function reloadGame() {
     if (document.getElementById('start')) {
         var start = document.getElementById('startText')
-        start.innerHTML = textPerLang[currentLanguageVal][3]
+        start.innerHTML = textPerLang[parseInt(getCookie("language"))][3]
         
-        if (currentLanguageVal == 2) {
+        if (parseInt(getCookie("language")) == 2) {
             start.style.fontFamily = "GenkaiMincho"
         }
         else {
@@ -784,21 +776,21 @@ function reloadMenu() {
     var level = document.getElementById("buttonLevel")
     var lobby = document.getElementById("buttonLobby")
     
-    title.innerHTML = textPerLang[currentLanguageVal][6]
+    title.innerHTML = textPerLang[parseInt(getCookie("language"))][6]
     
-    sound.innerHTML = textPerLang[currentLanguageVal][7]
+    sound.innerHTML = textPerLang[parseInt(getCookie("language"))][7]
     
-    soundOn.innerHTML = textPerLang[currentLanguageVal][8]
+    soundOn.innerHTML = textPerLang[parseInt(getCookie("language"))][8]
     
-    soundOff.innerHTML = textPerLang[currentLanguageVal][9]
+    soundOff.innerHTML = textPerLang[parseInt(getCookie("language"))][9]
     
-    language.innerHTML = textPerLang[currentLanguageVal][10]
+    language.innerHTML = textPerLang[parseInt(getCookie("language"))][10]
     
-    level.innerHTML = textPerLang[currentLanguageVal][11]
+    level.innerHTML = textPerLang[parseInt(getCookie("language"))][11]
     
-    lobby.innerHTML = textPerLang[currentLanguageVal][12]
+    lobby.innerHTML = textPerLang[parseInt(getCookie("language"))][12]
  
-    musicOnly.innerHTML = textPerLang[currentLanguageVal][13]
+    musicOnly.innerHTML = textPerLang[parseInt(getCookie("language"))][13]
 }
 
 
