@@ -56,8 +56,7 @@ class Door{
 
 	lock(){
 		let d = document.getElementById(this.id);
-		let s = document.getElementById("lock")
-		s.play();
+		lockS()
 		d.src="RESOURCES/door_closed.png";
 		this.state=0;
 		nbLockedDoors++;
@@ -66,7 +65,7 @@ class Door{
 	unlock(){
 		let d = document.getElementById(this.id);
 		let s = document.getElementById("unlock")
-		s.play();
+		unlockS()
 		d.src="RESOURCES/door_open.png";
 		this.state=1;
 		nbLockedDoors--;
