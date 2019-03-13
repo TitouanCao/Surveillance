@@ -373,7 +373,7 @@ function createLevel(sendId,bool) {
         newLevelImg.src = tabLevelPic[sendId]
         newLevel.classList.add("levelElementTrue")
         newLevel.onclick = function() {
-            metalCreaking3S()
+            metalCreaking2S()
             newLevel.style.animation = "hinge 2s 1"
             toGame()
         }
