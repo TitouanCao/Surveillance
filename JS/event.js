@@ -33,6 +33,37 @@ function glitch(){
     setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},700)
 }
 
+function focusedGlitch(id){
+    interferenceS()
+    
+    var screenId = "screenCam"+id
+    var screen = document.getElementById(screenId)
+    var screenName = screen.src.slice(screen.src.lastIndexOf("/") + 1, screen.src.length - 4)
+    screen.src = "RESOURCES/camPics/"+screenName+"_glitch.jpg"
+    
+    setTimeout(function(){
+        screen.src="RESOURCES/camPics/"+screenName+".jpg"
+    },100)
+    setTimeout(function(){
+        screen.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"
+    },200)
+    setTimeout(function(){
+        screen.src="RESOURCES/camPics/"+screenName+".jpg"
+    },300)
+    setTimeout(function(){
+        screen.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"
+    },400)
+    setTimeout(function(){
+        screen.src="RESOURCES/camPics/"+screenName+".jpg"
+    },500)
+    setTimeout(function(){
+        screen.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"
+    },600)
+    setTimeout(function(){
+        screen.src="RESOURCES/camPics/"+screenName+".jpg"
+    },700)
+}
+
 
 
 function invertSpectre(pic) {

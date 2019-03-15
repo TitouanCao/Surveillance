@@ -23,7 +23,7 @@
             <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="toLobby(), metalCreakingS()">
         </div>
         <div id="game">
-            <img id ="glitchImg" src="RESOURCES/camPics/Couloir2_glitch.jpg" alt="nope" style="opacity:0">
+            <img id ="glitchImg" src="RESOURCES/camPics/Couloir2_glitch.jpg" alt="nope" style="opacity:0;pointer-events: none;">
         </div>
     </body>
     <script type="text/jscript" src="JS/element.js"></script>
@@ -37,11 +37,13 @@
     <script type="text/jscript" src="JS/level.js"></script>
     <script type="text/jscript" src="JS/soundEffect.js"></script>
     <script type="text/jscript" src="JS/cookies.js"></script>
+    <script type="text/jscript" src="JS/monster.js"></script>
     <script>
         var audio = document.getElementById("audio");
         audio.volume = "0.7"
         
         
         loadTheGame()
+        var monster = new Monster
     </script>
 </html>

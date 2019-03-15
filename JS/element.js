@@ -64,6 +64,7 @@ function createScreen(sendId) {
     screen.innerHTML = ""
     screen.style.backgroundSize = "100%"
     screen.style.left = "15%"
+    screen.style.pointerEvents = "none"
     
     screenCam.src = ""
     screenCam.alt = "videoSurveillanceCamera"
@@ -128,6 +129,7 @@ function createBorder() {
         border.style.top = (screen.getBoundingClientRect()).top - 30 + "px"
         border.style.width = screen.offsetWidth + screen.offsetWidth * 0.05 + "px"
         border.style.height = screen.offsetHeight + screen.offsetHeight * 0.1 + "px"
+        border.style.pointerEvents = "none"
         border.src = "RESOURCES/Screen6.png"
         border.alt = "videoSurveillanceBorder"
         
