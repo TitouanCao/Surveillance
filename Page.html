@@ -12,15 +12,15 @@
         </video>
         <div id="lobby">
             <h1 id="title" onclick="doorLikeS()">Surveillance</h1>
-            <h3 id="playButton" onclick="toLevel(), doorCreakingS()">Start</h3>
-            <h3 id="instructionsButton" onclick="toInstructions(), openDoorS()">Instructions</h3>
+            <h3 id="playButton" onclick="toLevel(), startSound('doorCreaking')">Start</h3>
+            <h3 id="instructionsButton" onclick="toInstructions(), startSound('door')">Instructions</h3>
         </div>
         <div id="instructions">
-            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="leaveInstructions(), metalCreaking2S()">
+            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="leaveInstructions(), startSound('metalCreaking2')">
         </div>
         <div id="level">
             <h1 id="titleLevel">Level Selection</h1>
-            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="toLobby(), metalCreakingS()">
+            <img id ="retourLevel" src="RESOURCES/fleche.png" alt="retour" onclick="toLobby(), startSound('metalCreaking')">
         </div>
         <div id="game">
             <img id ="glitchImg" src="RESOURCES/camPics/Couloir2_glitch.jpg" alt="nope" style="opacity:0;pointer-events: none;">

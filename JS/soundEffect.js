@@ -7,80 +7,6 @@ soundEffect.className = "clear"
 getBody.appendChild(soundEffect)
 
 
-function ghostS() {
-    manageSounds('RESOURCES/Sound/ghost.mp3')
-}
-
-function lockLongS() {
-    manageSounds('RESOURCES/Sound/lockLong.mp3')
-}
-
-function playScreamerS() {
-    manageSounds('RESOURCES/Sound/screamer2.mp3')
-}
-
-function openDoorS() {
-    manageSounds('RESOURCES/Sound/door.mp3')
-}
-
-function whistleS() {
-    manageSounds('RESOURCES/Sound/whistle.mp3')
-}
-
-function metalCreakingS() {
-    manageSounds('RESOURCES/Sound/metalCreaking.mp3')
-}
-
-function metalCreaking2S() {
-    manageSounds('RESOURCES/Sound/metalCreaking2.mp3')
-}
-
-function metalCreaking3S() {
-    manageSounds('RESOURCES/Sound/metalCreaking3.mp3')
-}
-
-function doorCreakingS() {
-    manageSounds('RESOURCES/Sound/doorCreaking1.mp3')
-}
-
-function echoS() {
-    manageSounds('RESOURCES/Sound/echo.mp3')
-}
-
-function chainsawS() {
-    manageSounds('RESOURCES/Sound/chainsaw.mp3')
-}
-
-function writingS() {
-    manageSounds('RESOURCES/Sound/writing.mp3')
-}
-
-function interferenceS() {
-    manageSounds('RESOURCES/Sound/interference.mp3')
-}
-
-function buttonS() {
-    manageSounds('RESOURCES/Sound/lock3.mp3')
-}
-
-function chainS() {
-    manageSounds('RESOURCES/Sound/chain.mp3')
-}
-
-function lockS() {
-    manageSounds('RESOURCES/Sound/lock.mp3')
-}
-
-function unlockS() {
-    manageSounds('RESOURCES/Sound/unlock.mp3')
-}
-
-
-
-
-
-
-
 
 
 
@@ -107,19 +33,19 @@ function stopRandomScreamer() {
 function doorLikeS() {
     var rand = Math.floor(Math.random() * 5) 
     if (rand == 0) {
-        metalCreakingS()
+        startSound('metalCreaking')
     }
     else if (rand == 1) {
-        metalCreaking2S()
+        startSound('metalCreaking2')
     }
     else if (rand == 2) {
-        metalCreaking3S()   
+        startSound('metalCreaking3')
     }
     else if (rand == 3) {
-        doorCreakingS()
+        startSound('doorCreaking')
     }
     else {
-        openDoorS()
+        startSound('door')
     }
 }
 
@@ -130,7 +56,8 @@ function doorLikeS() {
 
 
 //Sound management, basically allocating channels when needed and shutting down others with a nice fade effect of course
-function manageSounds(sound) {
+function startSound(name) {
+    var sound = 'RESOURCES/Sound/' + name + '.mp3'
     if (noSoundEffect == false) {
         var free = getFreeChannel()
         reviveOne(free, sound)

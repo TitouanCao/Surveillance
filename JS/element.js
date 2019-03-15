@@ -191,7 +191,7 @@ function createCam(sendId) {
     
     cam.onclick = function(){
         var overlay = document.getElementById("screenOverlay")
-        buttonS()
+        startSound("lock3")
         var screens = document.getElementsByClassName("screen")
         for(var i = 0; i < getNbScreen(); i++) {
             if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){
@@ -366,7 +366,7 @@ function createLevel(sendId,bool) {
         newLevelImg.src = "RESOURCES/chains.png"
         newLevel.classList.add("levelElementFalse")
         newLevel.onmouseover = function() {
-            chainS()
+            startSound("chain")
         }
 
     }
@@ -374,12 +374,12 @@ function createLevel(sendId,bool) {
         newLevelImg.src = tabLevelPic[sendId]
         newLevel.classList.add("levelElementTrue")
         newLevel.onclick = function() {
-            metalCreaking2S()
+            startSound('metalCreaking2')
             newLevel.style.animation = "hinge 2s 1"
             toGame()
         }
         newLevel.onmouseover = function() {
-            ghostS()
+            startSound('ghost')
         }
         newLevel.onmouseout = function() {
             TheSilenceBringer()
@@ -431,7 +431,7 @@ function createSetting() {
     setting.style.width = "3vw"
     setting.onclick = function() {
         displayMenu()
-        lockLongS()
+        startSound('lockLong')
     }
     
     getBody.appendChild(setting)
@@ -556,16 +556,16 @@ function createMenu() {
     buttonLevel.onclick = function() {
         toLevel()
         hideMenu()
-        whistleS()
+        startSound('whistle')
     }
     buttonLobby.onclick = function() {
         toLobby()
         hideMenu()
-        whistleS()
+        startSound('whistle')
     }
     darkness.onclick = function() {
         hideMenu()
-        metalCreaking3S()
+        startSound('metalCreaking3')
     }
     
     darkness.style.opacity = "0"
@@ -648,19 +648,19 @@ function createMenu() {
         prevLanguageVal = getCookie("language")
         setCookie("language", 0)
         reloadLanguages()
-        writingS()
+        startSound("writing")
     })
     fr.addEventListener("click", function(){
         prevLanguageVal = getCookie("language")
         setCookie("language", 1)
         reloadLanguages()
-        writingS()
+        startSound("writing")
     })
     jp.addEventListener("click", function(){
         prevLanguageVal = getCookie("language")
         setCookie("language", 2)
         reloadLanguages()
-        writingS()
+        startSound("writing")
     })
     
 }

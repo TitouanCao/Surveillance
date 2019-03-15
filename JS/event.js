@@ -14,7 +14,7 @@ function getCams() {
 //Camera visual effects
 
 function glitch(){
-    interferenceS()
+    startSound("interference")
     let screens = document.getElementsByClassName("selectedCam")
     let selectedCam = screens[0].firstChild
     let screenName = selectedCam.src
@@ -34,7 +34,7 @@ function glitch(){
 }
 
 function focusedGlitch(id){
-    interferenceS()
+    startSound("interference")
     
     var screenId = "screenCam"+id
     var screen = document.getElementById(screenId)
