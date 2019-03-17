@@ -148,6 +148,7 @@ function toLevel() {
 
 function toGame() {
     loadScreens(5)
+    createVent()
     
     if(!document.getElementById("start")) {
         startScreen()

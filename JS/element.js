@@ -176,6 +176,31 @@ function slideScreen(id) {
 }
 */
 
+function createVent() {
+    var vent = document.createElement("div")
+    vent.id = "vent"
+    vent.classList.add("cam")
+    vent.innerHTML = ""
+    vent.style.left = "1%"
+    
+    var ventPic = document.createElement("img")
+    ventPic.id = "ventPic"
+    ventPic.className = "camPic"
+    ventPic.src = "RESOURCES/vent.png"
+    vent.appendChild(ventPic)
+    
+    vent.onclick = function(){
+        var map = document.getElementById("imgMap")
+        startSound("lock3")
+        var doors = document.getElementById("doors")
+        doors.style.opacity="0";
+        map.src="RESOURCES/Levels/Level1/mapVent.png"
+        linkCam(vent)
+    }
+    game.appendChild(vent)
+    arrangeCam();
+}
+
 function createCam(sendId) {
     var cam = document.createElement("div")
     cam.id = "cam"+sendId
@@ -192,6 +217,7 @@ function createCam(sendId) {
     cam.onclick = function(){
         var overlay = document.getElementById("screenOverlay")
         var map = document.getElementById("imgMap")
+        var doors = document.getElementById("doors")
         startSound("lock3")
         var screens = document.getElementsByClassName("screen")
         for(var i = 0; i < getNbScreen(); i++) {
@@ -200,6 +226,7 @@ function createCam(sendId) {
                 screens[i].style.opacity = "1"
                 screens[i].style.pointerEvents = "all"
                 map.src="RESOURCES/Levels/Level1/mapCam"+i+".png"
+                doors.style.opacity="1"
 
             }
             else {

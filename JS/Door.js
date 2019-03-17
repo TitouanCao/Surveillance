@@ -42,7 +42,7 @@ class Door{
 	move(x,y){
 		let p = this.map.getPercent()
 		let i=0
-		if(p<0.9) i=5
+		if(p<0.9) i=3
 		let d = document.getElementById(this.id);
 		if(x>=0){
 			this.x=Math.round(x*p)-i
