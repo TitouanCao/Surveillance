@@ -140,6 +140,8 @@ function createBorder() {
     }
 }
 
+
+
 function changeBorder(version) {
     var screen = document.getElementsByClassName("screen")[0]
     var border = document.getElementById("borderScreen")
@@ -164,6 +166,12 @@ function loadBorder() {
 
     }
 }
+
+function deleteBorder() {
+    var b = document.getElementById("borderScreen")
+    game.removeChild(b)
+}
+
 
 /*
 function slideScreen(id) {

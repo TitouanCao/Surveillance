@@ -11,6 +11,7 @@ function sinkScreens() {
         deleteScreen(i)
         deleteCam(i)
     }
+    deleteBorder()
     deleteVent()
 }
 
