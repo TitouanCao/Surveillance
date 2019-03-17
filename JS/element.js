@@ -201,7 +201,7 @@ function createVent() {
         var map = document.getElementById("imgMap")
         startSound("lock3")
         var doors = document.getElementById("doors")
-        doors.style.opacity="0";
+        doors.style.opacity="0.5";
         map.src="RESOURCES/Levels/Level1/mapVent.png"
         linkCam(vent)
     }
