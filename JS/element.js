@@ -191,6 +191,7 @@ function createCam(sendId) {
     
     cam.onclick = function(){
         var overlay = document.getElementById("screenOverlay")
+        var map = document.getElementById("imgMap")
         startSound("lock3")
         var screens = document.getElementsByClassName("screen")
         for(var i = 0; i < getNbScreen(); i++) {
@@ -198,6 +199,8 @@ function createCam(sendId) {
                 screens[i].classList.add("selectedCam")
                 screens[i].style.opacity = "1"
                 screens[i].style.pointerEvents = "all"
+                map.src="RESOURCES/Levels/Level1/mapCam"+i+".png"
+
             }
             else {
                 screens[i].classList.remove("selectedCam")

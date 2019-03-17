@@ -147,7 +147,7 @@ function toLevel() {
 }
 
 function toGame() {
-    loadScreens(6)
+    loadScreens(5)
     
     if(!document.getElementById("start")) {
         startScreen()
