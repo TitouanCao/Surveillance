@@ -185,24 +185,26 @@ function slideScreen(id) {
 */
 
 function createVent() {
-    var vent = document.createElement("div")
+    let map = document.getElementById("map")
+
+    let vent = document.createElement("div")
     vent.id = "vent"
     vent.classList.add("cam")
     vent.innerHTML = ""
     vent.style.left = "1%"
     
-    var ventPic = document.createElement("img")
+    let ventPic = document.createElement("img")
     ventPic.id = "ventPic"
     ventPic.className = "camPic"
     ventPic.src = "RESOURCES/vent.png"
     vent.appendChild(ventPic)
     
     vent.onclick = function(){
-        var map = document.getElementById("imgMap")
+        let map = document.getElementById("imgMap")
+        let doors = document.getElementById("doors")
         startSound("lock3")
-        var doors = document.getElementById("doors")
-        doors.style.opacity="0.5";
         map.src="RESOURCES/Levels/Level1/mapVent.png"
+        doors.style.opacity="0.25"
         linkCam(vent)
     }
     game.appendChild(vent)
@@ -239,7 +241,7 @@ function createCam(sendId) {
                 screens[i].style.opacity = "1"
                 screens[i].style.pointerEvents = "all"
                 map.src="RESOURCES/Levels/Level1/mapCam"+i+".png"
-                doors.style.opacity="1"
+                doors.style.opacity = "1"
 
             }
             else {
