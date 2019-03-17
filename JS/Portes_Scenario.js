@@ -38,7 +38,17 @@ d8.placer();
 d8.move(170,587);
 d8.register();
 
-var d8 = new Door(9,false,m);
-d8.placer();
-d8.move(10,69);
-d8.register();
+var d9 = new Door(9,false,m);
+d9.placer();
+d9.move(10,69);
+d9.register();
+
+var d10 = new Door(10,true,m);
+d10.placer();
+d10.move(247,685);
+d10.register();
+
+var d11 = new Door(11,true,m);
+d11.placer();
+d11.move(247,125);
+d11.register();
