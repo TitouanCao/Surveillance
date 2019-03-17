@@ -201,6 +201,11 @@ function createVent() {
     arrangeCam();
 }
 
+function deleteVent() {
+    var v = document.getElementById("vent")
+    game.removeChild(v)
+}
+
 function createCam(sendId) {
     var cam = document.createElement("div")
     cam.id = "cam"+sendId
