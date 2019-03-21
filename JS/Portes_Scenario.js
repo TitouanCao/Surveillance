@@ -8,6 +8,8 @@ var r7 = new room(7, document.getElementById("screen2"))
 var r8 = new room(8, null)
 var r9 = new room(9, document.getElementById("screen5"))
 
+monster.initialize(r6)
+
 var d1 = new Door(1,false,m, r1, r2);
 d1.placer();
 d1.register();

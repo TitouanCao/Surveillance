@@ -111,7 +111,6 @@ function TheReaper() {
     }
     var displayI = i - 1
     if (undefined != document.getElementById("SoundEffect"+i) && document.getElementById("SoundEffect"+i).paused && i != 1) {
-        console.log("I reaped " + document.getElementById("SoundEffect"+i).id + " - Still " + displayI + " survivor(s)")
         var a = getBody.removeChild(document.getElementById("SoundEffect"+i))
         a = ""
     }
@@ -137,7 +136,7 @@ function dontTroll() {
         alert(textPerLang[parseInt(getCookie("language"))][16], "Titre", "ok j'y vais")
     } else {
         setCookie('troll', parseInt(getCookie('troll')) + 1)
-        alert(textPerLang[parseInt(getCookie("language"))][14] + getCookie('troll') + textPerLang[parseInt(getCookie("language"))][15] + "", "Titre", "OkayTamEre")
+        alert(textPerLang[parseInt(getCookie("language"))][14] + getCookie('troll') + textPerLang[parseInt(getCookie("language"))][15] + "", "Titre", "Okay")
     }
 }
 

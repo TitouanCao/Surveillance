@@ -2,6 +2,8 @@ var start = null
 var delay = 10000
 var cam = null
 
+var moving = null
+
 class Monster {
     
     constructor() {
@@ -21,7 +23,6 @@ class Monster {
                 clearInterval(interval)
         }
         if (moves.length <= 0) {
-            console.log("niktamere")
             let rand = Math.floor(Math.random() * doors.length)
             doors[rand].destroy()
             this.room = doors[rand].otherRoom(this.room)
@@ -32,7 +33,8 @@ class Monster {
             this.room = moves[rand]
             
         }
-        this.seen()  
+        this.seen() 
+        this.checkLose()
     }
     
     trigger() {
@@ -47,76 +49,15 @@ class Monster {
             glitch()
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    randomMove() {
-        var footX = Math.floor(Math.random()*11) - 5
-        var footY = Math.floor(Math.random()*11) - 5
-        if (this.posX + footX >= 0) {
-            this.posX = this.posX + footX
+
+    checkLose() {
+        if(this.room == r2) {
+            loadLost();
+            toLevel()
         }
-        if (this.posY + footY >= 0) {
-            this.posY = this.posY + footY
-        }
-    }
-    
-    randomTrigger() {
-        var rand = Math.floor(Math.random()*getNbScreen() * 10000)
-        setTimeout("monster.trigger()", rand)
-    }
-    
-    trigger() {
-        var max = Math.floor(Math.random()*getNbScreen()) + 1
-        console.log(max)
-        
-        cam = document.getElementById("cam" + max)
-        
-        cam.addEventListener("click", this.stopTrigger(max))
-    }
-    
-    stopTrigger(max) {
-        focusedGlitch(max)
-        cam.removeEventListener("click", this.stopTrigger(max))
     }
     
     start() {
-        start = setInterval("monster.randomMove()", 1000)
-        
+        moving = setInterval("monster.moove()", 5000)
     }
-    
-    stop() {
-        clearInterval(start)
-    }
-    
-    lose() {
-        toLevel()
-    }
-    
 }

@@ -168,8 +168,10 @@ function loadBorder() {
 }
 
 function deleteBorder() {
-    var b = document.getElementById("borderScreen")
-    game.removeChild(b)
+    if(undefined != document.getElementById("borderScreen")) {
+        var b = document.getElementById("borderScreen")
+        game.removeChild(b)
+    }
 }
 
 
@@ -212,8 +214,10 @@ function createVent() {
 }
 
 function deleteVent() {
-    var v = document.getElementById("vent")
-    game.removeChild(v)
+    if(undefined != document.getElementById("vent")) {
+        var v = document.getElementById("vent")
+        game.removeChild(v)
+    }
 }
 
 function createCam(sendId) {
@@ -757,6 +761,49 @@ function createInstructions() {
 }
 
 
+function displayLost() {
+    var lost = document.createElement("div")
+    
+    lost.id = "lost"
+    lost.style.position = "fixed"
+    lost.style.left = "0"
+    lost.style.top = "0"
+    lost.style.width = "100vw"
+    lost.style.height = "100vh"
+    lost.style.pointerEvents = "none"
+    lost.style.opacity = "0"
+    lost.style.fontSize = "5vw"
+    lost.style.backgroundColor = "black"
+    lost.style.color = "white"
+    lost.style.textAlign = "center"
+    
+    getBody.appendChild(lost)
+}
+
+var lost = null
+
+function loadLost() {
+    startSound("Scream")
+    if(lost == null) {
+        displayLost()
+    }
+    lost = document.getElementById("lost")
+
+    if (parseInt(getCookie("language")) == 2) {
+        lost.style.fontFamily = "GenkaiMincho"
+        lost.innerHTML = "<br><br><br>" + textPerLang[parseInt(getCookie("language"))][17]
+    }
+    else {
+        lost.style.fontFamily = "AnotherDanger"
+        lost.innerHTML = "<br><br>" + textPerLang[parseInt(getCookie("language"))][17]
+    }
+    
+    lost.style.opacity = "1"
+    setTimeout("lost.style.opacity = '0'", 3000)
+}
+
+
+
 
 
 
@@ -847,5 +894,6 @@ function reloadMenu() {
  
     musicOnly.innerHTML = textPerLang[parseInt(getCookie("language"))][13]
 }
+
 
 

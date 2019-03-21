@@ -1,5 +1,5 @@
 
-var memo = ["startButtonLangE", "instruButtonLangE", "levelTitleLangE", "startMessLangE", "titleInstruLangE", "instruLangE", "menuTitleLangE", "menuSoundLangE", "menuSoundOnLangE", "menuSoundOffLangE", "menuLangSelectLangE", "menuLevelSelectLangE", "menuLobbyLangE", "menuSoundMusicLangE", "alert1LangE", "alert2langE", "alert3langE"]
+var memo = ["startButtonLangE", "instruButtonLangE", "levelTitleLangE", "startMessLangE", "titleInstruLangE", "instruLangE", "menuTitleLangE", "menuSoundLangE", "menuSoundOnLangE", "menuSoundOffLangE", "menuLangSelectLangE", "menuLevelSelectLangE", "menuLobbyLangE", "menuSoundMusicLangE", "alert1LangE", "alert2langE", "alert3langE", "lostLangE"]
 
 
 var textPerLang = []
@@ -40,8 +40,10 @@ var alert1LangE = "STOP DOING THIS ! You slow the page ! This is your warning n�
 var alert2LangE = " If you reach 3 you won't be able to play anymore."
 //16
 var alert3LangE = "Go clean your cookies and think about your mistakes."
+//17
+var lostLangE = "Death came reap you !"
 
-englishTab.push(startButtonLangE, instruButtonLangE, levelTitleLangE, startMessLangE, titleInstruLangE, instruLangE, menuTitleLangE, menuSoundLangE, menuSoundOnLangE, menuSoundOffLangE, menuLangSelectLangE, menuLevelSelectLangE, menuLobbyLangE, menuSoundMusicLangE, alert1LangE, alert2LangE, alert3LangE)
+englishTab.push(startButtonLangE, instruButtonLangE, levelTitleLangE, startMessLangE, titleInstruLangE, instruLangE, menuTitleLangE, menuSoundLangE, menuSoundOnLangE, menuSoundOffLangE, menuLangSelectLangE, menuLevelSelectLangE, menuLobbyLangE, menuSoundMusicLangE, alert1LangE, alert2LangE, alert3LangE, lostLangE)
 
 var frenchTab = []
 var startButtonLangF = "LANCER"
@@ -61,8 +63,9 @@ var menuSoundMusicLangF = "MUSIQUE UNIQUEMENT"
 var alert1LangF = "CESSEZ CELA ! Vous ralentissez la page ! Ceci est votre avertissement n°"
 var alert2LangF = " Lorsque vous atteindrez 3 vous ne pourrez plus jouer."
 var alert3LangF = "Allez vider vos cookies et réfléchir à vos erreurs."
+var lostLangF = "La Mort est venue vous faucher !"
 
-frenchTab.push(startButtonLangF, instruButtonLangF, levelTitleLangF, startMessLangF, titleInstruLangF, instruLangF, menuTitleLangF, menuSoundLangF, menuSoundOnLangF, menuSoundOffLangF, menuLangSelectLangF, menuLevelSelectLangF, menuLobbyLangF, menuSoundMusicLangF, alert1LangF, alert2LangF, alert3LangF)
+frenchTab.push(startButtonLangF, instruButtonLangF, levelTitleLangF, startMessLangF, titleInstruLangF, instruLangF, menuTitleLangF, menuSoundLangF, menuSoundOnLangF, menuSoundOffLangF, menuLangSelectLangF, menuLevelSelectLangF, menuLobbyLangF, menuSoundMusicLangF, alert1LangF, alert2LangF, alert3LangF, lostLangF)
 
 var japaneseTab = []
 var startButtonLangJ = "スタート"
@@ -82,7 +85,8 @@ var menuSoundMusicLangJ = "音楽のみ"
 var alert1LangJ = "やめてください ! ページを遅くします ! これは警告の"
 var alert2LangJ = "番目 警告の３番目を立ったらもうプレイできなくなります"
 var alert3LangJ = "クッキーをクリーンして自分の誤りに考えてください"
+var lostLangJ = "死に命は取り入れられた！"
 
-japaneseTab.push(startButtonLangJ, instruButtonLangJ, levelTitleLangJ, startMessLangJ, titleInstruLangJ, instruLangJ, menuTitleLangJ, menuSoundLangJ, menuSoundOnLangJ, menuSoundOffLangJ, menuLangSelectLangJ, menuLevelSelectLangJ, menuLobbyLangJ, menuSoundMusicLangJ, alert1LangJ, alert2LangJ, alert3LangJ)
+japaneseTab.push(startButtonLangJ, instruButtonLangJ, levelTitleLangJ, startMessLangJ, titleInstruLangJ, instruLangJ, menuTitleLangJ, menuSoundLangJ, menuSoundOnLangJ, menuSoundOffLangJ, menuLangSelectLangJ, menuLevelSelectLangJ, menuLobbyLangJ, menuSoundMusicLangJ, alert1LangJ, alert2LangJ, alert3LangJ, lostLangJ)
 
 textPerLang.push(englishTab, frenchTab, japaneseTab)
