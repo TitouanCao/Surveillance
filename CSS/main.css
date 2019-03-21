@@ -139,7 +139,6 @@
 
 
 
-
 body {
     background-color: black; 
     background-size: 100%;
@@ -199,6 +198,7 @@ body {
     background-color: black;
     text-align: center;
     color: white;
+    overflow-y: auto;
 }
 
 

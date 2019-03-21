@@ -750,6 +750,8 @@ function createInstructions() {
     rules.innerHTML = textPerLang[parseInt(getCookie("language"))][5]
     rulesTitle.innerHTML = "HOW TO PLAY"
     
+    rules.style.fontSize = "0.7vh + 0.7vw"
+    
     instructions.appendChild(rulesTitle)
     instructions.appendChild(rules)
 }
