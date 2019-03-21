@@ -1,4 +1,5 @@
 var nbLockedDoors=0;
+var doors = []
 
 function ChangelockSound(version){
 	let l= document.getElementById("lock");
@@ -9,15 +10,16 @@ function ChangelockSound(version){
 class Door{
 
 
-	constructor(idC,vertical,mapC){
+	constructor(idC,vertical,mapC, room1, room2){
 		this.state=1;
 		this.id="door"+idC;
 		this.map=mapC;
 		this.x=this.map.w;
 		this.y=this.map.h;
 		this.vertical=vertical;
-		
-
+		this.room1 = room1
+        this.room2 = room2
+        doors.push(this)
 	}
 
 	placer(){
@@ -76,6 +78,13 @@ class Door{
 		d.src="RESOURCES/door_locked.png";
 		this.state=-1;
 	}
+    
+    destroy() {
+        let d = document.getElementById(this.id);
+        d.src="RESOURCES/door_locked.png";
+        this.state = 2
+        this.map.battery.liberate();
+    }
 
 	switch(){
 		if(this.state==1 & this.map.battery.state>0) {
@@ -88,5 +97,42 @@ class Door{
 		}
 	}
 
-
+    isLinked(room) {
+        if(this.room1 == room || this.room2 == room) {
+            return true
+        }
+    }
+    
+    otherRoom(room) {
+        if(this.room1 == room && this.state >= 1) {
+            return this.room2
+        }
+        else if (this.room2 == room && this.state >= 1) {
+            return this.room1
+        }
+        else {
+            return false
+        }
+    }
+    
+    otherRoomBis(room) {
+        if(this.room1 == room) {
+            return this.room2
+        }
+        else if (this.room2 == room) {
+            return this.room1
+        }
+        else {
+            return false
+        }
+    }
+    
+    getDoorByRoom(room) {
+        if(this.isLinked(room)) {
+            return this
+        }
+        else {
+            return false
+        }
+    }
 }

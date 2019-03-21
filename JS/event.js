@@ -39,6 +39,7 @@ function focusedGlitch(id){
     var screenId = "screenCam"+id
     var screen = document.getElementById(screenId)
     var screenName = screen.src.slice(screen.src.lastIndexOf("/") + 1, screen.src.length - 4)
+    console.log(screenName)
     screen.src = "RESOURCES/camPics/"+screenName+"_glitch.jpg"
     
     setTimeout(function(){

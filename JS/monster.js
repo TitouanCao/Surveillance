@@ -5,23 +5,65 @@ var cam = null
 class Monster {
     
     constructor() {
-        this.posX = 0
-        this.posY = 0
+        this.room = null
         this.triggered = false
     }
     
-    setPos(x, y) {
-        this.posX = x
-        this.posY = y
+    initialize(room) {
+        this.room = room
     }
     
-    getPosX() {
-        return this.posX
-    } 
-    
-    getPosY() {
-        return this.posY
+    moove() {
+        let moves = this.room.getPath()
+        let doors = this.room.getDoors()
+        
+        if (moves.length <= 0) {
+            console.log("niktamere")
+            let rand = Math.floor(Math.random() * doors.length)
+            doors[rand].destroy()
+            this.room = doors[rand].otherRoom(this.room)
+        }
+        else {
+            
+            let rand = Math.floor(Math.random() * moves.length)
+            console.log(rand)
+            this.room = doors[rand].otherRoom(this.room)
+            
+        }
     }
+    
+    trigger() {
+        this.triggered == true
+        setTimeout(, 10000)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     randomMove() {
         var footX = Math.floor(Math.random()*11) - 5
