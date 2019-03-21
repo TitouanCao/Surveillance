@@ -13,6 +13,7 @@ class Monster {
     
     initialize(room) {
         this.room = room
+        this.start()
     }
     
     moove() {
@@ -52,12 +53,19 @@ class Monster {
 
     checkLose() {
         if(this.room == r2) {
-            loadLost();
+            loadLost()
             toLevel()
+            this.reset()
         }
     }
     
     start() {
         moving = setInterval("monster.moove()", 5000)
+    }
+    
+    reset() {
+        clearInterval(moving)
+        this.room = null
+        this.triggered = false
     }
 }
