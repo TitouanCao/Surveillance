@@ -1,12 +1,12 @@
-var r1 = new room(1, document.getElementById("cam3"))
+var r1 = new room(1, document.getElementById("screen3"))
 var r2 = new room(2, null)
-var r3 = new room(3, document.getElementById("cam4"))
+var r3 = new room(3, document.getElementById("screen4"))
 var r4 = new room(4, null)
 var r5 = new room(5, null)
-var r6 = new room(6, document.getElementById("cam1"))
-var r7 = new room(7, document.getElementById("cam2"))
+var r6 = new room(6, document.getElementById("screen1"))
+var r7 = new room(7, document.getElementById("screen2"))
 var r8 = new room(8, null)
-var r9 = new room(9, document.getElementById("cam5"))
+var r9 = new room(9, document.getElementById("screen5"))
 
 var d1 = new Door(1,false,m, r1, r2);
 d1.placer();

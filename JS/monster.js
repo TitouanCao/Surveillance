@@ -16,7 +16,10 @@ class Monster {
     moove() {
         let moves = this.room.getPath()
         let doors = this.room.getDoors()
-        
+        console.log(moves)
+        if(interval != undefined ) {
+                clearInterval(interval)
+        }
         if (moves.length <= 0) {
             console.log("niktamere")
             let rand = Math.floor(Math.random() * doors.length)
@@ -24,17 +27,25 @@ class Monster {
             this.room = doors[rand].otherRoom(this.room)
         }
         else {
-            
             let rand = Math.floor(Math.random() * moves.length)
             console.log(rand)
-            this.room = doors[rand].otherRoom(this.room)
+            this.room = moves[rand]
             
         }
+        this.seen()  
     }
     
     trigger() {
         this.triggered == true
-        setTimeout(, 10000)
+        //setTimeout(, 10000)
+    }
+
+    seen(){
+        console.log(this.room)
+        let cam = document.getElementsByClassName("selectedCam")[0]
+        if(this.room.camera == cam){
+            glitch()
+        }
     }
     
     

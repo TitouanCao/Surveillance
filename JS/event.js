@@ -1,7 +1,7 @@
 var tabCams = []
 var cams = document.getElementsByClassName("cam")
 var qtte = cams.length
-
+var interval
 var global1 = ""
 
 
@@ -21,16 +21,14 @@ function glitch(){
     var pos = screenName.lastIndexOf("/");
     screenName = screenName.slice(pos+1,screenName.length-4);
     var i = document.getElementById(selectedCam.id)
-    i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg"
-    i.style.bottom="1%"
-    i.style.left="1%"
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},100)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg";i.style.bottom="1%";i.style.left="1%"},200)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},300)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg";i.style.bottom="1%";i.style.left="1%"},400)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},500)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg";i.style.bottom="1%";i.style.left="1%"},600)
-    setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},700)
+    interval = setInterval(function(){
+        i.src="RESOURCES/camPics/"+screenName+"_glitch.jpg";
+        i.style.bottom="1%";
+        i.style.left="1%"
+        setTimeout(function(){i.src="RESOURCES/camPics/"+screenName+".jpg";i.style.bottom="0%";i.style.left="0%"},100)
+
+    },200)
+
 }
 
 function focusedGlitch(id){

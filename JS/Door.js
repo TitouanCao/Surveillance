@@ -1,5 +1,5 @@
 var nbLockedDoors=0;
-var doors = []
+var Alldoors = []
 
 function ChangelockSound(version){
 	let l= document.getElementById("lock");
@@ -19,7 +19,7 @@ class Door{
 		this.vertical=vertical;
 		this.room1 = room1
         this.room2 = room2
-        doors.push(this)
+        Alldoors.push(this)
 	}
 
 	placer(){

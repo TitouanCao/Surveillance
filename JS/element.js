@@ -235,9 +235,15 @@ function createCam(sendId) {
         var doors = document.getElementById("doors")
         startSound("lock3")
         var screens = document.getElementsByClassName("screen")
+        if(interval != undefined ) {
+            clearInterval(interval)
+        }
         for(var i = 0; i < getNbScreen(); i++) {
             if (screens[i].id.slice(6, 7) == cam.id.slice(3,4)){
                 screens[i].classList.add("selectedCam")
+                if(monster.room.camera == screens[i]){
+                    glitch()
+                }
                 screens[i].style.opacity = "1"
                 screens[i].style.pointerEvents = "all"
                 map.src="RESOURCES/Levels/Level1/mapCam"+i+".png"
