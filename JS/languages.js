@@ -17,7 +17,7 @@ var startMessLangE = "CLICK TO START!"
 //4
 var titleInstruLangE = "HOW TO PLAY"
 //5
-var instruLangE = "Surveillance goal is quite simple, you will have to survive one night at K building. <br><br> But here comes the issue! A mysterious creature haunts the floor ! And instinct dissuade you from approaching it. In order to shelter you have at your disposal many surveillance camera which allow you to watch different rooms. Unfortunately it seems that you cannot clearly see it, so pay close attention to detect perturbations and get an idea of where it might be! <br><br> You might also find a map attached with mentionned the rooms doors which you can lock if you click on it, this way the monster cannot go through it. However watch out! You cannot lock more doors than energy bar you have at disposal! But locking a door you consume one charge, although you can still get it back by unlocking the door with another click on it. Utmost energy bar amount can be reduced if the monster reaches batteries indicated on the map. Game start at 10pm, you have to survive until 6am, may the luck be with you ! <br><br> Oh! And lastly do not try to imprison it in one room, you might regret it..."
+var instruLangE = "Surveillance goal is quite simple, you will have to survive one night at K building. <br><br> But here comes the issue! A mysterious creature haunts the floor ! And instinct dissuade you from approaching it. In order to shelter you have at your disposal many surveillance camera which allow you to watch different rooms. Unfortunately it seems that you cannot clearly see it, so pay close attention to detect perturbations and get an idea of where it might be! <br><br> You might also find a map attached with mentionned the rooms doors which you can lock if you click on it, this way the monster cannot go through it. However watch out! You cannot lock more doors than energy load you have at disposal! But locking a door you consume one charge, although you can still get it back by unlocking the door with another click on it. Utmost energy load amount can be reduced if the monster reaches batteries indicated on the map. Game start at 10pm, you have to survive until 6am, may the luck be with you ! <br><br> Oh! And lastly do not try to imprison it in one room, you might regret it...<br><br>"
 //6
 var menuTitleLangE = "MENU"
 //7
@@ -70,7 +70,7 @@ var instruButtonLangJ = "ルール"
 var levelTitleLangJ = "レベルの選択"
 var startMessLangJ = "開始にクリックして!!"
 var titleInstruLangJ = "どうプレイしたらいい"
-var instruLangJ = "Sureveillanceの目的はなかなか簡単である！K建物での夜間にい生き残らないといけないことである！<br><br>だが、困難はこれから！恐ろしい怪物は一階を巣食っているので、会わないほうがいいと思っている。出会いを防ぐのを避けるように複数監視カメラで部屋を監視できる。"
+var instruLangJ = "Surveillanceというゲームの目的はなかなか簡単である！K建物での夜間に生き残らないとならないことである！<br><br>だが、困難はこれから！恐ろしい怪物は一階を巣食っているので、会わないほうがいいと思っている。出会いを防ぐのを避けるように複数監視カメラで部屋を監視できる。あいにく明確に見えることができないので、カメラエフェクトで怪物の現場を当てるようにきちんと集中してください！<br><br> さらに画面の右手に一階の地図が見つかって、こういう地図にドアが見えて、クリックすると閉ざすことができる。すると怪物はドアを横切れなくてくる。ところが、注意してください！ドアを閉ざせるようにエネルギー単位は一つ以上持つのが必要であるものだ！ドアを一つ閉ざすと、エネルギー単位を一つ消費してくるんだ！ドアに再びクリックしてアンロックできると、エネルギー単位を一つ取り戻してくるんだ！怪物に電池に達させると、エネルギー単位の上限は一つで減ってくるんだ。ゲームは午後10時から午前6時にかけてする。その瞬間まで生き残ることは目的であるよ！頑張ってください！<br><br>あ！もう一つ！怪物は部屋に限らないほうがいい！こんなことをすれば後悔するかもしれない。。。<br><br>"
 var menuTitleLangJ = "メニュー"
 var menuSoundLangJ = "音 &nbsp;&nbsp;"
 var menuSoundOnLangJ = "オン"
