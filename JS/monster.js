@@ -26,6 +26,9 @@ class Monster {
             let rand = Math.floor(Math.random() * doors.length)
             doors[rand].destroy()
             this.room = doors[rand].otherRoom(this.room)
+            if(this.room.hasVent){
+                this.room = ventEvent(this.room)
+            }
         }
         else {
             let rand = Math.floor(Math.random() * moves.length)
@@ -60,4 +63,6 @@ class Monster {
     start() {
         moving = setInterval("monster.moove()", 5000)
     }
+
+    
 }

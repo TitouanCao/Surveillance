@@ -204,6 +204,10 @@ function leaveInstructions() {
     setTimeout("getBody.appendChild(instructions)", 2010)
 }
 
+function ventEvent(room){
+    
+}
+
 
 
 

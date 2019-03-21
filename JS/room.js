@@ -2,9 +2,10 @@
 
 class room {
     
-    constructor(id, camera){
+    constructor(id, camera, hasVent){
         this.id = id
         this.camera = camera
+        this.hasVent = hasVent
     }
     
     getPath() {
