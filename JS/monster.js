@@ -9,6 +9,7 @@ class Monster {
     constructor() {
         this.room = null
         this.triggered = false
+        this.ventAccess = Math.floor(Math.random() * 3)+2
     }
     
     initialize(room) {
@@ -35,6 +36,14 @@ class Monster {
             let rand = Math.floor(Math.random() * moves.length)
             console.log(rand)
             this.room = moves[rand]
+            if(this.room.hasVent){
+                this.ventAccess--
+                if(ventAccess == 0){
+                    ventEvent()
+                    this.ventAccess = Math.floor(Math.random() * 3)+2
+                }
+            }
+
             
         }
         this.seen() 
