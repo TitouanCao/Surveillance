@@ -10,6 +10,13 @@ var r9 = new room(9, document.getElementById("screen5"),false)
 
 monster.initialize(r6)
 
+var g1 = new generator(r4)
+g1.place(30, 260)
+var g2 = new generator(r5)
+g2.place(450, 50)
+var g3 = new generator(r8)
+g3.place(160, 10)
+
 var d1 = new Door(1,false,m, r1, r2);
 d1.placer();
 d1.register();
