@@ -3,7 +3,7 @@
 class generator {
     
     constructor(room) {
-        this.id = room + "Generator"
+        this.id = room.id + "Generator"
         this.room = room
         this.state = "true"
     }
@@ -22,11 +22,13 @@ class generator {
     }
     
     desactivate() {
-        this.state = "false"
-        b.use()
-        var generator = document.getElementById(this.id)
-        generator.src = "RESOURCES/generatorEmpty.png"
-        
+        if(this.state == "true") {
+            this.state = "false"
+            b.use()
+            var generator = document.getElementById(this.id)
+            console.log(this.id)
+            generator.src = "RESOURCES/generatorEmpty.png"
+        }
     }
     
     

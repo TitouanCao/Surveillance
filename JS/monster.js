@@ -46,7 +46,8 @@ class Monster {
 
             
         }
-        this.seen() 
+        this.seen()
+        this.checkGenerators()
         this.checkLose()
     }
     
@@ -68,11 +69,25 @@ class Monster {
             loadLost()
             toLevel()
             this.reset()
+            b.reload()
+        }
+    }
+    
+    checkGenerators() {
+        if(this.room == r4){
+            g1.desactivate()
+        }
+        if(this.room == r5){
+            g2.desactivate()
+        }
+        if(this.room == r8){
+            g3.desactivate()
         }
     }
     
     start() {
-        moving = setInterval("monster.moove()", 5000)
+        delay = Math.random() * 10000
+        moving = setInterval("monster.moove()", delay)
     }
     
     reset() {

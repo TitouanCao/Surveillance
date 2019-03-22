@@ -210,6 +210,13 @@ function ventEvent(room){
 
 
 
+function won() {
+    toLevel()
+    loadWon()
+    b.reload()
+}
+
+
 
 
 

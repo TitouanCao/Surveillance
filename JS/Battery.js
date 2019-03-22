@@ -35,6 +35,10 @@ class Battery{
 			this.state++;
 		}
 	}
+    
+    reload() {
+        this.state = 3
+    }
 
 
 }

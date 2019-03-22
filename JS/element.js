@@ -100,6 +100,9 @@ function createScreen(sendId) {
         if(hours==24){
             hours=0;
         }
+        if(hours == 6) {
+            won()
+        }
         let zero = "";
         if(minutes<10) zero="0"
         time.innerHTML = hours + " : "+zero+minutes;
@@ -802,6 +805,46 @@ function loadLost() {
     setTimeout("lost.style.opacity = '0'", 3000)
 }
 
+function displayWon() {
+    var won = document.createElement("div")
+    
+    won.id = "lost"
+    won.style.position = "fixed"
+    won.style.left = "0"
+    won.style.top = "0"
+    won.style.width = "100vw"
+    won.style.height = "100vh"
+    won.style.pointerEvents = "none"
+    won.style.opacity = "0"
+    won.style.fontSize = "5vw"
+    won.style.backgroundColor = "black"
+    won.style.color = "white"
+    won.style.textAlign = "center"
+    
+    getBody.appendChild(won)
+}
+
+
+var won = null
+
+function loadWon() {
+    if(lost == null) {
+        displayWon()
+    }
+    won = document.getElementById("lost")
+
+    if (parseInt(getCookie("language")) == 2) {
+        won.style.fontFamily = "GenkaiMincho"
+        won.innerHTML = "<br><br><br>" + textPerLang[parseInt(getCookie("language"))][18]
+    }
+    else {
+        won.style.fontFamily = "AnotherDanger"
+        won.innerHTML = "<br><br>" + textPerLang[parseInt(getCookie("language"))][18]
+    }
+    
+    won.style.opacity = "1"
+    setTimeout("won.style.opacity = '0'", 3000)
+}
 
 
 
