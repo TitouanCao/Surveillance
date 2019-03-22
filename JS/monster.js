@@ -1,5 +1,5 @@
 var start = null
-var delay = 10000
+var delay = 5000
 var cam = null
 
 var moving = null
@@ -28,21 +28,21 @@ class Monster {
             let rand = Math.floor(Math.random() * doors.length)
             doors[rand].destroy()
             this.room = doors[rand].otherRoom(this.room)
-            if(this.room.hasVent){
+            /*if(this.room.hasVent){
                 this.room = ventEvent(this.room)
-            }
+            }*/
         }
         else {
             let rand = Math.floor(Math.random() * moves.length)
-            console.log(rand)
+            //console.log(rand)
             this.room = moves[rand]
-            if(this.room.hasVent){
+            /*if(this.room.hasVent){
                 this.ventAccess--
                 if(this.ventAccess == 0){
                     ventEvent()
                     this.ventAccess = Math.floor(Math.random() * 3)+2
                 }
-            }
+            }*/
 
             
         }
@@ -86,7 +86,6 @@ class Monster {
     }
     
     start() {
-        delay = Math.random() * 10000
         moving = setInterval("monster.moove()", delay)
     }
     
