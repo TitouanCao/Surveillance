@@ -41,7 +41,7 @@ var alert2LangE = " If you reach 3 you won't be able to play anymore."
 //16
 var alert3LangE = "Go clean your cookies and think about your mistakes."
 //17
-var lostLangE = "Death came reap you !"
+var lostLangE = "Death reaped you !"
 //18
 var wonLangE = "Well played ! You survived !"
 

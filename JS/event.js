@@ -155,7 +155,7 @@ function toGame() {
     else {
         reloadGame()
     }
-    
+
     loadLevel1()
     
     var cam1 = document.getElementById ("cam1")
@@ -219,6 +219,7 @@ function resetLevel() {
     sinkScreens()
     
     //Rajouter les valeurs créées pour les autres niveaux lorsqu'ils sont ajoutés
+    if (undefined != b) b.suicide()
     b = null
     m = null
     if(null != monster) monster.reset()
@@ -233,7 +234,10 @@ function resetLevel() {
     r7 = null
     r8 = null
     r9 = null
-
+    
+    if (undefined != g1) g1.suicide()
+    if (undefined != g2) g2.suicide()
+    if (undefined != g3) g3.suicide()
     g1 = null
     g2 = null
     g3 = null
@@ -242,7 +246,6 @@ function resetLevel() {
     if(check.length != 0) {
         var tamp = check.length
         for(var i = 0; i < tamp; i++){
-            console.log(check[0])
             var erase = game.removeChild(check[0])
             erase = ""
         }

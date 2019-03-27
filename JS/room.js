@@ -2,22 +2,45 @@
 
 class room {
     
-    constructor(id, camera, hasVent){
+    constructor(id, camera, value, hasVent){
         this.id = id
+        this.value = value
         this.camera = camera
         this.hasVent = hasVent
     }
     
     getPath() {
         let nextRoom
-        let linkedRooms = []
+        //let linkedRooms = []
+        let mostWorthy = false
+        let max = 0
         for(let i = 0; i < Alldoors.length; i++){
             nextRoom = Alldoors[i].otherRoom(this)
             if(nextRoom != false) {
-                linkedRooms.push(nextRoom)
+                if(nextRoom.value > max) {
+                    max = nextRoom.value
+                    mostWorthy = nextRoom
+                }
             }
         }
-        return linkedRooms
+        return mostWorthy
+    }
+    
+    getPathNot(rooms) {
+        let nextRoom
+        let mostWorthy = false 
+        let max = 0
+        for(let i = 0; i < Alldoors.length; i++){
+            nextRoom = Alldoors[i].otherRoom(this)
+            if(nextRoom != false) {
+                if(nextRoom.value > max && !rooms.includes(nextRoom)) {
+                    max = nextRoom.value
+                    mostWorthy = nextRoom
+                    return mostWorthy
+                }
+            }
+        }
+        return false
     }
     
     getRooms() {

@@ -24,11 +24,17 @@ class generator {
     desactivate() {
         if(this.state == "true") {
             this.state = "false"
-            b.use()
+            b.kill()
             var generator = document.getElementById(this.id)
             generator.src = "RESOURCES/generatorEmpty.png"
+            this.room.value = 0
         }
     }
     
+    suicide() {
+        var img = document.getElementById(this.id)
+        var erase = game.removeChild(img)
+        erase =""
+    }
     
 }

@@ -344,12 +344,12 @@ function startScreen() {
         start.style.transition = "opacity 1s"
         start.style.pointerEvents = "none"
         start.style.opacity = "0"
-        var d = document.getElementById("doors");
-        d.innerHTML="";
-        var s = document.createElement("script");
-        s.setAttribute("src","JS/Portes_Scenario.js");
-        s.setAttribute("type","text/jscript");
-        document.body.appendChild(s);
+        var d = document.getElementById("doors")
+        d.innerHTML=""
+        var s = document.createElement("script")
+        s.setAttribute("type","text/jscript")
+        document.body.appendChild(s)
+        monster.start()
     }
     
     start.appendChild(startText)

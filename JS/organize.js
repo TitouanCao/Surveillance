@@ -60,15 +60,15 @@ function loadLevel1() {
     m = new Map("RESOURCES/Levels/Level1/mapCam3.png",b,)
     monster = new Monster
     
-    r1 = new room(1, document.getElementById("screen3"),false)
-    r2 = new room(2, null,true)
-    r3 = new room(3, document.getElementById("screen4"),false)
-    r4 = new room(4, null,false)
-    r5 = new room(5, null,true)
-    r6 = new room(6, document.getElementById("screen1"),false)
-    r7 = new room(7, document.getElementById("screen2"),false)
-    r8 = new room(8, null,true)
-    r9 = new room(9, document.getElementById("screen5"),false)
+    r1 = new room(1, document.getElementById("screen3") ,1 ,false)
+    r2 = new room(2, null ,2 ,true)
+    r3 = new room(3, document.getElementById("screen4") ,1 ,false)
+    r4 = new room(4, null ,2 ,false)
+    r5 = new room(5, null ,2 ,true)
+    r6 = new room(6, document.getElementById("screen1") ,1 ,false)
+    r7 = new room(7, document.getElementById("screen2") ,1 ,false)
+    r8 = new room(8, null ,2 ,true)
+    r9 = new room(9, document.getElementById("screen5") ,1 ,false)
     
     monster.initialize(r6)
 
@@ -84,11 +84,11 @@ function loadLevel1() {
     d1 = new Door(1,false,m, r1, r2)
     d1.placer()
     d1.register()
-    d1.move(280,227)
+    d1.move(280,336)
 
     d2 = new Door(2,false,m, r2, r3)
     d2.placer()
-    d2.move(280,336)
+    d2.move(280,227)
     d2.register()
 
     d3 = new Door(3,true,m, r1, r6)

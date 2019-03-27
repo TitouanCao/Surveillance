@@ -7,6 +7,8 @@ function ChangelockSound(version){
 	l.src="RESOURCES/Sound/lock"+version+".mp3";
 	u.src="RESOURCES/Sound/lock"+version+".mp3";
 }
+
+
 class Door{
 
 
@@ -90,7 +92,7 @@ class Door{
 	switch(){
 		if(this.state==1 & this.map.battery.state>0) {
 			this.lock();
-			this.map.battery.use();
+			this.map.battery.use(this);
 		}
 		else if(this.state==0) {
 			this.unlock();
