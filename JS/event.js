@@ -101,7 +101,7 @@ function toLobby() {
         level.style.top = "110%" 
         game.style.opacity = "0"
         game.style.pointerEvents = "none"
-        sinkScreens()
+        resetLevel()
         loadLevels(12)
     }
     else {
@@ -140,7 +140,7 @@ function toLevel() {
     level.style.pointerEvents = "all"
     level.style.opacity = "1"
     
-    setTimeout("sinkScreens()", 250)
+    setTimeout("resetLevel()", 250)
     
     //stopRandomScreamer()
 }
@@ -208,14 +208,59 @@ function ventEvent(room){
     
 }
 
-
-
 function won() {
     toLevel()
     loadWon()
     b.reload()
 }
 
+
+function resetLevel() {
+    sinkScreens()
+    
+    //Rajouter les valeurs créées pour les autres niveaux lorsqu'ils sont ajoutés
+    b = null
+    m = null
+    if(null != monster) monster.reset()
+    monster = null
+
+    r1 = null
+    r2 = null 
+    r3 = null
+    r4 = null
+    r5 = null
+    r6 = null
+    r7 = null
+    r8 = null
+    r9 = null
+
+    g1 = null
+    g2 = null
+    g3 = null
+
+    var check = document.getElementsByClassName("door")
+    if(check.length != 0) {
+        var tamp = check.length
+        for(var i = 0; i < tamp; i++){
+            console.log(check[0])
+            var erase = game.removeChild(check[0])
+            erase = ""
+        }
+    }
+    
+    d1 = null
+    d2 = null
+    d3 = null
+    d4 = null
+    d5 = null
+    d6 = null
+    d7 = null
+    d8 = null
+    d9 = null
+    d10 = null
+    d11 = null
+    d12 = null
+}
 
 
 

@@ -23,7 +23,7 @@ class Door{
 	}
 
 	placer(){
-		let m = document.getElementById("doors");
+		//let m = document.getElementById("doors");
 		let d= document.createElement("img");
 	    d.src="RESOURCES/door_open.png";
 	    d.id=this.id;
@@ -32,7 +32,8 @@ class Door{
 	    d.style.bottom=this.y+"px";
 	    d.style.position="absolute";
 	    if(this.vertical) d.style.transform="rotate(90deg)";
-	    m.appendChild(d);
+        //m.appendChild(d);
+	    game.appendChild(d)
 	}
 
 	register(){
@@ -42,16 +43,16 @@ class Door{
 	}
 
 	move(x,y){
-		let p = this.map.getPercent()
-		let i=0
-		if(p<0.9) i=3
+		//let p = this.map.getPercent()
+		//let i=0
+		//if(p<0.9) i=3
 		let d = document.getElementById(this.id);
 		if(x>=0){
-			this.x=Math.round(x*p)-i
+			this.x=Math.round(x)
 			d.style.right=this.x+"px";
 		} 
 		if(y>=0){
-			this.y=Math.round(y*p)
+			this.y=Math.round(y)
 			d.style.bottom=this.y+"px";
 		} 
 	}

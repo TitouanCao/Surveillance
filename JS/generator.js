@@ -26,7 +26,6 @@ class generator {
             this.state = "false"
             b.use()
             var generator = document.getElementById(this.id)
-            console.log(this.id)
             generator.src = "RESOURCES/generatorEmpty.png"
         }
     }

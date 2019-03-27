@@ -20,7 +20,7 @@ class Monster {
     moove() {
         let moves = this.room.getPath()
         let doors = this.room.getDoors()
-        console.log(moves)
+        //console.log(moves)
         if(interval != undefined ) {
                 clearInterval(interval)
         }
@@ -57,7 +57,7 @@ class Monster {
     }
 
     seen(){
-        console.log(this.room)
+        //console.log(this.room)
         let cam = document.getElementsByClassName("selectedCam")[0]
         if(this.room.camera == cam){
             glitch()
