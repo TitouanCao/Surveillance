@@ -83,7 +83,7 @@ function loadLevel1() {
     g1.place(74, 318)
     
     g2 = new generator(r5,m)
-    g2.place(592, 50)
+    g2.place(590, 50)
     
     g3 = new generator(r8, m)
     g3.place(117, 10)
