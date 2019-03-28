@@ -27,7 +27,7 @@ class generator {
             b.kill()
             var generator = document.getElementById(this.id)
             generator.src = "RESOURCES/generatorEmpty.png"
-            this.room.value = 0
+            this.room.value = 1
         }
     }
     
