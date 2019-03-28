@@ -41,7 +41,7 @@ class Door{
 	register(){
 		let that=this;
 		let d = document.getElementById(this.id);
-	    d.addEventListener('click', function(e) {this.switch();});
+	    d.addEventListener('click', function(e) {that.switch();});
 	}
 
 	move(x,y){
