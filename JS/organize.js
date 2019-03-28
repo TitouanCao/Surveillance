@@ -3,6 +3,13 @@ function loadScreens(qtte) {
         createScreen(i)
         createCam(i)
     }
+    createScreen(-1)
+}
+
+function removeAllChilds(o){
+    while(o.firstChild!=null){
+        o.removeChild(o.firstChild)
+    }
 }
 
 function sinkScreens() {
@@ -137,7 +144,13 @@ function loadLevel1() {
     d11.register()
 
     d12 = new Door(12,true,m, r6, r7)
-    
+
+    var terminal = document.getElementById("screen-1")
+    terminal.id = "terminal"
+    terminal.classList.remove("screen")
+    terminal.classList.add("terminal")
+    removeAllChilds(terminal)
+
     var screens = document.getElementsByClassName("screen")
     var i = 0
     while(tabCam[0][i] != null) {

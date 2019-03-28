@@ -366,7 +366,11 @@ body {
 
 
 
-
+.saisie{
+    position: absolute;
+    top:10%;
+    left: 10%;
+}
 
 .screen {
     position: absolute;
@@ -375,6 +379,17 @@ body {
     left: 15%;
     top: 10%;
     background-color: #f7e5e1;
+    transition: opacity 0.3s ease, filter 0s ease;
+    opacity: 0;
+}
+
+.terminal {
+    position: absolute;
+    width: 55%;
+    height: 70%;
+    left: 15%;
+    top: 10%;
+    background-color: black;
     transition: opacity 0.3s ease, filter 0s ease;
     opacity: 0;
 }
