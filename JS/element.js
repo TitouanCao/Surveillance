@@ -207,10 +207,22 @@ function createVent() {
     vent.onclick = function(){
         let map = document.getElementById("imgMap")
         let doors = document.getElementById("doors")
+        let cam = document.getElementsByClassName("selectedCam")[0]
+
         startSound("lock3")
         map.src="RESOURCES/Levels/Level1/mapVent.png"
         doors.style.opacity="0.25"
+        cam.style.opacity = "0"
         linkCam(vent)
+        
+        
+        let terminal = document.getElementById("terminal")
+        terminal.pointerEvents = "all"
+        terminal.style.opacity = "0.9"
+        saisie = document.createElement("INPUT")
+        saisie.classList.add("saisie")
+        saisie.setAttribute('type', 'text');
+        terminal.appendChild(saisie)
     }
     game.appendChild(vent)
     arrangeCam();
@@ -240,8 +252,12 @@ function createCam(sendId) {
         var overlay = document.getElementById("screenOverlay")
         var map = document.getElementById("imgMap")
         var doors = document.getElementById("doors")
+        var terminal = document.getElementById("terminal")
         startSound("lock3")
         var screens = document.getElementsByClassName("screen")
+
+        terminal.style.opacity = "0"
+        terminal.pointerEvents = "none"
         if(interval != undefined ) {
             clearInterval(interval)
         }
