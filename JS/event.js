@@ -207,6 +207,7 @@ function leaveInstructions() {
 function ventEvent(room){
     startSound("ventSound1")
     let i= 8
+
     let time = setInterval(function(){
         i--
         if(i==0) {
@@ -251,6 +252,10 @@ function resetLevel() {
     g1 = null
     g2 = null
     g3 = null
+
+    Allrooms = []
+    ventRooms = []
+    Alldoors = []
 
     var map = document.getElementById("map")
     var erese = game.removeChild(map);
