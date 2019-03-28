@@ -27,11 +27,8 @@ class Monster {
             clearInterval(moving)
             this.ventAccess = Math.floor(Math.random() * 3)+2;
             ventEvent()
-            console.log("nope")
             setTimeout(function(){
-                let exit = ventRooms[Math.floor(Math.random() * ventRooms.length-1)+1]
-                console.log(exit)
-                monster.room = exit
+                monster.room = ventRooms[1]
                 moving = setInterval("monster.moove()", delay)
 
             },10000)
