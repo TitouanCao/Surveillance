@@ -10,7 +10,7 @@ class Monster {
         this.room = null
         this.lastRoom = null
         this.triggered = false
-        this.ventAccess = 0 //Math.floor(Math.random() * 3)+2
+        this.ventAccess = 1 //Math.floor(Math.random() * 3)+2
     }
     
     initialize(room) {
@@ -22,16 +22,19 @@ class Monster {
     }
     
     moove() {
-        if(this.ventAccess==0 && this.room.hasVent) {
+        if(this.ventAccess<=0 && this.room.hasVent) {
             console.log('VENT')
             clearInterval(moving)
             this.ventAccess = Math.floor(Math.random() * 3)+2;
             ventEvent()
+            console.log("nope")
             setTimeout(function(){
-                monster.room = ventRooms[Math.floor(Math.random() * ventRooms.length)]
+                let exit = ventRooms[Math.floor(Math.random() * ventRooms.length-1)+1]
+                console.log(exit)
+                monster.room = exit
                 moving = setInterval("monster.moove()", delay)
 
-            },8000)
+            },10000)
         }
         else {
             let moves = this.room.getPath()

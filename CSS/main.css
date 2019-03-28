@@ -370,6 +370,9 @@ body {
     position: absolute;
     top:10%;
     left: 10%;
+    background: none;
+    border:none;
+    color:white;
 }
 
 .screen {

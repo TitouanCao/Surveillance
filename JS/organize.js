@@ -69,8 +69,8 @@ function loadLevel1() {
     
     r1 = new room(1, document.getElementById("screen3") ,1 ,false)
     r2 = new room(2, null ,2 ,true)
-    r3 = new room(3, document.getElementById("screen4") ,1 ,false)
-    r4 = new room(4, null ,2 ,true)
+    r3 = new room(3, document.getElementById("screen4") ,1 ,true)
+    r4 = new room(4, null ,2 ,false)
     r5 = new room(5, null ,2 ,true)
     r6 = new room(6, document.getElementById("screen1") ,1 ,false)
     r7 = new room(7, document.getElementById("screen2") ,1 ,false)
@@ -150,6 +150,14 @@ function loadLevel1() {
     terminal.classList.remove("screen")
     terminal.classList.add("terminal")
     removeAllChilds(terminal)
+    let p = document.createElement("p")
+    p.innerHTML = "Pour purger la ventilation, tapez \"purgeVentConduct\""
+    p.style.position = "absolute"
+    p.style.color = "white"
+    p.style.top = "1%"
+    p.style.left = "5%"
+    terminal.appendChild(p)
+
 
     var screens = document.getElementsByClassName("screen")
     var i = 0
