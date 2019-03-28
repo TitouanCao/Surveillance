@@ -206,20 +206,16 @@ function leaveInstructions() {
 
 function ventEvent(room){
     startSound("ventSound1")
-    let i= 10000
-    let cam = document.getElementsByClassName("selectedCam")[0]
-    cam.style.opacity = "0"
-    let terminal = document.getElementById("terminal")
-    terminal.style.opacity = "0.9"
-    saisie = document.createElement("INPUT")
-    saisie.classList.add("saisie")
-    saisie.setAttribute('type', 'text');
-    saisie.pointerEvents = "all"
-    terminal.appendChild(saisie)
+    let i= 10
 
     let time = setInterval(function(){
         i--
+        if(ventPurged){
+            clearInterval(time)
+            ventPurged=false;
+        }
         if(i==0) {
+            startSound("ventSound2")
             clearInterval(time)
             loadLost()
             resetLevel()

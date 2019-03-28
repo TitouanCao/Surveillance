@@ -1,5 +1,6 @@
 var Allrooms = []
 var ventRooms = []
+ventPurged = false
 
 class room {
     

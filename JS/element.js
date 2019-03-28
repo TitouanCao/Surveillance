@@ -193,8 +193,9 @@ function createVent() {
     let map = document.getElementById("map")
 
     let vent = document.createElement("div")
-    vent.id = "vent"
+    vent.id = "cam"+(document.getElementsByClassName("cam").length+1)
     vent.classList.add("cam")
+    vent.classList.add("vent")
     vent.innerHTML = ""
     vent.style.left = "1%"
     
@@ -208,6 +209,7 @@ function createVent() {
         let map = document.getElementById("imgMap")
         let doors = document.getElementById("doors")
         let cam = document.getElementsByClassName("selectedCam")[0]
+        let t = document.getElementById("terminal")
 
         startSound("lock3")
         map.src="RESOURCES/Levels/Level1/mapVent.png"
@@ -215,22 +217,36 @@ function createVent() {
         cam.style.opacity = "0"
         linkCam(vent)
         
-        
-        let terminal = document.getElementById("terminal")
-        terminal.pointerEvents = "all"
-        terminal.style.opacity = "0.9"
+        t.style.opacity = "0.9"
+        t.style.pointerEvents = "all"
         saisie = document.createElement("INPUT")
+        saisie.id = "saisie"
         saisie.classList.add("saisie")
         saisie.setAttribute('type', 'text');
-        terminal.appendChild(saisie)
+        saisie.addEventListener('keypress', function (e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) {
+              let test = saisie.value
+              saisie.value=""
+              if(test == "purgeVentConduct"){
+                startSound("steamSound1")
+                ventPurged=true
+              }         
+            }
+
+
+        });
+        t.appendChild(saisie)
+        saisie.focus()
+        saisie.select()
     }
     game.appendChild(vent)
     arrangeCam();
 }
 
 function deleteVent() {
-    if(undefined != document.getElementById("vent")) {
-        var v = document.getElementById("vent")
+    if(undefined != document.getElementsByClassName("vent")) {
+        var v = document.getElementsByClassName("vent")[0]
         game.removeChild(v)
     }
 }
@@ -253,11 +269,15 @@ function createCam(sendId) {
         var map = document.getElementById("imgMap")
         var doors = document.getElementById("doors")
         var terminal = document.getElementById("terminal")
+        if(undefined != document.getElementById("saisie")) {
+            var saisie = document.getElementById("saisie")
+            terminal.removeChild(saisie)
+        }
         startSound("lock3")
         var screens = document.getElementsByClassName("screen")
 
         terminal.style.opacity = "0"
-        terminal.pointerEvents = "none"
+        terminal.style.pointerEvents = "none"
         if(interval != undefined ) {
             clearInterval(interval)
         }
