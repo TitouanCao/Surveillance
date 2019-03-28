@@ -56,20 +56,23 @@ class Monster {
         }
     }
     
+   
+    
+    
     logicIA(){     
-        var future = this.room          //This is the current room
+        var room = this.room          //This is the current room
         var projection                  //This might be next room, or the room after the next in some cases
         var steps = []                  //The table which contains the rooms in order to get to the closest winning room
         var tried = []                  //The table which contains the rooms we evaluated as useless rooms, it's useful when you realize you chose a wrong way
         var alreadyCheck = false        //Useful variable when you feel like you are going to loop again and again between two rooms
         
-        while(future.value != 2) {      //While we are not in a winning room, the player can't technically block them all, so we can't infinite loop
-            if(alreadyCheck == false) projection = future.getPath()     //If the projection has not been defined for the next loop yet. If you go into a room you already went, then you choose to not go back once again in the room you come from.
+        while(room.value != 2) {      //While we are not in a winning room, the player can't technically block them all, so we can't infinite loop
+            if(alreadyCheck == false) projection = room.getPath()     //If the projection has not been defined for the next loop yet. If you go into a room you already went, then you choose to not go back once again in the room you come from.
             alreadyCheck = false        //We can reset this once this is done
             
             //console.log("--------------------------------")
-            //console.log("FUTURE : ")
-            //console.log(future)
+            //console.log("ROOM : ")
+            //console.log(room)
             //console.log("PROJECTION : ")
             //console.log(projection)
             //console.log("TRIED : ")
@@ -82,17 +85,17 @@ class Monster {
                 if (projection.getPathNot(tried) == false) {        //If from this new room we can't go anywhere. For instance if the monster is blocked in a couple of two rooms, he is actually not really "blocked" but as he will moove like A -> B, B -> A etc It's all the same.
                     
                     //console.log("------------------------------------")
-                    //console.log(future)
+                    //console.log(room)
                     //console.log("GETPATHNOT")
                     //console.log(tried)
-                    //console.log(future.getPathNot(tried))
+                    //console.log(room.getPathNot(tried))
                     //console.log("FALSE")
                     //console.log("------------------------------------")
                     
                     return false        //The monster can consider itself as blocked and break the first door he sees
                 }
                 //If we already went into this room but that other rooms than the one we come from are reachable
-                future = projection     //We decide to go there, current room = the one we think is best
+                room = projection     //We decide to go there, current room = the one we think is best
                 projection = projection.getPathNot(tried)       //Our projection becomes the projection of our projection, we are very smart, don't we ?
                 steps.shift()       //As we just went into a room for no reasons we can erase this from the results
                 steps.shift()       //The second room, and actually this will make the monster teleport from room A to room C but this can only happen when the monster crosses the corridor, which is actually constituted of two rooms, so that's not a matter, he goes from corridor part 1 to corridor part 2, it shouldn't disturb the player that much
@@ -105,17 +108,21 @@ class Monster {
             
             else {      //If this room has actually never been visited   
                 
-                steps.push(future)      //Then we put it in our result table
-                future = projection     //And we progress by assuming our projection becomes our current position
+                steps.push(room)      //Then we put it in our result table
+                room = projection     //And we progress by assuming our projection becomes our current position
                 
             }
             
-            tried.push(future)          //And we can consider we went into our current room    
+            tried.push(room)          //And we can consider we went into our current room    
         }
         
-        steps.push(future)      //This is the final-goal-room, actually it's not necessary to put it in the table as we will only get the next room and reload it next moove, but why not, might be useful for debuging
+        steps.push(room)      //This is the final-goal-room, actually it's not necessary to put it in the table as we will only get the next room and reload it next moove, but why not, might be useful for debuging
         return steps            //We return the fruits of our wonderful thought 
     }
+    
+    
+    
+    
     
     trigger() {
         this.triggered == true

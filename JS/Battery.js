@@ -33,6 +33,9 @@ class Battery{
     }
 
 	use(door){
+        this.state-- 
+        this.check()
+        
         this.firstLock = this.secondLock
         this.secondLock = this.lastLock
         this.lastLock = door
@@ -44,20 +47,15 @@ class Battery{
         }
         
         let b = document.getElementById(this.id);
-        b.src="RESOURCES/battery_"+(this.state-1)+".png";
-        this.state--;
-        this.check()
+        b.src="RESOURCES/battery_"+(this.state)+".png";   
 	}
     
     kill() {
-        let b = document.getElementById(this.id)
-        b.src="RESOURCES/battery_"+(this.state-1)+".png"
         this.state--
         this.check()
-        
-        this.lastLock = this.secondLock
-        this.secondLock = this.firstLock
-        this.firstLock = null 
+        this.firstLock = null
+        let b = document.getElementById(this.id)
+        b.src="RESOURCES/battery_"+(this.state)+".png"
     }
 
 	liberate(){
@@ -70,9 +68,19 @@ class Battery{
     
     check() {
         if(this.state < 0) {
-            this.lastLock.switch()
-        }
+            this.state = 0
+            if (this.firstLock != null) {
+                this.firstLock.unlock()
+            }
+            else if (this.secondLock != null) {
+                this.secondLock.unlock()
+            }
+            else {
+                this.lastLock.unlock()
+            }    
+        }   
     }
+    
     
     checkDoor(door) {
         if(door.state != undefined) {

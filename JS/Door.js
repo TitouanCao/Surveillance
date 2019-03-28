@@ -91,7 +91,7 @@ class Door{
     }
 
 	switch(){
-		if(this.state==1 & this.map.battery.state>0) {
+		if(this.state==1) {
 			this.lock();
 			this.map.battery.use(this);
 		}
