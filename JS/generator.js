@@ -2,18 +2,20 @@
 
 class generator {
     
-    constructor(room) {
+    constructor(room,mapC) {
         this.id = room.id + "Generator"
         this.room = room
         this.state = "true"
+        this.map=mapC;
     }
     
     place(x, y) {
         var generator = document.createElement("img")
         generator.id = this.id
+        p = this.map.getPercent()
         generator.style.position = "absolute"
-        generator.style.bottom = x + "px"
-        generator.style.right = y + "px"
+        generator.style.bottom = x*p + "px"
+        generator.style.right = y*p + "px"
         generator.style.width = "60px"
         generator.src = "RESOURCES/generatorFull.png"
         
@@ -27,7 +29,7 @@ class generator {
             b.kill()
             var generator = document.getElementById(this.id)
             generator.src = "RESOURCES/generatorEmpty.png"
-            this.room.value = 1
+            this.room.value = 0
         }
     }
     
