@@ -85,8 +85,7 @@ function loadLevel1() {
     g2 = new generator(r5,m)
     g2.place(592, 50)
     
-    g2 = new generator(r5,m)
-    g3 = new generator(r8)
+    g3 = new generator(r8, m)
     g3.place(117, 10)
 
     d1 = new Door(1,false,m, r1, r2)

@@ -12,7 +12,7 @@ class generator {
     place(x, y) {
         var generator = document.createElement("img")
         generator.id = this.id
-        p = this.map.getPercent()
+        let p = this.map.getPercent()
         generator.style.position = "absolute"
         generator.style.bottom = x*p + "px"
         generator.style.right = y*p + "px"
