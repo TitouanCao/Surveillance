@@ -85,7 +85,7 @@ class Door{
     
     destroy() {
         let d = document.getElementById(this.id);
-        d.src="RESOURCES/door_locked.png";
+        d.src="RESOURCES/door_destroyed.png";
         this.state = 2
         this.map.battery.liberate();
     }
