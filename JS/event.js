@@ -252,14 +252,21 @@ function resetLevel() {
     g2 = null
     g3 = null
 
+    var map = document.getElementById("map")
+    var erese = game.removeChild(map);
+    erase = null
+
     var check = document.getElementsByClassName("door")
     if(check.length != 0) {
         var tamp = check.length
         for(var i = 0; i < tamp; i++){
-            var erase = game.removeChild(check[0])
-            erase = ""
+            erase = game.removeChild(check[0])
+            erase = null
         }
     }
+    var doors = document.getElementById("doors")
+    erase = game.removeChild(doors);
+    erase = null;
     
     d1 = null
     d2 = null
