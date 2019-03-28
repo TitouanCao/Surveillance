@@ -206,7 +206,16 @@ function leaveInstructions() {
 
 function ventEvent(room){
     startSound("ventSound1")
-    let i= 8
+    let i= 10000
+    let cam = document.getElementsByClassName("selectedCam")[0]
+    cam.style.opacity = "0"
+    let terminal = document.getElementById("terminal")
+    terminal.style.opacity = "0.9"
+    saisie = document.createElement("INPUT")
+    saisie.classList.add("saisie")
+    saisie.setAttribute('type', 'text');
+    saisie.pointerEvents = "all"
+    terminal.appendChild(saisie)
 
     let time = setInterval(function(){
         i--
@@ -214,6 +223,8 @@ function ventEvent(room){
             clearInterval(time)
             loadLost()
             resetLevel()
+            toLevel()
+
         }
     },1000)
     
@@ -258,7 +269,7 @@ function resetLevel() {
     Alldoors = []
 
     var map = document.getElementById("map")
-    var erese = game.removeChild(map);
+    var erase = game.removeChild(map);
     erase = null
 
     var check = document.getElementsByClassName("door")
