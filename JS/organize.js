@@ -57,29 +57,29 @@ function loadTheGame() {
 
 function loadLevel1() {
     b = new Battery(3)
-    m = new Map("RESOURCES/Levels/Level1/mapCam3.png",b,)
+    m = new Map("RESOURCES/Levels/Level1/mapCam0.png",b,)
     monster = new Monster
     
     r1 = new room(1, document.getElementById("screen3") ,1 ,false)
     r2 = new room(2, null ,2 ,true)
     r3 = new room(3, document.getElementById("screen4") ,1 ,false)
-    r4 = new room(4, null ,2 ,false)
+    r4 = new room(4, null ,2 ,true)
     r5 = new room(5, null ,2 ,true)
     r6 = new room(6, document.getElementById("screen1") ,1 ,false)
     r7 = new room(7, document.getElementById("screen2") ,1 ,false)
     r8 = new room(8, null ,2 ,true)
     r9 = new room(9, document.getElementById("screen5") ,1 ,false)
     
-    monster.initialize(r6)
+    monster.initialize(r7)
 
     g1 = new generator(r4)
-    g1.place(30, 260)
+    g1.place(74, 318)
     
     g2 = new generator(r5)
-    g2.place(450, 50)
+    g2.place(592, 50)
     
     g3 = new generator(r8)
-    g3.place(160, 10)
+    g3.place(117, 10)
 
     d1 = new Door(1,false,m, r1, r2)
     d1.placer()

@@ -9,7 +9,13 @@ class room {
         this.camera = camera
         this.hasVent = hasVent
         Allrooms.push(this)
-        if(hasVent) ventRooms.push(this)
+        if(hasVent) {
+            ventRooms.push(this)
+        }
+        if(id==6) {
+            console.log(camera)
+            camera.style.opacity = "1"
+        }
     }
     
     getPath() {
