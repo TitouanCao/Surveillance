@@ -45,16 +45,17 @@ class Door{
 	}
 
 	move(x,y){
-		//let p = this.map.getPercent()
-		//let i=0
-		//if(p<0.9) i=3
+		let p = this.map.getPercent()
+		console.log(p)
+		let i=(1-p)*10
+		if(p<0.9) i=3
 		let d = document.getElementById(this.id);
 		if(x>=0){
-			this.x=Math.round(x)
+			this.x=(Math.round(x))*p-i
 			d.style.right=this.x+"px";
 		} 
 		if(y>=0){
-			this.y=Math.round(y)
+			this.y=(Math.round(y))*p
 			d.style.bottom=this.y+"px";
 		} 
 	}

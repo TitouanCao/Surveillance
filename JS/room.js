@@ -1,4 +1,5 @@
-
+var Allrooms = []
+var ventRooms = []
 
 class room {
     
@@ -7,6 +8,8 @@ class room {
         this.value = value
         this.camera = camera
         this.hasVent = hasVent
+        Allrooms.push(this)
+        if(hasVent) ventRooms.push(this)
     }
     
     getPath() {

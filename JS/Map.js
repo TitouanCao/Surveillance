@@ -15,7 +15,7 @@ class Map{
 	    m.style.right = "0%";
 	    m.style.bottom = "0%";
 	    m.style.position = "absolute";
-	    /* if(m.width > (window.innerWidth*0.25)) */ m.style.width = window.innerWidth*0.25+"px";
+	    /* if(m.width > (window.innerWidth*0.25)) */ m.style.width = "384px" /*window.innerWidth*0.25+"px";*/
 	    d.appendChild(m)
 	    game.appendChild(d)
 	    game.appendChild(ds)
@@ -24,11 +24,8 @@ class Map{
 
 	getPercent(){
 		var mi = document.getElementById("imgMap")
-		var i =document.createElement("img")
-		i.src=this.src
-        console.log(i.height)
-        console.log(mi.height)
-		return mi.height/i.height
+		var i =480
+		return mi.width/i
 	}
 
 	

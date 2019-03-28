@@ -205,6 +205,16 @@ function leaveInstructions() {
 }
 
 function ventEvent(room){
+    startSound("ventSound1")
+    let i= 8
+    let time = setInterval(function(){
+        i--
+        if(i==0) {
+            clearInterval(time)
+            loadLost()
+            resetLevel()
+        }
+    },1000)
     
 }
 

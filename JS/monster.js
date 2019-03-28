@@ -10,7 +10,7 @@ class Monster {
         this.room = null
         this.lastRoom = null
         this.triggered = false
-        this.ventAccess = Math.floor(Math.random() * 3)+5
+        this.ventAccess = 0 //Math.floor(Math.random() * 3)+2
     }
     
     initialize(room) {
@@ -22,24 +22,38 @@ class Monster {
     }
     
     moove() {
-        let moves = this.room.getPath()
-        let doors = this.room.getDoors()
-        if(interval != undefined ) {
-            clearInterval(interval)
-        }
-        
-        var decision = this.logicIA()
-        if (decision == false) {
-            doors[0].destroy()
-            this.room = this.room.getPath()
+        if(this.ventAccess==0 && this.room.hasVent) {
+            console.log('VENT')
+            clearInterval(moving)
+            this.ventAccess = Math.floor(Math.random() * 3)+2;
+            ventEvent()
+            setTimeout(function(){
+                monster.room = ventRooms[Math.floor(Math.random() * ventRooms.length)]
+                moving = setInterval("monster.moove()", delay)
+
+            },8000)
         }
         else {
-            this.room = decision[1]
+            let moves = this.room.getPath()
+            let doors = this.room.getDoors()
+            if(interval != undefined ) {
+                clearInterval(interval)
+            }
+            
+            var decision = this.logicIA()
+            if (decision == false) {
+                doors[0].destroy()
+                this.room = this.room.getPath()
+            }
+            else {
+                this.room = decision[1]
+                if(this.room.hasVent) this.ventAccess--
+            }
+            console.log("LE MONSTRE EST DANS LA SALLE " + this.room.id)
+            this.seen()
+            this.checkGenerators()
+            this.checkLose()
         }
-        console.log("LE MONSTRE EST DANS LA SALLE " + this.room.id)
-        this.seen()
-        this.checkGenerators()
-        this.checkLose()
     }
     
     logicIA(){     
