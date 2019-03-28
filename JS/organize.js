@@ -80,10 +80,10 @@ function loadLevel1() {
     monster.initialize(r7)
 
     g1 = new generator(r4,m)
-    g1.place(74, 318)
+    g1.place(60, 318)
     
     g2 = new generator(r5,m)
-    g2.place(590, 50)
+    g2.place(560, 50)
     
     g3 = new generator(r8, m)
     g3.place(117, 10)

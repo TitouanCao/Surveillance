@@ -34,7 +34,6 @@ class Battery{
 
 	use(door){
         this.state-- 
-        this.check()
         
         this.firstLock = this.secondLock
         this.secondLock = this.lastLock
@@ -52,8 +51,21 @@ class Battery{
     
     kill() {
         this.state--
-        this.check()
-        this.firstLock = null
+        
+        if(this.state < 0) {
+            this.state = 0
+            if (this.firstLock != null) {
+                this.firstLock.unlock()
+                this.firstLock = null
+            }
+            else if (this.secondLock != null) {
+                this.secondLock.unlock()
+                this.secondLock = null
+            }
+            else {
+                this.lastLock.unlock()
+            }    
+        } 
         let b = document.getElementById(this.id)
         b.src="RESOURCES/battery_"+(this.state)+".png"
     }
@@ -65,21 +77,7 @@ class Battery{
 			this.state++;
 		}
 	}
-    
-    check() {
-        if(this.state < 0) {
-            this.state = 0
-            if (this.firstLock != null) {
-                this.firstLock.unlock()
-            }
-            else if (this.secondLock != null) {
-                this.secondLock.unlock()
-            }
-            else {
-                this.lastLock.unlock()
-            }    
-        }   
-    }
+
     
     
     checkDoor(door) {
