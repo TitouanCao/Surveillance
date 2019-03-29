@@ -34,16 +34,14 @@ class Battery{
 
 	use(door){
         this.state-- 
-        
-        this.firstLock = this.secondLock
-        this.secondLock = this.lastLock
-        this.lastLock = door
-        
+
+        /*
         while(this.checkDoor(door)) {
             this.lastLock = this.firstLock
             this.secondLock = this.firstLock
             this.firstLock = null 
         }
+        */
         
         let b = document.getElementById(this.id);
         b.src="RESOURCES/battery_"+(this.state)+".png";   
@@ -53,18 +51,11 @@ class Battery{
         this.state--
         
         if(this.state < 0) {
-            this.state = 0
-            if (this.firstLock != null) {
-                this.firstLock.unlock()
-                this.firstLock = null
+            for (var i = 0; i < Alldoors.length; i++){
+                if(Alldoors[i].state == 0) {
+                    Alldoors[i].switch()
+                }
             }
-            else if (this.secondLock != null) {
-                this.secondLock.unlock()
-                this.secondLock = null
-            }
-            else {
-                this.lastLock.unlock()
-            }    
         } 
         let b = document.getElementById(this.id)
         b.src="RESOURCES/battery_"+(this.state)+".png"
