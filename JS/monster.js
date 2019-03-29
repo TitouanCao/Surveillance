@@ -1,5 +1,5 @@
 var start = null
-var delay = 7000
+var delay = 9000
 var cam = null
 
 var moving = null
