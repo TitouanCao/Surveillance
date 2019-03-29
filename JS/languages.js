@@ -1,5 +1,5 @@
 
-var memo = ["startButtonLangE", "instruButtonLangE", "levelTitleLangE", "startMessLangE", "titleInstruLangE", "instruLangE", "menuTitleLangE", "menuSoundLangE", "menuSoundOnLangE", "menuSoundOffLangE", "menuLangSelectLangE", "menuLevelSelectLangE", "menuLobbyLangE", "menuSoundMusicLangE", "alert1LangE", "alert2langE", "alert3langE", "lostLangE", "wonLangE"]
+var memo = ["startButtonLangE", "instruButtonLangE", "levelTitleLangE", "startMessLangE", "titleInstruLangE", "instruLangE", "menuTitleLangE", "menuSoundLangE", "menuSoundOnLangE", "menuSoundOffLangE", "menuLangSelectLangE", "menuLevelSelectLangE", "menuLobbyLangE", "menuSoundMusicLangE", "alert1LangE", "alert2langE", "alert3langE", "lostLangE", "wonLangE", "ventLangE"]
 
 
 var textPerLang = []
@@ -17,7 +17,7 @@ var startMessLangE = "CLICK TO START!"
 //4
 var titleInstruLangE = "HOW TO PLAY"
 //5
-var instruLangE = "Surveillance goal is quite simple, you will have to survive one night at K building. <br><br> But here comes the issue! A mysterious creature haunts the floor ! And instinct dissuade you from approaching it. In order to shelter you have at your disposal many surveillance camera which allow you to watch different rooms. Unfortunately it seems that you cannot clearly see it, so pay close attention to detect perturbations and get an idea of where it might be! <br><br> You might also find a map attached with mentionned the rooms doors which you can lock if you click on it, this way the monster cannot go through it. However watch out! You cannot lock more doors than energy load you have at disposal! But locking a door you consume one charge, although you can still get it back by unlocking the door with another click on it. Utmost energy load amount can be reduced if the monster reaches batteries indicated on the map. Game start at 10pm, you have to survive until 6am, may the luck be with you ! <br><br> Oh! And lastly do not try to imprison it in one room, you might regret it...<br><br>"
+var instruLangE = "Surveillance goal is quite simple, you will have to survive one night at K building. <br><br> But here comes the issue! A mysterious creature haunts the floor ! And instinct dissuade you from approaching it. In order to shelter you have at your disposal many surveillance camera which allow you to watch different rooms. Unfortunately it seems that you cannot clearly see it, so pay close attention to detect perturbations and get an idea of where it might be! <br><br> You might also find a map attached with mentionned the rooms doors which you can lock if you click on it, this way the monster cannot go through it. However watch out! You cannot lock more doors than energy load you have at disposal! But locking a door you consume one charge, although you can still get it back by unlocking the door with another click on it. Utmost energy load amount can be reduced if the monster reaches batteries indicated on the map. Moreover the monster can climb up into the vent throught the vent grills you can the on the map when you click on the fan icon. If it does so you will hear some metalic noises which will alert you, so pay attention to it. When you know the mosnter is in the vent you have to click on the fan and follow the instructions, be as quick as possible or you will die. Once you purged the vent the monster will be expulsed in one of the rooms the vent has acces exect the one you are inside. Game start at 10pm, you have to survive until 6am, may the luck be with you ! <br><br> Oh! And lastly do not try to imprison it in one room, you might regret it...<br><br>"
 //6
 var menuTitleLangE = "MENU"
 //7
@@ -44,8 +44,10 @@ var alert3LangE = "Go clean your cookies and think about your mistakes."
 var lostLangE = "Death reaped you !"
 //18
 var wonLangE = "Well played ! You survived !"
+//19
+var ventLangE = "type 'purgeVentConduct' to purge the vent"
 
-englishTab.push(startButtonLangE, instruButtonLangE, levelTitleLangE, startMessLangE, titleInstruLangE, instruLangE, menuTitleLangE, menuSoundLangE, menuSoundOnLangE, menuSoundOffLangE, menuLangSelectLangE, menuLevelSelectLangE, menuLobbyLangE, menuSoundMusicLangE, alert1LangE, alert2LangE, alert3LangE, lostLangE, wonLangE)
+englishTab.push(startButtonLangE, instruButtonLangE, levelTitleLangE, startMessLangE, titleInstruLangE, instruLangE, menuTitleLangE, menuSoundLangE, menuSoundOnLangE, menuSoundOffLangE, menuLangSelectLangE, menuLevelSelectLangE, menuLobbyLangE, menuSoundMusicLangE, alert1LangE, alert2LangE, alert3LangE, lostLangE, wonLangE, ventLangE)
 
 var frenchTab = []
 var startButtonLangF = "LANCER"
@@ -53,7 +55,7 @@ var instruButtonLangF = "INSTRUCTIONS"
 var levelTitleLangF = "CHOIX DU NIVEAU"
 var startMessLangF = "CLIQUEZ POUR LANCER!"
 var titleInstruLangF = "COMMENT JOUER"
-var instruLangF = "L'objectif de Surveillance est très simple, vous allez devoir survivre une nuit dans une salle du bâtiment K. <br><br>Seulement voilà ! Il se trouve qu'une créature étrange hante l'étage, et il vaudrait mieux ne pas tomber dessus ! Pour empêcher cela vous avez à votre disposition différentes caméras de surveillance qui vous permettront de surveiller diverses salles du bâtiment. Malheureusement il semble impossible de clairement l'apercevoir, ouvrez donc attentivement l’œil pour détecter les perturbations et déterminer l'emplacement du monstre ! <br><br> Vous trouverez également une carte des environs sur laquelle vous pourrez trouver les portes des salles, vous pouvez verrouiller ces portes en cliquant dessus pour empêcher la créature de les franchir. Cependant prenez garde ! Car vous ne pourrez verrouiller les portes que dans la mesure des charges d'énergie qui vous sont disponible ! En verrouillant une porte vous consommez une de ces charges, mais vous pouvez également la récupérer en déverrouillant la porte en recliquant dessus. Votre nombre maximal de charges peut diminuer si vous laissez le monstre atteindre les batteries indiquées sur la carte. Votre partie commence à 22h, vous devez empêcher la créature d'atteindre la salle dans laquelle vous êtes jusqu'à 6h ! Bonne chance ! <br><br>Ah oui et dernière chose, n'essayez pas de bloquer le monstre dans une pièce, vous le regretteriez...<br><br>"
+var instruLangF = "L'objectif de Surveillance est très simple, vous allez devoir survivre une nuit dans une salle du bâtiment K. <br><br>Seulement voilà ! Il se trouve qu'une créature étrange hante l'étage, et il vaudrait mieux ne pas tomber dessus ! Pour empêcher cela vous avez à votre disposition différentes caméras de surveillance qui vous permettront de surveiller diverses salles du bâtiment. Malheureusement il semble impossible de clairement l'apercevoir, ouvrez donc attentivement l’œil pour détecter les perturbations et déterminer l'emplacement du monstre ! <br><br> Vous trouverez également une carte des environs sur laquelle vous pourrez trouver les portes des salles, vous pouvez verrouiller ces portes en cliquant dessus pour empêcher la créature de les franchir. Cependant prenez garde ! Car vous ne pourrez verrouiller les portes que dans la mesure des charges d'énergie qui vous sont disponible ! En verrouillant une porte vous consommez une de ces charges, mais vous pouvez également la récupérer en déverrouillant la porte en recliquant dessus. Votre nombre maximal de charges peut diminuer si vous laissez le monstre atteindre les batteries indiquées sur la carte. Le monstre peut également monter dans la ventilation quand il est dans une salle avec une grille d'accès, vous pouvez savoir lesquelles y donnent accès sur la carte affichée lorsque vous cliquez sur le symbole de ventilateur. Lorsque le monstre monte dans la ventilation vous entendrez un bruit métalique, à ce moment dépêchez-vous de cliquer sur le ventilateur et de suivre les instructions. Si vous êtes trop lent vous mourez. Lorsque vous aurez purgé la ventilation le monstre sera expulsé dans l'une des salles donnnant accès à la ventilation excepté celle où vous vous trouvez. Votre partie commence à 22h, vous devez empêcher la créature d'atteindre la salle dans laquelle vous êtes jusqu'à 6h ! Bonne chance ! <br><br>Ah oui et dernière chose, n'essayez pas de bloquer le monstre dans une pièce, vous le regretteriez...<br><br>"
 var menuTitleLangF = "MENU"
 var menuSoundLangF = "SON &nbsp;&nbsp;"
 var menuSoundOnLangF = "AVEC"
@@ -67,8 +69,9 @@ var alert2LangF = " Lorsque vous atteindrez 3 vous ne pourrez plus jouer."
 var alert3LangF = "Allez vider vos cookies et réfléchir à vos erreurs."
 var lostLangF = "La Mort est venue vous faucher !"
 var wonLangF = "Bien joué ! Vous avez survécu !"
+var ventLangF = "Tapez 'purgeVentConduct' pour purger la ventilation"
 
-frenchTab.push(startButtonLangF, instruButtonLangF, levelTitleLangF, startMessLangF, titleInstruLangF, instruLangF, menuTitleLangF, menuSoundLangF, menuSoundOnLangF, menuSoundOffLangF, menuLangSelectLangF, menuLevelSelectLangF, menuLobbyLangF, menuSoundMusicLangF, alert1LangF, alert2LangF, alert3LangF, lostLangF, wonLangF)
+frenchTab.push(startButtonLangF, instruButtonLangF, levelTitleLangF, startMessLangF, titleInstruLangF, instruLangF, menuTitleLangF, menuSoundLangF, menuSoundOnLangF, menuSoundOffLangF, menuLangSelectLangF, menuLevelSelectLangF, menuLobbyLangF, menuSoundMusicLangF, alert1LangF, alert2LangF, alert3LangF, lostLangF, wonLangF, ventLangF)
 
 var japaneseTab = []
 var startButtonLangJ = "スタート"
@@ -90,7 +93,8 @@ var alert2LangJ = "番目 警告の３番目を立ったらもうプレイでき
 var alert3LangJ = "クッキーをクリーンして自分の誤りに考えてください"
 var lostLangJ = "死に命は取り入れられた！"
 var wonLangJ = "よくやった！生き残った！"
+var ventLangJ = "人工呼吸器をつけるように'purgeVentConduct'をタイプして"
 
-japaneseTab.push(startButtonLangJ, instruButtonLangJ, levelTitleLangJ, startMessLangJ, titleInstruLangJ, instruLangJ, menuTitleLangJ, menuSoundLangJ, menuSoundOnLangJ, menuSoundOffLangJ, menuLangSelectLangJ, menuLevelSelectLangJ, menuLobbyLangJ, menuSoundMusicLangJ, alert1LangJ, alert2LangJ, alert3LangJ, lostLangJ, wonLangJ)
+japaneseTab.push(startButtonLangJ, instruButtonLangJ, levelTitleLangJ, startMessLangJ, titleInstruLangJ, instruLangJ, menuTitleLangJ, menuSoundLangJ, menuSoundOnLangJ, menuSoundOffLangJ, menuLangSelectLangJ, menuLevelSelectLangJ, menuLobbyLangJ, menuSoundMusicLangJ, alert1LangJ, alert2LangJ, alert3LangJ, lostLangJ, wonLangJ, ventLangJ)
 
 textPerLang.push(englishTab, frenchTab, japaneseTab)

@@ -151,7 +151,7 @@ function loadLevel1() {
     terminal.classList.add("terminal")
     removeAllChilds(terminal)
     let p = document.createElement("p")
-    p.innerHTML = "Pour purger la ventilation, tapez \"purgeVentConduct\""
+    p.innerHTML = textPerLang[parseInt(getCookie("language"))][19]
     p.style.position = "absolute"
     p.style.color = "white"
     p.style.top = "1%"

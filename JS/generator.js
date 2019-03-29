@@ -25,6 +25,7 @@ class generator {
     
     desactivate() {
         if(this.state == "true") {
+            startSound("power")
             this.state = "false"
             b.kill()
             var generator = document.getElementById(this.id)
