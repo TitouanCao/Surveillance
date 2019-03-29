@@ -79,7 +79,7 @@ class Door{
 
 	block(){
 		let d = document.getElementById(this.id);
-		d.src="RESOURCES/door_locked.png";
+		d.src="RESOURCES/door_blocked.png";
 		this.state=-1;
 	}
     
