@@ -10,7 +10,7 @@ class Monster {
         this.room = null
         this.lastRoom = null
         this.triggered = false
-        this.ventAccess = 1 //Math.floor(Math.random() * 3)+2
+        this.ventAccess = Math.floor(Math.random() * 3)+2
     }
     
     initialize(room) {

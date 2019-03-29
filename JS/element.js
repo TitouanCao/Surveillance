@@ -107,7 +107,7 @@ function createScreen(sendId) {
         if(minutes<10) zero="0"
         time.innerHTML = hours + " : "+zero+minutes;
 
-    }, 1000);
+    }, 750);
     screen.appendChild(screenCam)
     screen.appendChild(screenOverlay)
     screen.appendChild(time)

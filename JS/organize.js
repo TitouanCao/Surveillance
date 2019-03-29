@@ -154,7 +154,7 @@ function loadLevel1() {
     p.innerHTML = textPerLang[parseInt(getCookie("language"))][19]
     p.style.position = "absolute"
     p.style.color = "white"
-    p.style.top = "1%"
+    p.style.top = "5%"
     p.style.left = "5%"
     terminal.appendChild(p)
 
